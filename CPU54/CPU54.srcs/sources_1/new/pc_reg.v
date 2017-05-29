@@ -1,8 +1,8 @@
 `timescale 1ns / 1ps
 `include "define.v"
 //////////////////////////////////////////////////////////////////////////////////
-// Company: 
-// Engineer: 
+// Company: Tongji University
+// Engineer: Zonglin DI
 // 
 // Create Date: 05/28/2017 10:44:58 AM
 // Design Name: 
@@ -21,26 +21,26 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module pc_reg(
-    input                       clk,
-    input                       rst,
-    output  reg[`InstAddrBus]   pc,
-    output  reg                 ce
+module PC_REG(
+    input               clk,
+    input               rst,
+    output  reg[31:0]   pc,
+    output  reg         rom_en_o
     );
     
     always@(posedge clk)
 	begin
         if(rst == `RstEnable) begin
-            ce <= `ChipDisable;
+            rom_en_o <= `ChipDisable;
     end
 	else begin
-	ce <=  `ChipEnable;
+	rom_en_o <=  `ChipEnable;
 	end
 	end
 	
 	always@(posedge clk)
 	begin
-		if(ce == `ChipDisable) begin
+		if(rom_en_o == `ChipDisable) begin
 			pc <= `ZeroWord;
 	end
 	else begin

@@ -20,24 +20,24 @@
 // 
 //////////////////////////////////////////////////////////////////////////////////
 
-
-module if_id(
-    input                       clk,
-    input                       rst,
-    input[`InstAddrBus]         if_pc,
-    input[`InstBus]             if_inst,
-    output reg[`InstAddrBus]    id_pc,
-    output reg[`InstBus]        id_inst
+//Instruction Fetch & Instruction Decode
+module IF_ID(
+    input               clk,
+    input               rst,
+    input[31:0]         instr_addr_i,
+    input[31:0]         instr_i,
+    output reg[31:0]    instr_addr_o,
+    output reg[31:0]    instr_o
     );
     
     always@(posedge clk) begin
         if(rst == `RstEnable) begin
-            id_pc <= `ZeroWord;
-            id_inst <= `ZeroWord;
+            instr_addr_o <= `ZeroWord;
+            instr_o <= `ZeroWord;
         end
         else begin
-            id_pc <= if_pc;
-            id_inst <= if_inst;
+            instr_addr_o <= instr_addr_i;
+            instr_o <= instr_i;
         end
     end
 endmodule

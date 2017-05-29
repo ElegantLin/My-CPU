@@ -1,0 +1,20 @@
+#-----------------------------------------------------------
+# Vivado v2016.4 (64-bit)
+# SW Build 1756540 on Mon Jan 23 19:11:23 MST 2017
+# IP Build 1755317 on Mon Jan 23 20:30:07 MST 2017
+# Start of session at: Mon May 29 21:18:45 2017
+# Process ID: 11620
+# Current directory: D:/Computer Architecture/My-CPU/CPU54
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent3092 D:\Computer Architecture\My-CPU\CPU54\CPU54.xpr
+# Log file: D:/Computer Architecture/My-CPU/CPU54/vivado.log
+# Journal file: D:/Computer Architecture/My-CPU/CPU54\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project {D:/Computer Architecture/My-CPU/CPU54/CPU54.xpr}
+launch_simulation
+launch_simulation
+launch_simulation
+launch_simulation
+launch_simulation
+launch_simulation
+launch_simulation
