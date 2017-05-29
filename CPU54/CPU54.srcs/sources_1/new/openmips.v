@@ -90,7 +90,15 @@ module openmips(
 
 		.reg1_data_i(reg1_data),
 		.reg2_data_i(reg2_data),
-
+        
+        .ex_reg_write_en_i(alu_mem_write_en),
+        .ex_data_write_i(alu_mem_write_data),
+        .ex_addr_write_i(alu_mem_write_addr),
+        
+        .mem_reg_write_en_i(mem_wr_write_en),
+        .mem_data_write_i(mem_wr_write_data),
+        .mem_addr_write_i(mem_wr_write_addr),
+        
 		.reg1_read_en_o(reg1_read_en),
 		.reg2_read_en_o(reg2_read_en), 	  
 

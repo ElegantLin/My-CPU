@@ -29,8 +29,15 @@ module ID(
 
 	input[31:0]     	reg1_data_i,
 	input[31:0]     	reg2_data_i,
-
-	//送到regfile的信息
+    
+    input               ex_reg_write_en_i,
+    input[31:0]         ex_data_write_i,
+    input[4:0]          ex_addr_write_i,
+    
+    input               mem_reg_write_en_i,
+    input[31:0]         mem_data_write_i,
+    input[4:0]          mem_addr_write_i,
+    
 	output reg      	reg1_read_en_o,
 	output reg      	reg2_read_en_o,     
 	output reg[4:0] 	reg1_read_addr_o,
@@ -98,24 +105,41 @@ module ID(
 	always @ (*) begin
 		if(rst == `RstEnable) begin
 			reg1_o <= `ZeroWord;
-	  end else if(reg1_read_en_o == `ReadEnable) begin
-	  	reg1_o <= reg1_data_i;
-	  end else if(reg1_read_en_o == `ReadDisable) begin
-	  	reg1_o <= imm;
-	  end else begin
-	    reg1_o <= `ZeroWord;
+	    end else if((reg1_read_en_o == `ReadEnable) && (ex_reg_write_en_i == `WriteEnable) && (ex_addr_write_i == reg1_read_addr_o))
+	       begin
+	           reg1_o <= ex_data_write_i;
+	    end else if((reg1_read_en_o == `ReadEnable) && (mem_reg_write_en_i == `WriteEnable) && (mem_addr_write_i == reg1_read_addr_o))
+	       begin
+	           reg1_o <= mem_data_write_i;
+	    end else if(reg1_read_en_o == `ReadEnable) 
+	       begin
+	  	       reg1_o <= reg1_data_i;
+	    end else if(reg1_read_en_o == `ReadDisable) 
+	       begin
+	  	       reg1_o <= imm;
+	    end else 
+	       begin
+	           reg1_o <= `ZeroWord;
 	  end
 	end
 	
 	always @ (*) begin
 		if(rst == `RstEnable) begin
 			reg2_o <= `ZeroWord;
-	  end else if(reg2_read_en_o == `ReadEnable) begin
-	  	reg2_o <= reg2_data_i;
-	  end else if(reg2_read_en_o == `ReadDisable) begin
-	  	reg2_o <= imm;
-	  end else begin
-	    reg2_o <= `ZeroWord;
+        end else if((reg2_read_en_o == `ReadEnable) && (ex_reg_write_en_i == `WriteEnable) && (ex_addr_write_i == reg2_read_addr_o))
+            begin
+                reg2_o <= ex_data_write_i;
+        end else if((reg2_read_en_o == `ReadEnable) && (mem_reg_write_en_i == `WriteEnable) && (mem_addr_write_i == reg2_read_addr_o))
+            begin
+                reg2_o <= mem_data_write_i;
+	    end else if(reg2_read_en_o == `ReadEnable) 
+	        begin
+	           reg2_o <= reg2_data_i;
+	    end else if(reg2_read_en_o == `ReadDisable) 
+	        begin
+	  	       reg2_o <= imm;
+	  	end else begin
+	           reg2_o <= `ZeroWord;
 	  end
 	end
 
