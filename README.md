@@ -11,22 +11,24 @@ The instructions I have successfully constructed are:
 
 
 ## Version 0.1
+This is the initial version of my CPU. I only finished the most simple ori instruction. And the plot is the simulation wave of the following MIPS code.
 
 ```
-ori $1, $0, 0x1100		# $1 = $0 | 0x1100 = 0x1100
-ori $2, $0, 0x0020		# $2 = $0 | 0x0020 = 0x0020
-ori $3, $0, 0xff00		# $3 = $0 | 0xff00 = 0xff00
-ori $4, $0, 0xffff		# $4 = $0 | 0xffff = 0xffff
+	ori $1, $0, 0x1100		# $1 = $0 | 0x1100 = 0x1100
+	ori $2, $0, 0x0020		# $2 = $0 | 0x0020 = 0x0020
+	ori $3, $0, 0xff00		# $3 = $0 | 0xff00 = 0xff00
+	ori $4, $0, 0xffff		# $4 = $0 | 0xffff = 0xffff
 ```
 ![The simulation wave plot](http://i.imgur.com/Av5Cyab.png)
 
 ## Version 0.1.1
+In this verison, I didn't add more instructions. I just corrected one bug. Try to consider the result of the following MIPS code. And we can get the simulation wave.
 
 ```
-ori $1, $0, 0x1100		# $1 = $0 | 0x1100 = 0x1100
-ori $1, $1, 0x0020		# $1 = $1 | 0x0020 = 0x1120
-ori $1, $1, 0x4400		# $1 = $1 | 0x4400 = 0x5520
-ori $1, $1, 0x0044		# $1 = $1 | 0x0044 = 0x5564
+	ori $1, $0, 0x1100		# $1 = $0 | 0x1100 = 0x1100
+	ori $1, $1, 0x0020		# $1 = $1 | 0x0020 = 0x1120
+	ori $1, $1, 0x4400		# $1 = $1 | 0x4400 = 0x5520
+	ori $1, $1, 0x0044		# $1 = $1 | 0x0044 = 0x5564
 ```
 
 ![](http://i.imgur.com/i3AbRoQ.png)
@@ -51,4 +53,42 @@ And we connect the corresponding modules together.
 
 And the right simulation plot is 
 ![](http://i.imgur.com/l7Y1KKn.png)
+
+## Version 0.2.0
+In this version, we added more instructions to extent our quantity of instruction number to **14**. The **8 logical operation** instructions are:
+* and
+* andi
+* or
+* ori
+* xor
+* xori
+* nor
+* lui
+
+
+The **6 shift operation** instructions are:
+- sll
+- sllv
+- sra
+- srav
+- srl
+- srlv
+
+I use the following code to check my CPU in this stage.
+
+```
+	lui  $1, 0x0101				# $1 = 0x0101_0000
+	ori  $1, $1, 0x0101			# $1 = $1 | 0x0101 = 0x0101_0101
+	ori  $2, $1, 0x1100			# $2 = $1 | 0x1100 = 0x0101_1101
+	or   $2, $1, $2				# $1 = $1 | $2     = 0x0101_1101
+	andi $3, $1, 0x00fe			# $3 = $1 & 0x00fe = 0x0000_0000
+	and  $1, $3, $1				# $4 = $3 & $1 	   = 0x0000_0000
+	xori $4, $1, 0xff00			# $4 = $1 ^ 0xff00 = 0x0000_ff00
+	xor  $1, $4, $1				# $1 = $4 ^ $1	   = 0x0000_ff00
+	nor  $1, $4, $1				# $1 = $4 ~^ $1	   = 0xffff_00ff
+```
+
+The result is:
+![](http://i.imgur.com/Rj0hpYR.png)
+
 

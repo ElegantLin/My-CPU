@@ -38,30 +38,72 @@ module ALU(
 	
 );
 
-	reg[31:0] logicout;
-	always @ (*) begin
-		if(rst == `RstEnable) begin
-			logicout <= `ZeroWord;
-		end else begin
-			case (aluop_i)
-				`EXE_OR_OP:	begin
-					logicout <= reg1_i | reg2_i;
-				end
-				default:	begin
-					logicout <= `ZeroWord;
-				end
-			endcase
-		end    //if
-	end      //always
+reg[31:0] logicout;
+reg[31:0] shiftres;
+always @ (*) begin
+    if(rst == `RstEnable) begin
+        logicout <= `ZeroWord;
+    end else begin
+        case (aluop_i)
+            `EXE_OR_OP:	begin
+                logicout <= reg1_i | reg2_i;
+            end
+            
+            `EXE_AND_OP: begin
+                logicout <= reg1_i & reg2_i;
+            end
+            
+            `EXE_NOR_OP: begin
+                logicout <= ~(reg1_i | reg2_i);
+            end
+            
+            `EXE_XOR_OP: begin
+                logicout <= reg1_i ^ reg2_i;
+            end
+            
+            default:	begin
+                logicout <= `ZeroWord;
+            end
+        endcase
+    end    //if
+end      //always
 
+always @(*) begin
+    if(rst == `RstEnable) begin
+        shiftres <= `ZeroWord;
+    end else begin
+        case (aluop_i)
+            `EXE_SLL_OP: begin
+                shiftres <= reg2_i << reg1_i[4:0];
+            end
+            
+            `EXE_SRL_OP: begin
+                shiftres <= reg2_i << reg1_i[4:0];
+            end
+            
+            `EXE_SRA_OP: begin
+                shiftres <= ({32{reg2_i[31]}} << (6'd32-{1'b0,reg1_i[4:0]})) | reg2_i >> reg1_i[4:0];
+            end
+            
+            default: begin
+                shiftres <= `ZeroWord;
+            end
+        endcase
+    end
+end
 
- always @ (*) begin
+always @ (*) begin
 	 addr_write_o <= addr_write_i;	 	 	
 	 write_en_o <= write_en_i;
 	 case ( alusel_i ) 
 	 	`EXE_RES_LOGIC:	begin
 	 		data_write_o <= logicout;
 	 	end
+	 	
+	 	`EXE_RES_SHIFT: begin
+	 	    data_write_o <= shiftres;
+	 	end
+	 	
 	 	default:        begin
 	 		data_write_o <= `ZeroWord;
 	 	end
