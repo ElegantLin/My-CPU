@@ -1,4 +1,4 @@
-#54 CPU Instructions
+# 54 CPU Instructions
 
 This project is the final project of Computer Architecture and Structure, which is construct a 5 stage pipeline CPU of MIPS. The modules of this projects are:
 * PC.v
@@ -8,7 +8,7 @@ The instructions I have successfully constructed are:
 2. 
 
 
-##Version 0.1
+## Version 0.1
 
 ```
 ori $1, $0, 0x1100		# $1 = $0 | 0x1100 = 0x1100
