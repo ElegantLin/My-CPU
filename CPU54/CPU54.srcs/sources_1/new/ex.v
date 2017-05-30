@@ -36,10 +36,80 @@ module ALU(
 	output reg         write_en_o,
 	output reg[31:0]   data_write_o
 	
+	input[31:0]		   data_hi_write_i;
+	input[31:0]		   data_lo_write_i;
+	
+	input			   mem_write_hilo_en_i;
+	input[31:0]		   mem_data_lo_write_i;
+	input[31:0]        mem_data_hi_write_i;
+	
+	input			   wb_write_hilo_en_i;
+	input[31:0]		   wb_data_lo_write_i;
+	input[31:0]        wb_data_hi_write_i;
+	
+	output reg 		   ex_write_hilo_en_o;
+	output reg[31:0]   ex_data_lo_write_o;
+	output reg[31:0]   ex_data_hi_write_o;
+	
 );
 
 reg[31:0] logicout;
 reg[31:0] shiftres;
+reg[31:0] moveres;
+reg[31:0] HI;
+reg[31:0] LO;
+
+always @ (*) begin
+	if(rst == `RstEnable) 
+		begin
+			{HI, LO} <= {`ZeroWord, `ZeroWord};
+		end
+	else if(mem_write_hilo_en_i == `WriteEnable)
+		begin
+			{HI, LO} <= {mem_data_hi_write_i, mem_data_lo_write_i};
+		end
+	else if(wb_write_hilo_en_i == `WriteEnable)
+		begin
+			{HI, LO} <= {wb_data_hi_write_i, wb_data_lo_write_i};
+		end
+	else
+		begin
+			{HI, LO} <= {data_hi_write_i, data_lo_write_i};
+		end
+	end
+
+always @ (*) begin
+	if(rst == `RstEnable)
+		begin
+			moveres <= `ZeroWord;
+		end
+	else
+		begin
+			moveres <= `ZeroWord;
+			case(aluop_i)
+				`EXE_MFHI_OP: begin
+					moveres <= HI;
+				end
+				
+				`EXE_MFLO_OP: begin
+					moveres <= LO;
+				end
+				
+				`EXE_MOVZ_OP: begin
+					moveres <= reg1_i;
+				end
+				
+				`EXE_MOVN_OP: begin
+					moveres <= reg1_i;
+				end
+				
+				default: begin
+				end
+			endcase
+		end
+	end
+		
+
 always @ (*) begin
     if(rst == `RstEnable) begin
         logicout <= `ZeroWord;
@@ -103,11 +173,38 @@ always @ (*) begin
 	 	`EXE_RES_SHIFT: begin
 	 	    data_write_o <= shiftres;
 	 	end
+		
+		`EXE_RES_MOVE: begin
+			data_write_o <= moveres;
+		end
 	 	
 	 	default:        begin
 	 		data_write_o <= `ZeroWord;
 	 	end
 	 endcase
- end	
+ end
+
+always @ (*) begin
+	if(rst == `RstEnable) begin
+		ex_write_hilo_en_o <= `WriteDisable;
+		ex_data_lo_write_o <= `ZeroWord;
+		ex_data_hi_write_o <= `ZeroWord;
+	end
+	else if(aluop_i == `EXE_MTHI_OP) begin
+		ex_write_hilo_en_o <= `WriteEnable;
+		ex_data_hi_write_o <= reg1_i;
+		ex_data_lo_write_o <= LO;
+	end
+	else if(aluop_i == `EXE_MTLO_OP) begin
+		ex_write_hilo_en_o <= `WriteEnable;
+		ex_data_hi_write_o <= HI;
+		ex_data_lo_write_o <= reg1_i;
+	end 
+	else begin
+		ex_write_hilo_en_o <= `WriteDisable;
+		ex_data_hi_write_o <= `ZeroWord;
+		ex_data_lo_write_o <= `ZeroWord;
+	end
+end
 
 endmodule

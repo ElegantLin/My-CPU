@@ -63,6 +63,14 @@
 `define EXE_SYNC 6'b001_111
 `define EXE_PREF 6'b110_011
 
+`define EXE_MOVZ 6'b001_010
+`define EXE_MOVN 6'b001_011
+`define EXE_MFHI 6'b010_000
+`define EXE_MTHI 6'b010_001
+`define EXE_MFLO 6'b010_010
+`define EXE_MTLO 6'b010_011
+
+
 `define EXE_NOP  6'b000_000
 `define SSNOP 32'b00000000000000000000000001000000
 
@@ -88,12 +96,20 @@
 `define EXE_SRA_OP   8'b0000_0011
 `define EXE_SRAV_OP  8'b0000_0111
 
+`define EXE_MOVZ_OP  8'b0000_1010
+`define EXE_MOVN_OP  8'b0000_1011
+`define EXE_MFHI_OP  8'b0001_0000
+`define EXE_MTHI_OP  8'b0001_0001
+`define EXE_MFLO_OP  8'b0001_0010
+`define EXE_MTLO_OP  8'b0001_0011
+
 `define EXE_NOP_OP   8'b0000_0000
 
 //AluSel
 `define EXE_RES_LOGIC 3'b001
 `define EXE_RES_SHIFT 3'b010
 `define EXE_RES_NOP   3'b000
+`define EXE_RES_MOVE  3'b011	
 
 
 //Instructions Mem
