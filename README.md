@@ -95,7 +95,14 @@ The result is:
 In this version, we are coming to the next version soon. The details are presented in the next version description.
 
 ## Version 0.3
-In this version, we added another instructions in our instruction set.
+In this version, we added some **move** instructions in our instruction set. They are
+
+* movn
+* movz
+* mthi
+* mtlo
+* mfhi
+* mflo
 
 We use the following codes to check our instruction.
 
@@ -121,5 +128,9 @@ mtlo $1				# lo = 0x0000_0000
 
 mflo $4				# $4 = 0x0000_0000
 ```
+
+The simulation waves are
+![](http://i.imgur.com/e1N38Lu.png)
+
 
 
