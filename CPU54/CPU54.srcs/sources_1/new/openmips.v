@@ -60,9 +60,28 @@ module openmips(
     wire[4:0] mem_write_addr;
     wire mem_write_en;
     wire[31:0] mem_write_data;
-	wire[4:0] mem_wr_write_addr;
-    wire mem_wr_write_en;
-    wire[31:0] mem_wr_write_data;
+	wire[4:0] mem_wb_write_addr;
+    wire mem_wb_write_en;
+    wire[31:0] mem_wb_write_data;
+    
+    wire[31:0] alu_mem_write_hi;
+    wire[31:0] alu_mem_write_lo;
+    wire       alu_mem_write_hilo_en;
+    
+    wire[31:0] mem_write_hi;
+    wire[31:0] mem_write_lo;
+    wire       mem_write_hilo_en;
+    
+    wire       mem_wb_write_hilo_en;
+    wire[31:0] mem_wb_write_hi;
+    wire[31:0] mem_wb_write_lo;
+    
+    wire       wb_hilo_write_en;
+    wire[31:0] wb_hilo_write_hi;
+    wire[31:0] wb_hilo_write_lo;
+    
+    wire[31:0] hilo_alu_hi;
+    wire[31:0] hilo_alu_lo;
 	
 	PC_REG pc_reg0(
 		.clk(clk),
@@ -95,9 +114,9 @@ module openmips(
         .ex_data_write_i(alu_mem_write_data),
         .ex_addr_write_i(alu_mem_write_addr),
         
-        .mem_reg_write_en_i(mem_wr_write_en),
-        .mem_data_write_i(mem_wr_write_data),
-        .mem_addr_write_i(mem_wr_write_addr),
+        .mem_reg_write_en_i(mem_wb_write_en),
+        .mem_data_write_i(mem_wb_write_data),
+        .mem_addr_write_i(mem_wb_write_addr),
         
 		.reg1_read_en_o(reg1_read_en),
 		.reg2_read_en_o(reg2_read_en), 	  
@@ -163,11 +182,25 @@ module openmips(
 		.reg2_i(alureg2),
 		.addr_write_i(alu_write_addr),
 		.write_en_i(alu_write_en),
-	  
+		
+		.mem_write_hilo_en_i(mem_wb_write_hilo_en),
+        .mem_data_lo_write_i(mem_wb_write_lo),
+        .mem_data_hi_write_i(mem_wb_write_hi),
+        
+        .wb_write_hilo_en_i(wb_hilo_write_en),
+        .wb_data_lo_write_i(wb_hilo_write_lo),
+        .wb_data_hi_write_i(wb_hilo_write_hi),
+        
+        .data_hi_write_i(hilo_alu_hi),
+        .data_lo_write_i(hilo_alu_lo),
+        
 		.addr_write_o(alu_mem_write_addr),
 		.write_en_o(alu_mem_write_en),
-		.data_write_o(alu_mem_write_data)
+		.data_write_o(alu_mem_write_data),
 		
+		.ex_write_hilo_en_o(alu_mem_write_hilo_en),
+		.ex_data_lo_write_o(alu_mem_write_lo),
+		.ex_data_hi_write_o(alu_mem_write_hi)
 	);	
 	
 
@@ -178,10 +211,18 @@ module openmips(
 		.addr_write_i(alu_mem_write_addr),
 		.mem_write_en_i(alu_mem_write_en),
 		.data_write_i(alu_mem_write_data),
+		
+		.ex_write_hilo_en_i(alu_mem_write_hilo_en),
+		.ex_data_hi_i(alu_mem_write_hi),
+		.ex_data_lo_i(alu_mem_write_lo),
 	
 		.addr_write_o(mem_write_addr),
 		.mem_write_en_o(mem_write_en),
-		.data_write_o(mem_write_data)				       	
+		.data_write_o(mem_write_data),
+		
+		.mem_data_hi_o(mem_write_hi),
+		.mem_data_lo_o(mem_write_lo),
+		.mem_write_hilo_en_o(mem_write_hilo_en)				       	
 	);
 	
 	mem mem0(
@@ -190,22 +231,49 @@ module openmips(
 		.mem_write_en_i(mem_write_en),
 		.data_write_i(mem_write_data),
 		
-		.addr_write_o(mem_wr_write_addr),
-		.mem_write_en_o(mem_wr_write_en),
-		.data_write_o(mem_wr_write_data)
+		.hi_write_i(mem_write_hi),
+		.lo_write_i(mem_write_lo),
+		.write_hilo_en_i(mem_write_hilo_en),
+		
+		.addr_write_o(mem_wb_write_addr),
+		.mem_write_en_o(mem_wb_write_en),
+		.data_write_o(mem_wb_write_data),
+		
+		.write_hilo_en_o(mem_wb_write_hilo_en),
+		.hi_write_o(mem_wb_write_hi),
+		.lo_write_o(mem_wb_write_lo)
 	);
 
 	mem_wb mem_wb0(
 		.clk(clk),
 		.rst(rst),
 
-		.addr_write_i(mem_wr_write_addr),
-		.mem_write_en_i(mem_wr_write_en),
-		.data_write_i(mem_wr_write_data),
+		.addr_write_i(mem_wb_write_addr),
+		.mem_write_en_i(mem_wb_write_en),
+		.data_write_i(mem_wb_write_data),
+		
+		.mem_data_lo_write_i(mem_wb_write_lo),
+		.mem_data_hi_write_i(mem_wb_write_hi),
+		.mem_hilo_write_en_i(mem_wb_write_hilo_en),
 	
 		.addr_write_o(reg_write_addr),
 		.reg_write_en_o(reg_write_en),
-		.data_write_o(reg_write_data)							       	
+		.data_write_o(reg_write_data),
+		
+		.wb_data_lo_write_o(wb_hilo_write_lo),
+		.wb_data_hi_write_o(wb_hilo_write_hi),
+		.wb_hilo_write_en_o(wb_hilo_write_en)							       	
 	);
+	
+	hilo_reg hilo_reg0(
+	    .clk(clk),
+	    .rst(rst),
+	    .we(wb_hilo_write_en),
+	    .hi_data_write_i(wb_hilo_write_hi),
+	    .lo_data_write_i(wb_hilo_write_lo),
+	    
+	    .hi_data_read_o(hilo_alu_hi),
+	    .lo_data_read_o(hilo_alu_lo)
+	 );
 
 endmodule

@@ -34,22 +34,22 @@ module ALU(
 
 	output reg[4:0]    addr_write_o,
 	output reg         write_en_o,
-	output reg[31:0]   data_write_o
+	output reg[31:0]   data_write_o,
 	
-	input[31:0]		   data_hi_write_i;
-	input[31:0]		   data_lo_write_i;
+	input[31:0]		   data_hi_write_i,
+	input[31:0]		   data_lo_write_i,
 	
-	input			   mem_write_hilo_en_i;
-	input[31:0]		   mem_data_lo_write_i;
-	input[31:0]        mem_data_hi_write_i;
+	input			   mem_write_hilo_en_i,
+	input[31:0]		   mem_data_lo_write_i,
+	input[31:0]        mem_data_hi_write_i,
 	
-	input			   wb_write_hilo_en_i;
-	input[31:0]		   wb_data_lo_write_i;
-	input[31:0]        wb_data_hi_write_i;
+	input			   wb_write_hilo_en_i,
+	input[31:0]		   wb_data_lo_write_i,
+	input[31:0]        wb_data_hi_write_i,
 	
-	output reg 		   ex_write_hilo_en_o;
-	output reg[31:0]   ex_data_lo_write_o;
-	output reg[31:0]   ex_data_hi_write_o;
+	output reg 		   ex_write_hilo_en_o,
+	output reg[31:0]   ex_data_lo_write_o,
+	output reg[31:0]   ex_data_hi_write_o
 	
 );
 

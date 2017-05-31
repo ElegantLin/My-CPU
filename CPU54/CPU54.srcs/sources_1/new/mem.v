@@ -28,13 +28,15 @@ module mem(
 	input[4:0]    addr_write_i,
 	input         mem_write_en_i,
 	input[31:0]	  data_write_i,
+	
 	input[31:0]	  hi_write_i,
 	input[31:0]   lo_write_i,
 	input		  write_hilo_en_i,
 	
 	output reg[4:0]   addr_write_o,
 	output reg        mem_write_en_o,
-	output reg[31:0]  data_write_o
+	output reg[31:0]  data_write_o,
+	
 	output reg[31:0]  hi_write_o,
 	output reg[31:0]  lo_write_o,
 	output reg		  write_hilo_en_o

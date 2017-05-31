@@ -28,6 +28,7 @@ module mem_wb(
 	input[4:0]  addr_write_i,
 	input       mem_write_en_i,
 	input[31:0] data_write_i,
+	
 	input[31:0] mem_data_lo_write_i,
 	input[31:0] mem_data_hi_write_i,
 	input 		mem_hilo_write_en_i,
@@ -35,9 +36,10 @@ module mem_wb(
 	output reg[4:0]   addr_write_o,
 	output reg        reg_write_en_o,
 	output reg[31:0]  data_write_o,
+	
 	output reg[31:0]  wb_data_lo_write_o,
 	output reg[31:0]  wb_data_hi_write_o,
-	output reg[31:0]  wb_hilo_write_en_o,
+	output reg        wb_hilo_write_en_o
 	
 );
 

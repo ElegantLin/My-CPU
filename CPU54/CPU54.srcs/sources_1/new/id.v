@@ -169,7 +169,7 @@ module ID(
 										begin
 											reg_write_en_o <= `WriteEnable;
                                             aluop_o <= `EXE_MFHI_OP;
-                                            alusel_o <= `EXE_RES_NOP;
+                                            alusel_o <= `EXE_RES_MOVE;
                                             reg1_read_en_o <= `ReadDisable;
                                             reg2_read_en_o <= `ReadDisable;
                                             instvalid <= `InstValid;
@@ -178,7 +178,7 @@ module ID(
 										begin
 											reg_write_en_o <= `WriteEnable;
                                             aluop_o <= `EXE_MFLO_OP;
-                                            alusel_o <= `EXE_RES_NOP;
+                                            alusel_o <= `EXE_RES_MOVE;
                                             reg1_read_en_o <= `ReadDisable;
                                             reg2_read_en_o <= `ReadDisable;
                                             instvalid <= `InstValid;
@@ -187,7 +187,7 @@ module ID(
 										begin
 											reg_write_en_o <= `WriteEnable;
                                             aluop_o <= `EXE_MTHI_OP;
-                                            alusel_o <= `EXE_RES_NOP;
+                                            alusel_o <= `EXE_RES_MOVE;
                                             reg1_read_en_o <= `ReadEnable;
                                             reg2_read_en_o <= `ReadDisable;
                                             instvalid <= `InstValid;
@@ -196,7 +196,7 @@ module ID(
 										begin
 											reg_write_en_o <= `WriteEnable;
                                             aluop_o <= `EXE_MTLO_OP;
-                                            alusel_o <= `EXE_RES_NOP;
+                                            alusel_o <= `EXE_RES_MOVE;
                                             reg1_read_en_o <= `ReadEnable;
                                             reg2_read_en_o <= `ReadDisable;
                                             instvalid <= `InstValid;
@@ -223,7 +223,7 @@ module ID(
                                             reg1_read_en_o <= `ReadEnable;
                                             reg2_read_en_o <= `ReadEnable;
                                             instvalid <= `InstValid;
-											if(reg2_o != `ZeroWord)
+											if(reg2_o == `ZeroWord)
 												begin
 													reg_write_en_o <= `WriteEnable;
 												end
