@@ -91,10 +91,10 @@ nor  $1, $4, $1				# $1 = $4 ~^ $1	   = 0xffff_00ff
 The result is:
 ![](http://i.imgur.com/Rj0hpYR.png)
 
-##Version 0.2.1
+## Version 0.2.1
 In this version, we are coming to the next version soon. The details are presented in the next version description.
 
-##Version 0.3
+## Version 0.3
 In this version, we added another instructions in our instruction set.
 
 We use the following codes to check our instruction.
@@ -109,17 +109,17 @@ movz $4, $2, $1			# $4 = 0xffff_0000
 movn $4, $3, $1			# $4 = 0xffff_0000
 movz $4, $3, $2			# $4 = 0x0505_0000
 
-mthi $0					# hi = 0x0000_0000
-mthi $2 				# h1 = 0xffff_0000
-mthi $3					# hi = 0x0505_0000
+mthi $0				# hi = 0x0000_0000
+mthi $2 			# h1 = 0xffff_0000
+mthi $3				# hi = 0x0505_0000
 
-mfhi $4					# $4 = 0x0505_0000
+mfhi $4				# $4 = 0x0505_0000
 
-mtlo $3					# lo = 0x0505_0000
-mtlo $2					# lo = 0xffff_0000
-mtlo $1					# lo = 0x0000_0000
+mtlo $3				# lo = 0x0505_0000
+mtlo $2				# lo = 0xffff_0000
+mtlo $1				# lo = 0x0000_0000
 
-mflo $4					# $4 = 0x0000_0000
+mflo $4				# $4 = 0x0000_0000
 ```
 
 
