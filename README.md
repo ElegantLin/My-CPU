@@ -132,5 +132,24 @@ mflo $4				# $4 = 0x0000_0000
 The simulation waves are
 ![](http://i.imgur.com/e1N38Lu.png)
 
+## Version 0.4
+In this version, we added another several calculation instructions into our instruction set.They are:
+
+* add
+* addu
+* sub
+* subu
+* addi
+* addiu
+* slt
+* sltu
+* sltiu
+* clo
+* clz
+* mul
+* mult
+* multu
+
+
 
 
