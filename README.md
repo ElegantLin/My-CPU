@@ -152,7 +152,7 @@ mtlo $1				# lo = 0x0000_0000
 mflo $4				# $4 = 0x0000_0000
 ```
 
-The simulation waves are
+The simulation wave is
 ![](http://i.imgur.com/e1N38Lu.png)
 
 ## Version 0.4
@@ -176,26 +176,67 @@ In this version, we added another several calculation instructions into our inst
 We used the following instruction to test the CPU
 
 ```
-ori 	$1, $0, 0x8000
-sll 	$1, $1, 16
-ori 	$1, $1, 0x0010
+ori 	$1, $0, 0x8000				# $1 = 0x0000_8000
+sll 	$1, $1, 16					# $1 = 0x8000_0000
+ori 	$1, $1, 0x0010				# $1 = 0x8000_0010
 
-ori  	$2, $0, 0x8000
-sll  	$2, $2, 16
-ori  	$2, $2, 0x0001
+ori  	$2, $0, 0x8000				# $2 = 0x0000_8000
+sll  	$2, $2, 16					# $2 = 0x8000_0000
+ori  	$2, $2, 0x0001				# $2 = 0x8000_0001
 
-ori  	$3, $0, 0x0000
-addu	$3, $2, $1
-ori		$3, $0, 0x0000
-add		$3, $2, $1
+ori  	$3, $0, 0x0000				# $3 = 0x0000_0000
+addu	$3, $2, $1					# $3 = 0x0000_0011
+ori		$3, $0, 0x0000				# $3 = 0x0000_0000
+add		$3, $2, $1					# $3 = 0x0000_0000 (overflow_flag = 1)
 
-sub		$3, $1, $3
-subu	$3, $3, $2
+sub		$3, $1, $3					# $3 = 0x8000_0010
+subu	$3, $3, $2					# $3 = 0x0000_000f
 
-addi	$3, $3, 2
-ori		$3, $0, 0x0000
-addiu	$3, $3, 0x8000
+addi	$3, $3, 2					# $3 = 0x0000_0011
+ori		$3, $0, 0x0000				# $3 = 0x0000_0000
+addiu	$3, $3, 0x8000				# $3 = 0xffff_8000
 
+or		$1, $0, 0xffff				# $1 = 0x0000_ffff
+sll		$1, $1, 16					# $1 = 0xffff_0000
+slt		$2, $1, $0					# $2 = 1
+sltu	$2, $1, $0					# $2 = 0
+slti	$2, $1, 0x8000				# $2 = 1
+sltiu	$2, $1, 0x8000				# $2 = 1
+
+lui		$1, 0x0000					# $1 = 0x0000_0000
+clo		$2,	$1						# $2 = 0x0000_0000
+clz		$2, $1						# $2 = 0x0000_0020
+
+lui		$1, 0xffff					# $1 = 0xffff_0000
+ori		$1, $1, 0xffff				# $1 = 0xffff_ffff
+clz		$2, $1						# $2 = 0x0000_0000
+clo		$2, $1						# $2 = 0x0000_0020
+
+lui		$1, 0xa100					# $1 = 0xa100_0000
+clz		$2, $1						# $2 = 0x0000_0000
+clo		$2, $1						# $2 = 0x0000_0001
+
+lui		$1, 0x1100					# $1 = 0x1100_0000
+clz		$2, $1						# $2 = 0x0000_0003
+clo		$2, $1						# $2 = 0x0000_0000
+
+ori		$1, $0, 0xffff
+sll		$1, $1, 16
+ori		$1, $1, 0xfffb				# $1 = -5
+ori		$2, $0, 6					# $2 = 6
+mul		$3, $1, $2					# $3 = -30 = 0xffff_ffe2
+
+mult	$1, $2						# HI = 0xffff_ffff
+									# LO = 0xffff_ffe2
+
+multu	$1, $2						# HI = 0x5
+									# LO = 0xffff_ffe2
+nop
+nop
+```
+
+The simulation wave is
+![](http://i.imgur.com/GsGH9wW.png)
 
 
 
