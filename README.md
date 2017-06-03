@@ -111,6 +111,8 @@ sra  $2, $2, 16				# $2 = 0x80800000 sra 16 =0xffff8080
 srav $2, $2, $8				# $2 = 0xffff8080 sra 8 = 0xffffff80
 ``` 
 
+And the wave is as follows:
+![](http://i.imgur.com/mW1nfga.png)
 
 ## Version 0.2.1
 In this version, we are coming to the next version soon. The details are presented in the next version description.
