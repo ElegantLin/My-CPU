@@ -6,8 +6,14 @@ This project is the final project of Computer Architecture and Structure, which 
 
 
 The instructions I have successfully constructed are:
-1. ori rt, rs, immediate 
-2. 
+1. ori rt, rs, immediate
+2. and rd, rs, rt 
+
+```
+ori rt, rs, immediate => rt <- rs OR immediate
+and rd, rs, rt => rd <- rs AND rt
+
+```
 
 
 ## Version 0.1

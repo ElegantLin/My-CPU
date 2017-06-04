@@ -92,6 +92,15 @@ module openmips(
 	wire[1:0] cnt_exmem_ex;
 	wire[63:0] hilo_temp_exmem_ex;
 	
+	wire 	   div_start;
+	wire[31:0] div_opdata1;
+	wire[31:0] div_opdata2;
+	wire	   signed_div;
+	wire	   div_cancle;
+	
+	wire[63:0] div_result;
+	wire	   div_finish;
+	
 	PC_REG pc_reg0(
 		.clk(clk),
 		.rst(rst),
@@ -218,6 +227,13 @@ module openmips(
 		
 		.stallreq(alu_ctrl),
 		
+		.div_start_o(div_start),
+		.div_opdata1_o(div_opdata1),
+		.div_opdata2_o(div_opdata2),
+		.signed_div_o(signed_div),
+		.div_result_i(div_result),
+		.div_finish_i(div_finish),
+		
 		.hilo_double_temp_i(hilo_temp_exmem_ex),
 		.cnt_i(cnt_exmem_ex),
 		.cnt_o(cnt_ex_exmem),
@@ -308,5 +324,17 @@ module openmips(
 		.stallreq_from_id(id_ctrl),
 		.stallreq_from_ex(alu_ctrl),
 		.stall(ctrl_out_stall)
+	);
+	
+	DIV	  div0(
+		.clk(clk),
+		.rst(rst),
+		.signed_div_i(signed_div),
+		.opdata1_i(div_opdata1),
+		.opdata2_i(div_opdata2),
+		.start_i(div_start),
+		.cancel_i(1'b0),
+        .result_o(div_result),
+        .finish_o(div_finish)
 	);
 endmodule

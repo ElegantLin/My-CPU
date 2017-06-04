@@ -1,3 +1,5 @@
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Computer Architecture/My-CPU/CPU54/CPU54.srcs/sources_1/new/div.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module DIV
 INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Computer Architecture/My-CPU/CPU54/CPU54.srcs/sources_1/new/ctrl.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module CTRL
 INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Computer Architecture/My-CPU/CPU54/CPU54.srcs/sources_1/new/id.v" into library xil_defaultlib

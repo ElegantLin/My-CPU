@@ -50,11 +50,20 @@ module ALU(
 	input[63:0]		   hilo_double_temp_i,
 	input[1:0]		   cnt_i,
 	
+	input[63:0]		   div_result_i,
+	input			   div_finish_i,
+	
 	output reg 		   ex_write_hilo_en_o,
 	output reg[31:0]   ex_data_lo_write_o,
 	output reg[31:0]   ex_data_hi_write_o,
 	output reg[63:0]   hilo_double_temp_o,
 	output reg[1:0]	   cnt_o,
+	
+	output reg[31:0]   div_opdata1_o,
+	output reg[31:0]   div_opdata2_o,
+	output reg		   div_start_o,
+	output reg		   signed_div_o,
+	
 	
 	output reg		   stallreq
 	
@@ -67,6 +76,7 @@ module ALU(
 	reg[63:0] mulres;
 	reg[31:0] HI;
 	reg[31:0] LO;
+	reg stallreq_for_div;
 
 
 	wire	  overflow_flag;
@@ -223,6 +233,29 @@ module ALU(
 					mulres <= hilo_temp;
 			end
 		end
+		
+	always @ (*) begin
+		if(rst == `RstEnable) 
+			begin
+				{HI, LO} <= {`ZeroWord, `ZeroWord};
+			end
+		else if(mem_write_hilo_en_i == `WriteEnable)
+			begin
+				{HI, LO} <= {mem_data_hi_write_i, mem_data_lo_write_i};
+			end
+		else if(wb_write_hilo_en_i == `WriteEnable)
+			begin
+				{HI, LO} <= {wb_data_hi_write_i, wb_data_lo_write_i};
+			end
+		else
+			begin
+				{HI, LO} <= {data_hi_write_i, data_lo_write_i};
+			end
+		end
+	
+	always @ (*) begin
+		stallreq = stallreq_for_madd_msub || stallreq_for_div;
+	end
 	
 	
 	always @ (*) begin
@@ -277,27 +310,74 @@ module ALU(
 			end
 		end
 	
+	
 	always @ (*) begin
-		if(rst == `RstEnable) 
-			begin
-				{HI, LO} <= {`ZeroWord, `ZeroWord};
-			end
-		else if(mem_write_hilo_en_i == `WriteEnable)
-			begin
-				{HI, LO} <= {mem_data_hi_write_i, mem_data_lo_write_i};
-			end
-		else if(wb_write_hilo_en_i == `WriteEnable)
-			begin
-				{HI, LO} <= {wb_data_hi_write_i, wb_data_lo_write_i};
-			end
-		else
-			begin
-				{HI, LO} <= {data_hi_write_i, data_lo_write_i};
-			end
+		if(rst == `RstEnable) begin
+			stallreq_for_div <= `NoStop;
+			div_opdata1_o <= `ZeroWord;
+			div_opdata1_o <= `ZeroWord;
+			div_start_o <= `DivStop;
+			signed_div_o <= 1'b0;
 		end
-		
-	always @ (*) begin
-		stallreq = stallreq_for_madd_msub;
+		else begin
+			stallreq_for_div <= `NoStop;
+			div_opdata1_o <= `ZeroWord;
+			div_opdata2_o <= `ZeroWord;
+			div_start_o <= `DivStop;
+			signed_div_o <= 1'b0;
+			case (aluop_i)
+			`EXE_DIV_OP: begin
+				if(div_finish_i == `DivResultNotReady) begin
+					div_opdata1_o <= reg1_i;
+					div_opdata2_o <= reg2_i;
+					div_start_o <= `DivStart;
+					signed_div_o <= 1'b1;
+					stallreq_for_div <= `Stop;
+				end
+				else if(div_finish_i == `DivResultReady) begin
+					div_opdata1_o <= reg1_i;
+					div_opdata2_o <= reg2_i;
+					div_start_o   <= `DivStop;
+					signed_div_o  <= 1'b1;
+					stallreq_for_div <= `NoStop;
+				end
+				else begin
+					div_opdata1_o <= `ZeroWord;
+					div_opdata2_o <= `ZeroWord;
+					div_start_o   <= `DivStop;
+					signed_div_o  <= 1'b0;
+					stallreq_for_div <= `NoStop;
+				end
+			end
+			
+			`EXE_DIVU_OP: begin
+				if(div_finish_i == `DivResultNotReady) begin
+					div_opdata1_o <= reg1_i;
+					div_opdata2_o <= reg2_i;
+					div_start_o <= `DivStart;
+					signed_div_o <= 1'b0;
+					stallreq_for_div <= `Stop;
+				end
+				else if(div_finish_i == `DivResultReady) begin
+					div_opdata1_o <= reg1_i;
+					div_opdata2_o <= reg2_i;
+					div_start_o   <= `DivStop;
+					signed_div_o  <= 1'b0;
+					stallreq_for_div <= `NoStop;
+				end
+				else begin
+					div_opdata1_o <= `ZeroWord;
+					div_opdata2_o <= `ZeroWord;
+					div_start_o   <= `DivStop;
+					signed_div_o  <= 1'b0;
+					stallreq_for_div <= `NoStop;
+				end
+			end
+			
+			default: begin
+			end
+			endcase
+		end
 	end
 	
 	always @ (*) begin
@@ -369,6 +449,7 @@ module ALU(
 					end
 			endcase
 		end
+		
 
 	always @ (*) begin
 		if(rst == `RstEnable) begin
@@ -400,12 +481,21 @@ module ALU(
 			ex_write_hilo_en_o <= `WriteEnable;
 			ex_data_hi_write_o <= HI;
 			ex_data_lo_write_o <= reg1_i;
-		end 
+		end
+		else if ((aluop_i == `EXE_DIV_OP) || (aluop_i == `EXE_DIVU_OP)) begin
+			ex_write_hilo_en_o <= `WriteEnable;
+			ex_data_hi_write_o <= div_result_i[63:32];
+			ex_data_lo_write_o <= div_result_i[31:0];
+		end
 		else begin
 			ex_write_hilo_en_o <= `WriteDisable;
 			ex_data_hi_write_o <= `ZeroWord;
 			ex_data_lo_write_o <= `ZeroWord;
 		end
 	end
+	
 
+
+	
+			
 endmodule

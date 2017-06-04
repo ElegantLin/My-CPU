@@ -96,6 +96,22 @@ module ID(
                         5'b00000:
                             begin
                                 case(op3)
+									`EXE_DIV:
+										begin
+											reg_write_en_o <= `WriteDisable;
+											aluop_o <= `EXE_DIV_OP;
+											reg1_read_en_o <= `ReadEnable;
+											reg2_read_en_o <= `ReadEnable;
+											instvalid <= `InstInvalid;
+										end
+									`EXE_DIVU:
+										begin
+											reg_write_en_o <= `WriteDisable;
+											aluop_o <= `EXE_DIVU_OP;
+											reg1_read_en_o <= `ReadEnable;
+											reg2_read_en_o <= `ReadEnable;
+											instvalid <= `InstInvalid;
+										end
                                     `EXE_SLT:
                                         begin
                                             reg_write_en_o <= `WriteEnable;
