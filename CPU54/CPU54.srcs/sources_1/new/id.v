@@ -49,7 +49,9 @@ module ID(
     output reg[31:0]  	reg1_o,
     output reg[31:0]    reg2_o,
     output reg[4:0]     addr_write_o,
-    output reg          reg_write_en_o
+    output reg          reg_write_en_o,
+	
+	output wire			stallreq
 );
 
   wire[5:0] op = instr_i[31:26];        //instruction code
@@ -59,6 +61,7 @@ module ID(
   reg[31:0]	imm;
   reg instvalid;
   
+  assign stallreq = `NoStop;
  
     always @ (*) begin	
         if (rst == `RstEnable) 
@@ -436,6 +439,42 @@ module ID(
                                             reg2_read_en_o <= `ReadEnable;          
                                             instvalid <= `InstValid;
                                         end
+									`EXE_MADD:
+										begin
+											reg_write_en_o <= `WriteDisable;
+                                            aluop_o <= `EXE_MADD_OP;
+                                            alusel_o <= `EXE_RES_MUL;
+                                            reg1_read_en_o <= `ReadEnable;
+                                            reg2_read_en_o <= `ReadEnable;
+                                            instvalid <= `InstValid;
+										end
+									`EXE_MADDU:
+										begin
+											reg_write_en_o <= `WriteDisable;
+                                            aluop_o <= `EXE_MADDU_OP;
+                                            alusel_o <= `EXE_RES_MUL;
+                                            reg1_read_en_o <= `ReadEnable;
+                                            reg2_read_en_o <= `ReadEnable;
+                                            instvalid <= `InstValid;
+										end
+									`EXE_MSUB:
+										begin
+											reg_write_en_o <= `WriteDisable;
+                                            aluop_o <= `EXE_MSUB_OP;
+                                            alusel_o <= `EXE_RES_MUL;
+                                            reg1_read_en_o <= `ReadEnable;
+                                            reg2_read_en_o <= `ReadEnable;
+                                            instvalid <= `InstValid;
+                                        end
+									`EXE_MSUBU:
+										begin
+											reg_write_en_o <= `WriteDisable;
+                                            aluop_o <= `EXE_MSUBU_OP;
+                                            alusel_o <= `EXE_RES_MUL;
+                                            reg1_read_en_o <= `ReadEnable;
+                                            reg2_read_en_o <= `ReadEnable;
+                                            instvalid <= `InstValid;
+										end
 									default:
 										begin
 										end

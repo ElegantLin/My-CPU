@@ -33,6 +33,8 @@ module ID_ALU(
 	input[4:0]        addr_write_i,
 	input             reg_write_en_i,	
 	
+	input wire[5:0]	  stall,
+	
 	output reg[7:0]   alu_aluop_o,
 	output reg[2:0]   alu_alusel_o,
 	output reg[31:0]  alu_reg1_o,
@@ -49,7 +51,14 @@ module ID_ALU(
 			alu_reg2_o <= `ZeroWord;
 			addr_write_o <= `NOPRegAddr;
 			reg_write_en_o <= `WriteDisable;
-		end else begin		
+		end else if(stall[2] == `Stop && stall[3] == `NoStop) begin
+			alu_aluop_o <= `EXE_NOP_OP;
+			alu_alusel_o <= `EXE_RES_NOP;
+			alu_reg1_o <= `ZeroWord;
+			alu_reg2_o <= `ZeroWord;
+			addr_write_o <= `NOPRegAddr;
+			reg_write_en_o <= `WriteDisable;
+		end else if(stall[2] == `NoStop) begin
 			alu_aluop_o <= id_aluop_i;
 			alu_alusel_o <= id_alusel_i;
 			alu_reg1_o <= id_reg1_i;

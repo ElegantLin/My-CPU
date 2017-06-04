@@ -24,6 +24,7 @@
 module IF_ID(
     input               clk,
     input               rst,
+	input[5:0]			stall,
     input[31:0]         instr_addr_i,
     input[31:0]         instr_i,
     output reg[31:0]    instr_addr_o,
@@ -35,7 +36,10 @@ module IF_ID(
             instr_addr_o <= `ZeroWord;
             instr_o <= `ZeroWord;
         end
-        else begin
+        else if(stall[1] == `Stop && stall[2] == `NoStop) begin
+			instr_addr_o <= `ZeroWord;
+            instr_o <= `ZeroWord;
+		end else if(stall[1] == `NoStop) begin
             instr_addr_o <= instr_addr_i;
             instr_o <= instr_i;
         end

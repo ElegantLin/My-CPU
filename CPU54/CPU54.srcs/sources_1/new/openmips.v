@@ -83,10 +83,20 @@ module openmips(
     wire[31:0] hilo_alu_hi;
     wire[31:0] hilo_alu_lo;
 	
+	wire[5:0] id_ctrl;
+	wire[5:0] alu_ctrl;
+	wire[5:0] ctrl_out_stall;
+	
+	wire[1:0] cnt_ex_exmem;
+	wire[63:0] hilo_temp_ex_exmem;
+	wire[1:0] cnt_exmem_ex;
+	wire[63:0] hilo_temp_exmem_ex;
+	
 	PC_REG pc_reg0(
 		.clk(clk),
 		.rst(rst),
 		.pc(pc),
+		.stall(ctrl_out_stall),
 		.rom_en_o(rom_en_o)		
 	);
 	assign rom_addr_o = pc;
@@ -94,6 +104,7 @@ module openmips(
 	IF_ID if_id0(
 		.clk(clk),
 		.rst(rst),
+		.stall(ctrl_out_stall),
 		.instr_addr_i(pc),
 		.instr_i(rom_data_i),
 		.instr_addr_o(if_id_instr_addr),
@@ -124,6 +135,8 @@ module openmips(
 		.reg1_read_addr_o(reg1_addr),
 		.reg2_read_addr_o(reg2_addr), 
 	  
+		.stallreq(id_ctrl),
+		
 		.aluop_o(id_aluop),
 		.alusel_o(id_alusel),
 		.reg1_o(id_reg1),
@@ -163,7 +176,8 @@ module openmips(
 		.id_reg2_i(id_reg2),
 		.addr_write_i(id_addr_write),
 		.reg_write_en_i(id_write_en),
-
+		.stall(ctrl_out_stall),
+		
 		.alu_aluop_o(aluop),
 		.alu_alusel_o(alusel),
 		.alu_reg1_o(alureg1),
@@ -200,7 +214,14 @@ module openmips(
 		
 		.ex_write_hilo_en_o(alu_mem_write_hilo_en),
 		.ex_data_lo_write_o(alu_mem_write_lo),
-		.ex_data_hi_write_o(alu_mem_write_hi)
+		.ex_data_hi_write_o(alu_mem_write_hi),
+		
+		.stallreq(alu_ctrl),
+		
+		.hilo_double_temp_i(hilo_temp_exmem_ex),
+		.cnt_i(cnt_exmem_ex),
+		.cnt_o(cnt_ex_exmem),
+		.hilo_double_temp_o(hilo_temp_ex_exmem)
 	);	
 	
 
@@ -215,6 +236,7 @@ module openmips(
 		.ex_write_hilo_en_i(alu_mem_write_hilo_en),
 		.ex_data_hi_i(alu_mem_write_hi),
 		.ex_data_lo_i(alu_mem_write_lo),
+		.stall(ctrl_out_stall),
 	
 		.addr_write_o(mem_write_addr),
 		.mem_write_en_o(mem_write_en),
@@ -222,7 +244,12 @@ module openmips(
 		
 		.mem_data_hi_o(mem_write_hi),
 		.mem_data_lo_o(mem_write_lo),
-		.mem_write_hilo_en_o(mem_write_hilo_en)				       	
+		.mem_write_hilo_en_o(mem_write_hilo_en),
+		
+		.cnt_i(cnt_ex_exmem),
+		.hilo_i(hilo_temp_ex_exmem),
+		.cnt_o(cnt_exmem_ex),
+		.hilo_o(hilo_temp_exmem_ex)
 	);
 	
 	mem mem0(
@@ -255,7 +282,7 @@ module openmips(
 		.mem_data_lo_write_i(mem_wb_write_lo),
 		.mem_data_hi_write_i(mem_wb_write_hi),
 		.mem_hilo_write_en_i(mem_wb_write_hilo_en),
-	
+		.stall(ctrl_out_stall),
 		.addr_write_o(reg_write_addr),
 		.reg_write_en_o(reg_write_en),
 		.data_write_o(reg_write_data),
@@ -275,5 +302,11 @@ module openmips(
 	    .hi_data_read_o(hilo_alu_hi),
 	    .lo_data_read_o(hilo_alu_lo)
 	 );
-
+	 
+	 CTRL ctrl0(
+		.rst(rst),
+		.stallreq_from_id(id_ctrl),
+		.stallreq_from_ex(alu_ctrl),
+		.stall(ctrl_out_stall)
+	);
 endmodule

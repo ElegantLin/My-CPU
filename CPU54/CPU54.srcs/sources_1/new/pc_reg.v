@@ -24,6 +24,7 @@
 module PC_REG(
     input               clk,
     input               rst,
+	input  wire[5:0]	stall,
     output  reg[31:0]   pc,
     output  reg         rom_en_o
     );
@@ -43,7 +44,7 @@ module PC_REG(
 		if(rom_en_o == `ChipDisable) begin
 			pc <= `ZeroWord;
 	end
-	else begin
+	else if(stall[0] == `NoStop) begin
 		pc <= pc + 4'h4;
 	end
 	end

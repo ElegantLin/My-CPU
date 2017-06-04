@@ -29,9 +29,9 @@
 `define AluSelBus 2:0 */
 `define InstValid 1'b0
 `define InstInvalid 1'b1
-/* `define Stop 1'b1
+`define Stop 1'b1
 `define NoStop 1'b0
-`define InDelaySlot 1'b1
+/* `define InDelaySlot 1'b1
 `define NotInDelaySlot 1'b0
 `define Branch 1'b1
 `define NotBranch 1'b0
@@ -85,6 +85,10 @@
 `define EXE_MULT    6'b011_000
 `define EXE_MULTU   6'b011_001
 `define EXE_MUL     6'b000_010
+`define EXE_MADD	6'b000_000
+`define EXE_MADDU	6'b000_001
+`define EXE_MSUB	6'b000_100
+`define EXE_MSUBU	6'b000_101
 
 `define EXE_NOP  6'b000_000
 `define SSNOP 32'b00000000000000000000000001000000
@@ -118,22 +122,26 @@
 `define EXE_MFLO_OP  8'b0001_0010
 `define EXE_MTLO_OP  8'b0001_0011
 
-`define EXE_SLT_OP  8'b00101010
-`define EXE_SLTU_OP  8'b00101011
-`define EXE_SLTI_OP  8'b01010111
-`define EXE_SLTIU_OP  8'b01011000   
-`define EXE_ADD_OP  8'b00100000
-`define EXE_ADDU_OP  8'b00100001
-`define EXE_SUB_OP  8'b00100010
-`define EXE_SUBU_OP  8'b00100011
-`define EXE_ADDI_OP  8'b01010101
-`define EXE_ADDIU_OP  8'b01010110
-`define EXE_CLZ_OP  8'b10110000
-`define EXE_CLO_OP  8'b10110001
+`define EXE_SLT_OP   8'b0010_1010
+`define EXE_SLTU_OP  8'b0010_1011
+`define EXE_SLTI_OP  8'b0101_0111
+`define EXE_SLTIU_OP 8'b0101_1000   
+`define EXE_ADD_OP   8'b0010_0000
+`define EXE_ADDU_OP  8'b0010_0001
+`define EXE_SUB_OP   8'b0010_0010
+`define EXE_SUBU_OP  8'b0010_0011
+`define EXE_ADDI_OP  8'b0101_0101
+`define EXE_ADDIU_OP 8'b0101_0110
+`define EXE_CLZ_OP   8'b1011_0000
+`define EXE_CLO_OP   8'b1011_0001
 
-`define EXE_MULT_OP  8'b00011000
-`define EXE_MULTU_OP  8'b00011001
-`define EXE_MUL_OP  8'b10101001
+`define EXE_MULT_OP  8'b0001_1000
+`define EXE_MULTU_OP 8'b0001_1001
+`define EXE_MUL_OP   8'b1010_1001
+`define EXE_MADD_OP  8'b1010_0110
+`define EXE_MADDU_OP 8'b1010_1000
+`define EXE_MSUB_OP  8'b1010_1010
+`define EXE_MSUBU_OP 8'b1010_1011
 
 `define EXE_NOP_OP   8'b0000_0000
 
