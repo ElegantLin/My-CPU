@@ -352,7 +352,7 @@ module id(
 		if(rst == `RstEnable) begin
 		  reg1_o <= `ZeroWord;		
 		end 
-		else if (reg1_addr_o == 5'b00000) begin
+		else if ((reg1_addr_o == 5'b00000) && (reg1_read_o == 1'b1)) begin
 		  reg1_o <= `ZeroWord;
 		end
 		else if((reg1_read_o == 1'b1) && (ex_wreg_i == 1'b1) 
@@ -374,7 +374,7 @@ module id(
 		if(rst == `RstEnable) begin
 		  reg2_o <= `ZeroWord;
 		end
-		else if (reg2_read_o == 5'b00000) begin
+		else if ((reg2_read_o == 5'b00000) && (reg2_read_o == 1'b1)) begin
 		  reg2_o <= `ZeroWord;
 		end else if((reg2_read_o == 1'b1) && (ex_wreg_i == 1'b1) 
 								&& (ex_wd_i == reg2_addr_o) && (ex_wd_i != 5'b00000)) begin

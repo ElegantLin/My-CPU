@@ -5,36 +5,36 @@ Using 2 slave threads.
 Starting static elaboration
 Completed static elaboration
 Starting simulation data flow analysis
-WARNING: [XSIM 43-4099] "D:/Computer Architecture/project_1/project_1.srcs/sources_1/imports/Chpater7_3/openmips_min_sopc.v" Line 40. Module openmips_min_sopc doesn't have a timescale but at least one module in design has a timescale.
-WARNING: [XSIM 43-4099] "D:/Computer Architecture/project_1/project_1.srcs/sources_1/imports/Chpater7_3/openmips.v" Line 35. Module openmips doesn't have a timescale but at least one module in design has a timescale.
-WARNING: [XSIM 43-4099] "D:/Computer Architecture/project_1/project_1.srcs/sources_1/imports/Chpater7_3/pc_reg.v" Line 35. Module pc_reg doesn't have a timescale but at least one module in design has a timescale.
-WARNING: [XSIM 43-4099] "D:/Computer Architecture/project_1/project_1.srcs/sources_1/imports/Chpater7_3/if_id.v" Line 35. Module if_id doesn't have a timescale but at least one module in design has a timescale.
-WARNING: [XSIM 43-4099] "D:/Computer Architecture/project_1/project_1.srcs/sources_1/imports/Chpater7_3/id.v" Line 35. Module id doesn't have a timescale but at least one module in design has a timescale.
-WARNING: [XSIM 43-4099] "D:/Computer Architecture/project_1/project_1.srcs/sources_1/imports/Chpater7_3/regfile.v" Line 35. Module regfile doesn't have a timescale but at least one module in design has a timescale.
-WARNING: [XSIM 43-4099] "D:/Computer Architecture/project_1/project_1.srcs/sources_1/imports/Chpater7_3/id_ex.v" Line 35. Module id_ex doesn't have a timescale but at least one module in design has a timescale.
-WARNING: [XSIM 43-4099] "D:/Computer Architecture/project_1/project_1.srcs/sources_1/imports/Chpater7_3/ex.v" Line 35. Module ex doesn't have a timescale but at least one module in design has a timescale.
-WARNING: [XSIM 43-4099] "D:/Computer Architecture/project_1/project_1.srcs/sources_1/imports/Chpater7_3/ex_mem.v" Line 35. Module ex_mem doesn't have a timescale but at least one module in design has a timescale.
-WARNING: [XSIM 43-4099] "D:/Computer Architecture/project_1/project_1.srcs/sources_1/imports/Chpater7_3/mem.v" Line 35. Module mem doesn't have a timescale but at least one module in design has a timescale.
-WARNING: [XSIM 43-4099] "D:/Computer Architecture/project_1/project_1.srcs/sources_1/imports/Chpater7_3/mem_wb.v" Line 35. Module mem_wb doesn't have a timescale but at least one module in design has a timescale.
-WARNING: [XSIM 43-4099] "D:/Computer Architecture/project_1/project_1.srcs/sources_1/imports/Chpater7_3/hilo_reg.v" Line 35. Module hilo_reg doesn't have a timescale but at least one module in design has a timescale.
-WARNING: [XSIM 43-4099] "D:/Computer Architecture/project_1/project_1.srcs/sources_1/imports/Chpater7_3/ctrl.v" Line 35. Module ctrl doesn't have a timescale but at least one module in design has a timescale.
-WARNING: [XSIM 43-4099] "D:/Computer Architecture/project_1/project_1.srcs/sources_1/imports/Chpater7_3/div.v" Line 35. Module div doesn't have a timescale but at least one module in design has a timescale.
-WARNING: [XSIM 43-4099] "D:/Computer Architecture/project_1/project_1.srcs/sources_1/imports/Chpater7_3/inst_rom.v" Line 35. Module inst_rom doesn't have a timescale but at least one module in design has a timescale.
-WARNING: [XSIM 43-4099] "D:/Computer Architecture/project_1/project_1.srcs/sources_1/imports/Chpater7_3/openmips_min_sopc.v" Line 40. Module openmips_min_sopc doesn't have a timescale but at least one module in design has a timescale.
-WARNING: [XSIM 43-4099] "D:/Computer Architecture/project_1/project_1.srcs/sources_1/imports/Chpater7_3/openmips.v" Line 35. Module openmips doesn't have a timescale but at least one module in design has a timescale.
-WARNING: [XSIM 43-4099] "D:/Computer Architecture/project_1/project_1.srcs/sources_1/imports/Chpater7_3/pc_reg.v" Line 35. Module pc_reg doesn't have a timescale but at least one module in design has a timescale.
-WARNING: [XSIM 43-4099] "D:/Computer Architecture/project_1/project_1.srcs/sources_1/imports/Chpater7_3/if_id.v" Line 35. Module if_id doesn't have a timescale but at least one module in design has a timescale.
-WARNING: [XSIM 43-4099] "D:/Computer Architecture/project_1/project_1.srcs/sources_1/imports/Chpater7_3/id.v" Line 35. Module id doesn't have a timescale but at least one module in design has a timescale.
-WARNING: [XSIM 43-4099] "D:/Computer Architecture/project_1/project_1.srcs/sources_1/imports/Chpater7_3/regfile.v" Line 35. Module regfile doesn't have a timescale but at least one module in design has a timescale.
-WARNING: [XSIM 43-4099] "D:/Computer Architecture/project_1/project_1.srcs/sources_1/imports/Chpater7_3/id_ex.v" Line 35. Module id_ex doesn't have a timescale but at least one module in design has a timescale.
-WARNING: [XSIM 43-4099] "D:/Computer Architecture/project_1/project_1.srcs/sources_1/imports/Chpater7_3/ex.v" Line 35. Module ex doesn't have a timescale but at least one module in design has a timescale.
-WARNING: [XSIM 43-4099] "D:/Computer Architecture/project_1/project_1.srcs/sources_1/imports/Chpater7_3/ex_mem.v" Line 35. Module ex_mem doesn't have a timescale but at least one module in design has a timescale.
-WARNING: [XSIM 43-4099] "D:/Computer Architecture/project_1/project_1.srcs/sources_1/imports/Chpater7_3/mem.v" Line 35. Module mem doesn't have a timescale but at least one module in design has a timescale.
-WARNING: [XSIM 43-4099] "D:/Computer Architecture/project_1/project_1.srcs/sources_1/imports/Chpater7_3/mem_wb.v" Line 35. Module mem_wb doesn't have a timescale but at least one module in design has a timescale.
-WARNING: [XSIM 43-4099] "D:/Computer Architecture/project_1/project_1.srcs/sources_1/imports/Chpater7_3/hilo_reg.v" Line 35. Module hilo_reg doesn't have a timescale but at least one module in design has a timescale.
-WARNING: [XSIM 43-4099] "D:/Computer Architecture/project_1/project_1.srcs/sources_1/imports/Chpater7_3/ctrl.v" Line 35. Module ctrl doesn't have a timescale but at least one module in design has a timescale.
-WARNING: [XSIM 43-4099] "D:/Computer Architecture/project_1/project_1.srcs/sources_1/imports/Chpater7_3/div.v" Line 35. Module div doesn't have a timescale but at least one module in design has a timescale.
-WARNING: [XSIM 43-4099] "D:/Computer Architecture/project_1/project_1.srcs/sources_1/imports/Chpater7_3/inst_rom.v" Line 35. Module inst_rom doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "D:/Computer Architecture/My-CPU/project_1/project_1.srcs/sources_1/imports/Chpater7_3/openmips_min_sopc.v" Line 40. Module openmips_min_sopc doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "D:/Computer Architecture/My-CPU/project_1/project_1.srcs/sources_1/imports/Chpater7_3/openmips.v" Line 35. Module openmips doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "D:/Computer Architecture/My-CPU/project_1/project_1.srcs/sources_1/imports/Chpater7_3/pc_reg.v" Line 35. Module pc_reg doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "D:/Computer Architecture/My-CPU/project_1/project_1.srcs/sources_1/imports/Chpater7_3/if_id.v" Line 35. Module if_id doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "D:/Computer Architecture/My-CPU/project_1/project_1.srcs/sources_1/imports/Chpater7_3/id.v" Line 35. Module id doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "D:/Computer Architecture/My-CPU/project_1/project_1.srcs/sources_1/imports/Chpater7_3/regfile.v" Line 35. Module regfile doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "D:/Computer Architecture/My-CPU/project_1/project_1.srcs/sources_1/imports/Chpater7_3/id_ex.v" Line 35. Module id_ex doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "D:/Computer Architecture/My-CPU/project_1/project_1.srcs/sources_1/imports/Chpater7_3/ex.v" Line 35. Module ex doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "D:/Computer Architecture/My-CPU/project_1/project_1.srcs/sources_1/imports/Chpater7_3/ex_mem.v" Line 35. Module ex_mem doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "D:/Computer Architecture/My-CPU/project_1/project_1.srcs/sources_1/imports/Chpater7_3/mem.v" Line 35. Module mem doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "D:/Computer Architecture/My-CPU/project_1/project_1.srcs/sources_1/imports/Chpater7_3/mem_wb.v" Line 35. Module mem_wb doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "D:/Computer Architecture/My-CPU/project_1/project_1.srcs/sources_1/imports/Chpater7_3/hilo_reg.v" Line 35. Module hilo_reg doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "D:/Computer Architecture/My-CPU/project_1/project_1.srcs/sources_1/imports/Chpater7_3/ctrl.v" Line 35. Module ctrl doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "D:/Computer Architecture/My-CPU/project_1/project_1.srcs/sources_1/imports/Chpater7_3/div.v" Line 35. Module div doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "D:/Computer Architecture/My-CPU/project_1/project_1.srcs/sources_1/imports/Chpater7_3/inst_rom.v" Line 35. Module inst_rom doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "D:/Computer Architecture/My-CPU/project_1/project_1.srcs/sources_1/imports/Chpater7_3/openmips_min_sopc.v" Line 40. Module openmips_min_sopc doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "D:/Computer Architecture/My-CPU/project_1/project_1.srcs/sources_1/imports/Chpater7_3/openmips.v" Line 35. Module openmips doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "D:/Computer Architecture/My-CPU/project_1/project_1.srcs/sources_1/imports/Chpater7_3/pc_reg.v" Line 35. Module pc_reg doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "D:/Computer Architecture/My-CPU/project_1/project_1.srcs/sources_1/imports/Chpater7_3/if_id.v" Line 35. Module if_id doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "D:/Computer Architecture/My-CPU/project_1/project_1.srcs/sources_1/imports/Chpater7_3/id.v" Line 35. Module id doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "D:/Computer Architecture/My-CPU/project_1/project_1.srcs/sources_1/imports/Chpater7_3/regfile.v" Line 35. Module regfile doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "D:/Computer Architecture/My-CPU/project_1/project_1.srcs/sources_1/imports/Chpater7_3/id_ex.v" Line 35. Module id_ex doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "D:/Computer Architecture/My-CPU/project_1/project_1.srcs/sources_1/imports/Chpater7_3/ex.v" Line 35. Module ex doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "D:/Computer Architecture/My-CPU/project_1/project_1.srcs/sources_1/imports/Chpater7_3/ex_mem.v" Line 35. Module ex_mem doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "D:/Computer Architecture/My-CPU/project_1/project_1.srcs/sources_1/imports/Chpater7_3/mem.v" Line 35. Module mem doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "D:/Computer Architecture/My-CPU/project_1/project_1.srcs/sources_1/imports/Chpater7_3/mem_wb.v" Line 35. Module mem_wb doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "D:/Computer Architecture/My-CPU/project_1/project_1.srcs/sources_1/imports/Chpater7_3/hilo_reg.v" Line 35. Module hilo_reg doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "D:/Computer Architecture/My-CPU/project_1/project_1.srcs/sources_1/imports/Chpater7_3/ctrl.v" Line 35. Module ctrl doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "D:/Computer Architecture/My-CPU/project_1/project_1.srcs/sources_1/imports/Chpater7_3/div.v" Line 35. Module div doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "D:/Computer Architecture/My-CPU/project_1/project_1.srcs/sources_1/imports/Chpater7_3/inst_rom.v" Line 35. Module inst_rom doesn't have a timescale but at least one module in design has a timescale.
 Completed simulation data flow analysis
 Time Resolution for simulation is 1ps
 Compiling module xil_defaultlib.pc_reg

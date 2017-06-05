@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <GenRun Id="synth_1" LaunchPart="xc7vx485tffg1157-1" LaunchTime="1496675470">
-  <File Type="RDS-PROPCONSTRS" Name="openmips_min_sopc_tb_drc_synth.rpt"/>
   <File Type="PA-TCL" Name="openmips_min_sopc_tb.tcl"/>
+  <File Type="RDS-PROPCONSTRS" Name="openmips_min_sopc_tb_drc_synth.rpt"/>
   <File Type="RDS-RDS" Name="openmips_min_sopc_tb.vds"/>
   <File Type="RDS-UTIL" Name="openmips_min_sopc_tb_utilization_synth.rpt"/>
   <File Type="RDS-UTIL-PB" Name="openmips_min_sopc_tb_utilization_synth.pb"/>
@@ -176,9 +176,7 @@
     </Config>
   </FileSet>
   <Strategy Version="1" Minor="2">
-    <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2016">
-      <Desc>Vivado Synthesis Defaults</Desc>
-    </StratHandle>
+    <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2016"/>
     <Step Id="synth_design"/>
   </Strategy>
 </GenRun>
