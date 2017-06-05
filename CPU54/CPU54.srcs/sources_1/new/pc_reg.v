@@ -21,31 +21,49 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module PC_REG(
-    input               clk,
-    input               rst,
-	input  wire[5:0]	stall,
-    output  reg[31:0]   pc,
-    output  reg         rom_en_o
-    );
-    
-    always@(posedge clk)
-	begin
-        if(rst == `RstEnable) begin
-            rom_en_o <= `ChipDisable;
-    end
-	else begin
-	rom_en_o <=  `ChipEnable;
-	end
-	end
+module pc_reg(
+
+	input						  clk,
+	input 						  rst,
+
+	//From Control
+	input[5:0]	                  stall,
+	input						  flush,   //pipeline flush sigal
+	input[31:0]           	 	  new_pc,
+
+	//From ID
+	input 	                      branch_flag_i,
+	input[31:0]		              branch_target_address_i,
 	
-	always@(posedge clk)
-	begin
-		if(rom_en_o == `ChipDisable) begin
-			pc <= `ZeroWord;
+	output reg[31:0]   			  pc,
+	output reg                    ce	   //chip enable
+);
+
+	always @ (posedge clk) begin
+		if (ce == `ChipDisable) begin
+			pc <= 32'h0000_0000;
+		end 
+		else begin
+			if(flush == 1'b1) begin
+				pc <= new_pc;
+			end 
+			else if(stall[0] == `NoStop) begin
+				if(branch_flag_i == `Branch) begin
+					pc <= branch_target_address_i;
+				end 
+				else begin
+		  		pc <= pc + 4'h4;
+		  	end
+			end
+		end
 	end
-	else if(stall[0] == `NoStop) begin
-		pc <= pc + 4'h4;
+
+	always @ (posedge clk) begin
+		if (rst == `RstEnable) begin
+			ce <= `ChipDisable;
+		end else begin
+			ce <= `ChipEnable;
+		end
 	end
-	end
+
 endmodule

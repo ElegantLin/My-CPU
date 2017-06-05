@@ -3,28 +3,29 @@ Copyright 1986-1999, 2001-2016 Xilinx, Inc. All Rights Reserved.
 Running: D:/Xilinx/Vivado/2016.4/bin/unwrapped/win64.o/xelab.exe -wto 908ff2afc6fa41aaa5a0126c9d1784a8 --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot openmips_min_sopc_tb_behav xil_defaultlib.openmips_min_sopc_tb xil_defaultlib.glbl -log elaborate.log 
 Using 2 slave threads.
 Starting static elaboration
-WARNING: [VRFC 10-278] actual bit length 6 differs from formal bit length 1 for port stallreq [D:/Computer Architecture/My-CPU/CPU54/CPU54.srcs/sources_1/new/openmips.v:147]
-WARNING: [VRFC 10-278] actual bit length 6 differs from formal bit length 1 for port stallreq [D:/Computer Architecture/My-CPU/CPU54/CPU54.srcs/sources_1/new/openmips.v:228]
-WARNING: [VRFC 10-278] actual bit length 6 differs from formal bit length 1 for port stallreq_from_id [D:/Computer Architecture/My-CPU/CPU54/CPU54.srcs/sources_1/new/openmips.v:324]
-WARNING: [VRFC 10-278] actual bit length 6 differs from formal bit length 1 for port stallreq_from_ex [D:/Computer Architecture/My-CPU/CPU54/CPU54.srcs/sources_1/new/openmips.v:325]
+WARNING: [VRFC 10-278] actual bit length 1 differs from formal bit length 4 for port ram_ce_o [D:/Computer Architecture/My-CPU/CPU54/CPU54.srcs/sources_1/new/openmips_min_sopc.v:61]
+WARNING: [VRFC 10-278] actual bit length 4 differs from formal bit length 1 for port mem_ce_o [D:/Computer Architecture/My-CPU/CPU54/CPU54.srcs/sources_1/new/openmips.v:528]
 Completed static elaboration
 Starting simulation data flow analysis
 Completed simulation data flow analysis
 Time Resolution for simulation is 1ps
-Compiling module xil_defaultlib.PC_REG
-Compiling module xil_defaultlib.IF_ID
-Compiling module xil_defaultlib.ID
-Compiling module xil_defaultlib.Regfile
-Compiling module xil_defaultlib.ID_ALU
-Compiling module xil_defaultlib.ALU
-Compiling module xil_defaultlib.ALU_MEM
+Compiling module xil_defaultlib.pc_reg
+Compiling module xil_defaultlib.if_id
+Compiling module xil_defaultlib.id
+Compiling module xil_defaultlib.regfile
+Compiling module xil_defaultlib.id_ex
+Compiling module xil_defaultlib.ex
+Compiling module xil_defaultlib.ex_mem
 Compiling module xil_defaultlib.mem
 Compiling module xil_defaultlib.mem_wb
 Compiling module xil_defaultlib.hilo_reg
-Compiling module xil_defaultlib.CTRL
-Compiling module xil_defaultlib.DIV
+Compiling module xil_defaultlib.ctrl
+Compiling module xil_defaultlib.div
+Compiling module xil_defaultlib.LLbit_reg
+Compiling module xil_defaultlib.cp0_reg
 Compiling module xil_defaultlib.openmips
 Compiling module xil_defaultlib.inst_rom
+Compiling module xil_defaultlib.data_ram
 Compiling module xil_defaultlib.openmips_min_sopc
 Compiling module xil_defaultlib.openmips_min_sopc_tb
 Compiling module xil_defaultlib.glbl

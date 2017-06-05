@@ -22,23 +22,29 @@
 
 
 module hilo_reg(
-    input           clk,
-    input           rst,
-    input           we,
-    input[31:0]     hi_data_write_i,
-    input[31:0]     lo_data_write_i,
-    
-    output reg[31:0]    hi_data_read_o,
-    output reg[31:0]    lo_data_read_o
-    );
-    
-    always@(posedge clk) begin
-        if(rst == `RstEnable) begin
-            hi_data_read_o <= `ZeroWord;
-            lo_data_read_o <= `ZeroWord;
-        end else if((we == `WriteEnable)) begin
-            hi_data_read_o <= hi_data_write_i;
-            lo_data_read_o <= lo_data_write_i;
-        end
-    end
+
+	input	wire										clk,
+	input wire										rst,
+	
+	//写端口
+	input wire										we,
+	input wire[`RegBus]				    hi_i,
+	input wire[`RegBus]						lo_i,
+	
+	//读端口1
+	output reg[`RegBus]           hi_o,
+	output reg[`RegBus]           lo_o
+	
+);
+
+	always @ (posedge clk) begin
+		if (rst == `RstEnable) begin
+					hi_o <= `ZeroWord;
+					lo_o <= `ZeroWord;
+		end else if((we == `WriteEnable)) begin
+					hi_o <= hi_i;
+					lo_o <= lo_i;
+		end
+	end
+
 endmodule

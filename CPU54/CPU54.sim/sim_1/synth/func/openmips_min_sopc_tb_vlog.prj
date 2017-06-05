@@ -1,0 +1,5 @@
+# compile verilog/system verilog design source files
+verilog xil_defaultlib  "openmips_min_sopc_tb_func_synth.v"
+
+# Do not sort compile order
+nosort

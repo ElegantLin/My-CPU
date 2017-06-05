@@ -20,24 +20,24 @@
 // 
 //////////////////////////////////////////////////////////////////////////////////
 
-
 module inst_rom(
 
-	input               rom_en_i,
-	input[31:0]			addr_i,
-	output reg[31:0]	inst_o
+//	input	wire										clk,
+	input wire										ce,
+	input wire[`InstAddrBus]			addr,
+	output reg[`InstBus]					inst
 	
 );
 
-	reg[31:0]  inst_mem[0:`InstMemNum-1];
+	reg[`InstBus]  inst_mem[0:`InstMemNum-1];
 
-	initial $readmemh ("D:/Computer Architecture/My-CPU/CPU54/CPU54.srcs/sources_1/new/inst_rom.data", inst_mem );
+	initial $readmemh ( "D:/Computer Architecture/My-CPU/CPU54/CPU54.srcs/sources_1/new/inst_rom.data", inst_mem );
 
 	always @ (*) begin
-		if (rom_en_i == `ChipDisable) begin
-			inst_o <= `ZeroWord;
+		if (ce == `ChipDisable) begin
+			inst <= `ZeroWord;
 	  end else begin
-		  inst_o <= inst_mem[addr_i[`InstMemNumLog2+1:2]];
+		  inst <= inst_mem[addr[`InstMemNumLog2+1:2]];
 		end
 	end
 

@@ -22,51 +22,97 @@
 
 module mem_wb(
 
-	input		clk,
-	input 		rst,
+	input						 clk,
+	input 						 rst,
 	
-	input[4:0]  addr_write_i,
-	input       mem_write_en_i,
-	input[31:0] data_write_i,
+	//From ctrl.v
+	input[5:0]               	 stall,	
+	input 		                 flush,	
 	
-	input[31:0] mem_data_lo_write_i,
-	input[31:0] mem_data_hi_write_i,
-	input 		mem_hilo_write_en_i,
-	input[5:0]	  	  stall,
+	//From mem.v	
+	input[4:0]       		 	 mem_wd,		//write address
+	input		                 mem_wreg,		//write enable
+	input[31:0]					 mem_wdata,		//write data
+	input[31:0]          		 mem_hi,		//write high reg
+	input[31:0]		             mem_lo,		//write low reg
+	input	                  	 mem_whilo,		//write high_low enable	
+	
+	input		                 mem_LLbit_we,	//write LLbit enable
+	input	                     mem_LLbit_value,	//write LLbit data
 
-	output reg[4:0]   addr_write_o,
-	output reg        reg_write_en_o,
-	output reg[31:0]  data_write_o,
-	
-	output reg[31:0]  wb_data_lo_write_o,
-	output reg[31:0]  wb_data_hi_write_o,
-	output reg        wb_hilo_write_en_o
+	input		                 mem_cp0_reg_we,	//write cp0 enable
+	input[4:0]	                 mem_cp0_reg_write_addr,//write cp0 address
+	input[31:0] 		         mem_cp0_reg_data,	//write cp0 data
+
+	//To write back
+	output reg[4:0]		         wb_wd,			//write back address
+	output reg                   wb_wreg,		//write back enable
+	output reg[31:0]			 wb_wdata,		//write back data
+	output reg[31:0]    	     wb_hi,			//write back hi reg
+	output reg[31:0]	         wb_lo,			//write back low reg
+	output reg                   wb_whilo,
+
+	output reg                  wb_LLbit_we,
+	output reg                  wb_LLbit_value,
+
+	output reg                   wb_cp0_reg_we,
+	output reg[4:0]              wb_cp0_reg_write_addr,
+	output reg[`RegBus]          wb_cp0_reg_data								       
 	
 );
 
 
 	always @ (posedge clk) begin
 		if(rst == `RstEnable) begin
-			addr_write_o <= `NOPRegAddr;
-			reg_write_en_o <= `WriteDisable;
-			data_write_o <= `ZeroWord;
-			wb_data_hi_write_o <= `ZeroWord;
-			wb_data_lo_write_o <= `ZeroWord;
-			wb_hilo_write_en_o <= `WriteDisable;
+			wb_wd <= `NOPRegAddr;
+			wb_wreg <= `WriteDisable;
+		  wb_wdata <= `ZeroWord;	
+		  wb_hi <= `ZeroWord;
+		  wb_lo <= `ZeroWord;
+		  wb_whilo <= `WriteDisable;
+		  wb_LLbit_we <= 1'b0;
+		  wb_LLbit_value <= 1'b0;		
+			wb_cp0_reg_we <= `WriteDisable;
+			wb_cp0_reg_write_addr <= 5'b00000;
+			wb_cp0_reg_data <= `ZeroWord;			
+		end else if(flush == 1'b1 ) begin
+			wb_wd <= `NOPRegAddr;
+			wb_wreg <= `WriteDisable;
+		  wb_wdata <= `ZeroWord;
+		  wb_hi <= `ZeroWord;
+		  wb_lo <= `ZeroWord;
+		  wb_whilo <= `WriteDisable;
+		  wb_LLbit_we <= 1'b0;
+		  wb_LLbit_value <= 1'b0;	
+			wb_cp0_reg_we <= `WriteDisable;
+			wb_cp0_reg_write_addr <= 5'b00000;
+			wb_cp0_reg_data <= `ZeroWord;				  				  	  	
 		end else if(stall[4] == `Stop && stall[5] == `NoStop) begin
-			addr_write_o <= `NOPRegAddr;
-			reg_write_en_o <= `WriteDisable;
-			data_write_o <= `ZeroWord;
-			wb_data_hi_write_o <= `ZeroWord;
-			wb_data_lo_write_o <= `ZeroWord;
-			wb_hilo_write_en_o <= `WriteDisable;
+			wb_wd <= `NOPRegAddr;
+			wb_wreg <= `WriteDisable;
+		  wb_wdata <= `ZeroWord;
+		  wb_hi <= `ZeroWord;
+		  wb_lo <= `ZeroWord;
+		  wb_whilo <= `WriteDisable;	
+		  wb_LLbit_we <= 1'b0;
+		  wb_LLbit_value <= 1'b0;	
+			wb_cp0_reg_we <= `WriteDisable;
+			wb_cp0_reg_write_addr <= 5'b00000;
+			wb_cp0_reg_data <= `ZeroWord;					  		  	  	  
 		end else if(stall[4] == `NoStop) begin
-			addr_write_o <= addr_write_i;
-			reg_write_en_o <= mem_write_en_i;
-			data_write_o <= data_write_i;
-			wb_data_hi_write_o <= mem_data_hi_write_i;
-			wb_data_lo_write_o <= mem_data_lo_write_i;
-			wb_hilo_write_en_o <= mem_hilo_write_en_i;
-		end  
-	end     
+			wb_wd <= mem_wd;
+			wb_wreg <= mem_wreg;
+			wb_wdata <= mem_wdata;
+			wb_hi <= mem_hi;
+			wb_lo <= mem_lo;
+			wb_whilo <= mem_whilo;		
+		  wb_LLbit_we <= mem_LLbit_we;
+		  wb_LLbit_value <= mem_LLbit_value;		
+			wb_cp0_reg_we <= mem_cp0_reg_we;
+			wb_cp0_reg_write_addr <= mem_cp0_reg_write_addr;
+			wb_cp0_reg_data <= mem_cp0_reg_data;			  		
+		end    //if
+	end      //always
+			
+
 endmodule

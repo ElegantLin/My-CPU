@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenRun Id="synth_1" LaunchPart="xc7vx485tffg1157-1" LaunchTime="1496675470">
+  <File Type="RDS-PROPCONSTRS" Name="openmips_min_sopc_tb_drc_synth.rpt"/>
+  <File Type="PA-TCL" Name="openmips_min_sopc_tb.tcl"/>
+  <File Type="RDS-RDS" Name="openmips_min_sopc_tb.vds"/>
+  <File Type="RDS-UTIL" Name="openmips_min_sopc_tb_utilization_synth.rpt"/>
+  <File Type="RDS-UTIL-PB" Name="openmips_min_sopc_tb_utilization_synth.pb"/>
+  <File Type="RDS-DCP" Name="openmips_min_sopc_tb.dcp"/>
+  <File Type="VDS-TIMINGSUMMARY" Name="openmips_min_sopc_tb_timing_summary_synth.rpt"/>
+  <File Type="VDS-TIMING-PB" Name="openmips_min_sopc_tb_timing_summary_synth.pb"/>
+  <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1">
+    <Filter Type="Srcs"/>
+    <File Path="$PSRCDIR/sources_1/imports/Chpater7_3/defines.v">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="C:/Users/Elegant/Downloads/Code/Chpater7_3/defines.v"/>
+        <Attr Name="ImportTime" Val="1393724522"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/Chpater7_3/mem_wb.v">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="C:/Users/Elegant/Downloads/Code/Chpater7_3/mem_wb.v"/>
+        <Attr Name="ImportTime" Val="1393429470"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/Chpater7_3/regfile.v">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="C:/Users/Elegant/Downloads/Code/Chpater7_3/regfile.v"/>
+        <Attr Name="ImportTime" Val="1391781824"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/Chpater7_3/hilo_reg.v">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="C:/Users/Elegant/Downloads/Code/Chpater7_3/hilo_reg.v"/>
+        <Attr Name="ImportTime" Val="1392001756"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/Chpater7_3/mem.v">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="C:/Users/Elegant/Downloads/Code/Chpater7_3/mem.v"/>
+        <Attr Name="ImportTime" Val="1393209942"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/Chpater7_3/pc_reg.v">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="C:/Users/Elegant/Downloads/Code/Chpater7_3/pc_reg.v"/>
+        <Attr Name="ImportTime" Val="1396150922"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/Chpater7_3/div.v">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="C:/Users/Elegant/Downloads/Code/Chpater7_3/div.v"/>
+        <Attr Name="ImportTime" Val="1393725174"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/Chpater7_3/ex.v">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="C:/Users/Elegant/Downloads/Code/Chpater7_3/ex.v"/>
+        <Attr Name="ImportTime" Val="1394940258"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/Chpater7_3/ex_mem.v">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="C:/Users/Elegant/Downloads/Code/Chpater7_3/ex_mem.v"/>
+        <Attr Name="ImportTime" Val="1393685542"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/Chpater7_3/if_id.v">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="C:/Users/Elegant/Downloads/Code/Chpater7_3/if_id.v"/>
+        <Attr Name="ImportTime" Val="1393429266"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/Chpater7_3/id.v">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="C:/Users/Elegant/Downloads/Code/Chpater7_3/id.v"/>
+        <Attr Name="ImportTime" Val="1399861056"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/Chpater7_3/ctrl.v">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="C:/Users/Elegant/Downloads/Code/Chpater7_3/ctrl.v"/>
+        <Attr Name="ImportTime" Val="1393645206"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/Chpater7_3/id_ex.v">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="C:/Users/Elegant/Downloads/Code/Chpater7_3/id_ex.v"/>
+        <Attr Name="ImportTime" Val="1393429306"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/Chpater7_3/inst_rom.v">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="C:/Users/Elegant/Downloads/Code/Chpater7_3/inst_rom.v"/>
+        <Attr Name="ImportTime" Val="1396150994"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/Chpater7_3/openmips.v">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="C:/Users/Elegant/Downloads/Code/Chpater7_3/openmips.v"/>
+        <Attr Name="ImportTime" Val="1396150944"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/Chpater7_3/openmips_min_sopc.v">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="C:/Users/Elegant/Downloads/Code/Chpater7_3/openmips_min_sopc.v"/>
+        <Attr Name="ImportTime" Val="1396150974"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/Chpater7_3/openmips_min_sopc_tb.v">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="C:/Users/Elegant/Downloads/Code/Chpater7_3/openmips_min_sopc_tb.v"/>
+        <Attr Name="ImportTime" Val="1393726614"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <Config>
+      <Option Name="DesignMode" Val="RTL"/>
+      <Option Name="TopModule" Val="openmips_min_sopc_tb"/>
+      <Option Name="TopAutoSet" Val="TRUE"/>
+    </Config>
+  </FileSet>
+  <FileSet Name="constrs_in" Type="Constrs" RelSrcDir="$PSRCDIR/constrs_1">
+    <Filter Type="Constrs"/>
+    <Config>
+      <Option Name="ConstrsType" Val="XDC"/>
+    </Config>
+  </FileSet>
+  <Strategy Version="1" Minor="2">
+    <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2016">
+      <Desc>Vivado Synthesis Defaults</Desc>
+    </StratHandle>
+    <Step Id="synth_design"/>
+  </Strategy>
+</GenRun>
