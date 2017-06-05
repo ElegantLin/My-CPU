@@ -2,3 +2,6 @@ Running: xsim.dir/openmips_min_sopc_tb_behav/xsimk.exe -simmode gui -wdb openmip
 Design successfully loaded
 Design Loading Memory Usage: 9808 KB (Peak: 9808 KB)
 Design Loading CPU Usage: 30 ms
+Simulation completed
+Simulation Memory Usage: 11320 KB (Peak: 11320 KB)
+Simulation CPU Usage: 187 ms
