@@ -1,0 +1,23 @@
+# compile verilog/system verilog design source files
+verilog xil_defaultlib  "../../../project_2.srcs/sources_1/imports/Chapter8/div.v"
+verilog xil_defaultlib  "../../../project_2.srcs/sources_1/imports/Chapter8/ex.v"
+verilog xil_defaultlib  "../../../project_2.srcs/sources_1/imports/Chapter8/if_id.v"
+verilog xil_defaultlib  "../../../project_2.srcs/sources_1/imports/Chapter8/pc_reg.v"
+verilog xil_defaultlib  "../../../project_2.srcs/sources_1/imports/Chapter8/hilo_reg.v"
+verilog xil_defaultlib  "../../../project_2.srcs/sources_1/imports/Chapter8/id_ex.v"
+verilog xil_defaultlib  "../../../project_2.srcs/sources_1/imports/Chapter8/ctrl.v"
+verilog xil_defaultlib  "../../../project_2.srcs/sources_1/imports/Chapter8/regfile.v"
+verilog xil_defaultlib  "../../../project_2.srcs/sources_1/imports/Chapter8/mem.v"
+verilog xil_defaultlib  "../../../project_2.srcs/sources_1/imports/Chapter8/mem_wb.v"
+verilog xil_defaultlib  "../../../project_2.srcs/sources_1/imports/Chapter8/ex_mem.v"
+verilog xil_defaultlib  "../../../project_2.srcs/sources_1/imports/Chapter8/id.v"
+verilog xil_defaultlib  "../../../project_2.srcs/sources_1/imports/Chapter8/inst_rom.v"
+verilog xil_defaultlib  "../../../project_2.srcs/sources_1/imports/Chapter8/openmips.v"
+verilog xil_defaultlib  "../../../project_2.srcs/sources_1/imports/Chapter8/openmips_min_sopc.v"
+verilog xil_defaultlib  "../../../project_2.srcs/sources_1/imports/Chapter8/openmips_min_sopc_tb.v"
+
+# compile glbl module
+verilog xil_defaultlib "glbl.v"
+
+# Do not sort compile order
+nosort

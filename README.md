@@ -281,4 +281,9 @@ The testing codes are:
 The simulation wave is 
 ![](http://i.imgur.com/e4QYTb1.png)
 
+## Version0.6
+I have successfully finished the **jump** instructions
+The simulation wave is
+![](http://i.imgur.com/Q6TCkhp.png)
+
 
