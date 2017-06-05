@@ -41,7 +41,7 @@ module openmips_min_sopc_tb();
   
        
   initial begin
-	file_output = $fopen("D:/Computer Architecture/My-CPU/CPU54/CPU54.srcs/sources_1/new/result.txt");
+	file_output = $fopen("D:/Computer Architecture/My-CPU/CPU54/CPU54.srcs/sources_1/new/README.txt");
     CLOCK_50 = 1'b0;
     forever #10 CLOCK_50 = ~CLOCK_50;
   end
