@@ -22,83 +22,63 @@
 //////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
-// Module:  ex_mem
-// File:    ex_mem.v
+// Module:  data_ram
+// File:    data_ram.v
 // Author:  Lei Silei
 // E-mail:  leishangwen@163.com
-// Description: EX/MEM阶段的寄存器
+// Description: 数据存储器
 // Revision: 1.0
 //////////////////////////////////////////////////////////////////////
 
 `include "defines.v"
 
-module ex_mem(
+module data_ram(
 
 	input	wire										clk,
-	input wire										rst,
-
-	//来自控制模块的信息
-	input wire[5:0]							 stall,	
-	
-	//来自执行阶段的信息	
-	input wire[`RegAddrBus]       ex_wd,
-	input wire                    ex_wreg,
-	input wire[`RegBus]					 ex_wdata, 	
-	input wire[`RegBus]           ex_hi,
-	input wire[`RegBus]           ex_lo,
-	input wire                    ex_whilo, 	
-
-	input wire[`DoubleRegBus]     hilo_i,	
-	input wire[1:0]               cnt_i,	
-	
-	//送到访存阶段的信息
-	output reg[`RegAddrBus]      mem_wd,
-	output reg                   mem_wreg,
-	output reg[`RegBus]					 mem_wdata,
-	output reg[`RegBus]          mem_hi,
-	output reg[`RegBus]          mem_lo,
-	output reg                   mem_whilo,
-	
-	output reg[`DoubleRegBus]    hilo_o,
-	output reg[1:0]              cnt_o	
-	
+	input wire										ce,
+	input wire										we,
+	input wire[`DataAddrBus]			addr,
+	input wire[3:0]								sel,
+	input wire[`DataBus]						data_i,
+	output reg[`DataBus]					data_o
 	
 );
 
+	reg[`ByteWidth]  data_mem0[0:`DataMemNum-1];
+	reg[`ByteWidth]  data_mem1[0:`DataMemNum-1];
+	reg[`ByteWidth]  data_mem2[0:`DataMemNum-1];
+	reg[`ByteWidth]  data_mem3[0:`DataMemNum-1];
 
 	always @ (posedge clk) begin
-		if(rst == `RstEnable) begin
-			mem_wd <= `NOPRegAddr;
-			mem_wreg <= `WriteDisable;
-		  mem_wdata <= `ZeroWord;	
-		  mem_hi <= `ZeroWord;
-		  mem_lo <= `ZeroWord;
-		  mem_whilo <= `WriteDisable;		
-	    hilo_o <= {`ZeroWord, `ZeroWord};
-			cnt_o <= 2'b00;	
-		end else if(stall[3] == `Stop && stall[4] == `NoStop) begin
-			mem_wd <= `NOPRegAddr;
-			mem_wreg <= `WriteDisable;
-		  mem_wdata <= `ZeroWord;
-		  mem_hi <= `ZeroWord;
-		  mem_lo <= `ZeroWord;
-		  mem_whilo <= `WriteDisable;
-	    hilo_o <= hilo_i;
-			cnt_o <= cnt_i;			  				    
-		end else if(stall[3] == `NoStop) begin
-			mem_wd <= ex_wd;
-			mem_wreg <= ex_wreg;
-			mem_wdata <= ex_wdata;	
-			mem_hi <= ex_hi;
-			mem_lo <= ex_lo;
-			mem_whilo <= ex_whilo;	
-	    hilo_o <= {`ZeroWord, `ZeroWord};
-			cnt_o <= 2'b00;	
+		if (ce == `ChipDisable) begin
+			//data_o <= ZeroWord;
+		end else if(we == `WriteEnable) begin
+			  if (sel[3] == 1'b1) begin
+		      data_mem3[addr[`DataMemNumLog2+1:2]] <= data_i[31:24];
+		    end
+			  if (sel[2] == 1'b1) begin
+		      data_mem2[addr[`DataMemNumLog2+1:2]] <= data_i[23:16];
+		    end
+		    if (sel[1] == 1'b1) begin
+		      data_mem1[addr[`DataMemNumLog2+1:2]] <= data_i[15:8];
+		    end
+			  if (sel[0] == 1'b1) begin
+		      data_mem0[addr[`DataMemNumLog2+1:2]] <= data_i[7:0];
+		    end			   	    
+		end
+	end
+	
+	always @ (*) begin
+		if (ce == `ChipDisable) begin
+			data_o <= `ZeroWord;
+	  end else if(we == `WriteDisable) begin
+		    data_o <= {data_mem3[addr[`DataMemNumLog2+1:2]],
+		               data_mem2[addr[`DataMemNumLog2+1:2]],
+		               data_mem1[addr[`DataMemNumLog2+1:2]],
+		               data_mem0[addr[`DataMemNumLog2+1:2]]};
 		end else begin
-	    hilo_o <= hilo_i;
-			cnt_o <= cnt_i;											
-		end    //if
-	end      //always
-			
+				data_o <= `ZeroWord;
+		end
+	end		
 
 endmodule

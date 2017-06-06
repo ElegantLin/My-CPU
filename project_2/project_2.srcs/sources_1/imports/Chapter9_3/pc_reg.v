@@ -22,56 +22,51 @@
 //////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
-// Module:  mem
-// File:    mem.v
+// Module:  pc_reg
+// File:    pc_reg.v
 // Author:  Lei Silei
 // E-mail:  leishangwen@163.com
-// Description: 访存阶段
+// Description: 指令指针寄存器PC
 // Revision: 1.0
 //////////////////////////////////////////////////////////////////////
 
 `include "defines.v"
 
-module mem(
+module pc_reg(
 
+	input	wire										clk,
 	input wire										rst,
+
+	//来自控制模块的信息
+	input wire[5:0]               stall,
+
+	//来自译码阶段的信息
+	input wire                    branch_flag_i,
+	input wire[`RegBus]           branch_target_address_i,
 	
-	//来自执行阶段的信息	
-	input wire[`RegAddrBus]       wd_i,
-	input wire                    wreg_i,
-	input wire[`RegBus]					  wdata_i,
-	input wire[`RegBus]           hi_i,
-	input wire[`RegBus]           lo_i,
-	input wire                    whilo_i,	
-	
-	//送到回写阶段的信息
-	output reg[`RegAddrBus]      wd_o,
-	output reg                   wreg_o,
-	output reg[`RegBus]					 wdata_o,
-	output reg[`RegBus]          hi_o,
-	output reg[`RegBus]          lo_o,
-	output reg                   whilo_o	
+	output reg[`InstAddrBus]			pc,
+	output reg                    ce
 	
 );
 
-	
-	always @ (*) begin
-		if(rst == `RstEnable) begin
-			wd_o <= `NOPRegAddr;
-			wreg_o <= `WriteDisable;
-		  wdata_o <= `ZeroWord;
-		  hi_o <= `ZeroWord;
-		  lo_o <= `ZeroWord;
-		  whilo_o <= `WriteDisable;		  
+	always @ (posedge clk) begin
+		if (ce == `ChipDisable) begin
+			pc <= 32'h00000000;
+		end else if(stall[0] == `NoStop) begin
+		  	if(branch_flag_i == `Branch) begin
+					pc <= branch_target_address_i;
+				end else begin
+		  		pc <= pc + 4'h4;
+		  	end
+		end
+	end
+
+	always @ (posedge clk) begin
+		if (rst == `RstEnable) begin
+			ce <= `ChipDisable;
 		end else begin
-		  wd_o <= wd_i;
-			wreg_o <= wreg_i;
-			wdata_o <= wdata_i;
-			hi_o <= hi_i;
-			lo_o <= lo_i;
-			whilo_o <= whilo_i;			
-		end    //if
-	end      //always
-			
+			ce <= `ChipEnable;
+		end
+	end
 
 endmodule

@@ -1,15 +1,14 @@
-Unable to capture context for thread 14224 in process 19296, can not generate back trace
-Unable to capture context for thread 19280 in process 19296, can not generate back trace
-Unable to capture context for thread 16000 in process 19296, can not generate back trace
+Unable to capture context for thread 7876 in process 18636, can not generate back trace
+Unable to capture context for thread 11092 in process 18636, can not generate back trace
+Unable to capture context for thread 20624 in process 18636, can not generate back trace
+Unable to capture context for thread 14752 in process 18636, can not generate back trace
 Exception at PC 0x00007FFAC8749E08
-Unable to capture context for thread 4728 in process 19296, can not generate back trace
-Unable to capture context for thread 9932 in process 19296, can not generate back trace
-Exception at PC 0x00007FFAC8749E08
-Unable to capture context for thread 7948 in process 19296, can not generate back trace
-Exception at PC 0x00007FFA4E05BB93
+Unable to capture context for thread 7876 in process 18636, can not generate back trace
+Unable to capture context for thread 18784 in process 18636, can not generate back trace
+Exception at PC 0x00007FFA46C1BB93
 Printing stacktrace...
 
-Unable to capture context for thread 7948 in process 19296, can not generate back trace
+Unable to capture context for thread 18784 in process 18636, can not generate back trace
 Exception at PC 0x00007FFAC8749E08
 Exception at PC 0x00007FFAC8749E08
 Exception at PC 0x00007FFAC8749E08
@@ -22,18 +21,19 @@ Exception at PC 0x00007FFAC8749E08
 Exception at PC 0x00007FFAC8749E08
 Exception at PC 0x00007FFAC8749E08
 Exception at PC 0x00007FFAC8749E08
-[0]  [0x00007FFA4E05BB93]
-[1]  [0x00007FFA4E05BB93]
-[2]  [0x00007FFA4E05B4A1]
-[3]  [0x00007FFA4E05B3EF]
-[4]  [0x00007FFA4E0419FE]
-[5]  [0x00007FFA4E040ED1]
-[6]  [0x00007FFA4E040D76]
-[7]  [0x00007FFA4DFE79F6]
-[8]  [0x00007FFA4DFD7AFB]
-[9]  [0x00007FFA4E0FE90A]
-[10]  [0x00007FFA4E119F87]
-[11]  [0x00007FFA4E11A05F]
+Exception at PC 0x00007FFAC8749E08
+[0]  [0x00007FFA46C1BB93]
+[1]  [0x00007FFA46C1BB93]
+[2]  [0x00007FFA46C1B4A1]
+[3]  [0x00007FFA46C1B3EF]
+[4]  [0x00007FFA46C019FE]
+[5]  [0x00007FFA46C00ED1]
+[6]  [0x00007FFA46C00D76]
+[7]  [0x00007FFA46BA79F6]
+[8]  [0x00007FFA46B97AFB]
+[9]  [0x00007FFA46CBE90A]
+[10]  [0x00007FFA46CD9F87]
+[11]  [0x00007FFA46CDA05F]
 [12] (BaseThreadInitThunk+0x14) [0x00007FFACB852774]
 [13] (RtlUserThreadStart+0x21) [0x00007FFACC180D61]
 Done

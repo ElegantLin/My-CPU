@@ -43,7 +43,8 @@ module ex(
 	input wire[`RegBus]           reg2_i,
 	input wire[`RegAddrBus]       wd_i,
 	input wire                    wreg_i,
-
+	input wire[`RegBus]           inst_i,
+	
 	//HI、LO寄存器的值
 	input wire[`RegBus]           hi_i,
 	input wire[`RegBus]           lo_i,
@@ -85,6 +86,11 @@ module ex(
 	output reg                    div_start_o,
 	output reg                    signed_div_o,
 
+	//下面新增的几个输出是为加载、存储指令准备的
+	output wire[`AluOpBus]        aluop_o,
+	output wire[`RegBus]          mem_addr_o,
+	output wire[`RegBus]          reg2_o,
+
 	output reg										stallreq       			
 	
 );
@@ -108,6 +114,15 @@ module ex(
 	reg[`DoubleRegBus] hilo_temp1;
 	reg stallreq_for_madd_msub;			
 	reg stallreq_for_div;
+
+  //aluop_o传递到访存阶段，用于加载、存储指令
+  assign aluop_o = aluop_i;
+  
+  //mem_addr传递到访存阶段，是加载、存储指令对应的存储器地址
+  assign mem_addr_o = reg1_i + {{16{inst_i[15]}},inst_i[15:0]};
+
+  //将两个操作数也传递到访存阶段，也是为记载、存储指令准备的
+  assign reg2_o = reg2_i;
 			
 	always @ (*) begin
 		if(rst == `RstEnable) begin
@@ -395,13 +410,9 @@ module ex(
 
  always @ (*) begin
 	 wd_o <= wd_i;
-	 	 	 	
-	 if(((aluop_i == `EXE_ADD_OP) || (aluop_i == `EXE_ADDI_OP) || 
-	      (aluop_i == `EXE_SUB_OP)) && (ov_sum == 1'b1)) begin
-	 	wreg_o <= `WriteDisable;
-	 end else begin
+
 	  wreg_o <= wreg_i;
-	 end
+
 	 
 	 case ( alusel_i ) 
 	 	`EXE_RES_LOGIC:		begin
