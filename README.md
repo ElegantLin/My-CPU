@@ -1,10 +1,22 @@
-# 54 CPU Instructions
+# 54 Instructions 5-stage pipeline CPU
 
-This project is the final project of Computer Architecture and Structure, which is construct a 5 stage pipeline CPU of MIPS. The modules of this projects are:
+## Background
+
+This project is **Zonglin**'s final project of Computer Architecture and Structure of Tonji University, Shanghai, P.R.China,  whose class ID is **10101602** and its corresponding experiment ID is  **10012502**. These courses are given in the spring semester. Students can learn about the core of computer design in one semester through several projects and homework. Those who want to join this course are strongly recommended to have learned **Digital Logic** and **Verilog and FPGA Design**. The website of this course is mips246.tongji.edu.cn. The total credits of this course is **7**.
+
+## Course Instructors
+* Prof. Lisheng WANG
+* Prof. Yongsheng CHEN
+* Prof. Yongtao HAO
+* Prof. Dongdong ZHNAG
+
+
+## Structure of this project
+
 * PC.v
 * ALU.v
 
-
+## My Instruction set
 The instructions I have successfully constructed are:
 1. ori rt, rs, immediate
 2. and rd, rs, rt 
