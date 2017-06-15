@@ -5,7 +5,7 @@ For this course hasn't ended until the summer 2017. To prevent being copied by o
 
 ## Course Info
 
-This project is **Zonglin**'s final project of Computer Architecture and Structure of Tonji University, Shanghai, P.R.China,  whose class ID is **10101602** and its corresponding experiment ID is  **10012502**. These courses are given in the spring semester. Students can learn about the core of computer design in one semester through several projects and homework. Those who want to join this course are strongly recommended to have learned **Digital Logic** and **Verilog and FPGA Design**. The website of this course is mips246.tongji.edu.cn. The total credits of this course is **7**.
+This project is **Zonglin**'s final project of Computer Architecture and Structure of Tonji University, Shanghai, P.R.China,  whose class ID is **10101602** and its corresponding experiment ID is  **10012502**. These courses are given in the spring semester. Students can learn about the core of computer design in one semester through several projects and homework. Those who want to join this course are strongly recommended to have learned **Digital Logic** and **Verilog and FPGA Design**. The website of this course is mips246.tongji.edu.cn. The total credits of this course is **5.5**.
 
 ## Course Instructors
 * Prof. Lisheng WANG
