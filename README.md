@@ -309,6 +309,7 @@ The simulation wave is
 * **Silei LEI**,  *Write CPU By Yourself 1st version* 
 
 
+*All Rights Reserved. If you want to use in another project, please refer to **[GPL-3.0](https://www.gnu.org/licenses/gpl-3.0.en.html "GPL-3.0")** for more information.*
 
 *June 16, 2017 in Tongji University*
 
