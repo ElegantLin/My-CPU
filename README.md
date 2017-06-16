@@ -302,3 +302,13 @@ The simulation wave is
 ![](http://i.imgur.com/Q6TCkhp.png)
 
 
+## Acknowledgment
+* Vivado and Verilog: **Zijian WANG** (CS Junior from Tongji University)
+* Vivado and Top Test Module: **Hongwei ZHANG** (CS Junior from Tongji University)
+* Exception Instruction Handling: **Kun 5** (CS Junior from Tongji University)
+* **Silei LEI**,  *Write CPU By Yourself 1st version* 
+
+
+
+*June 16, 2017 in Tongji University*
+
