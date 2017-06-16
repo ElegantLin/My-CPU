@@ -305,7 +305,7 @@ The simulation wave is
 ## Acknowledgment
 * Vivado & Verilog: **Zijian WANG** (CS Junior from Tongji University)
 * Vivado, Top Test Module & VGA: **Hongwei ZHANG** (CS Junior from Tongji University)
-* Exception Instruction Handling: **Kun 5** (CS Junior from Tongji University)
+* Exception Instruction Handling: **Kun 5.00** (CS Junior from Tongji University)
 * **Silei LEI**,  *Write CPU By Yourself 1st version* 
 
 
