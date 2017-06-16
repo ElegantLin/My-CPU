@@ -1,3 +1,34 @@
+//////////////////////////////////////////////////////////////////////
+////                                                              ////
+//// Copyright (C) 2014 leishangwen@163.com                       ////
+////                                                              ////
+//// This source file may be used and distributed without         ////
+//// restriction provided that this copyright statement is not    ////
+//// removed from the file and that any derivative work contains  ////
+//// the original copyright notice and the associated disclaimer. ////
+////                                                              ////
+//// This source file is free software; you can redistribute it   ////
+//// and/or modify it under the terms of the GNU Lesser General   ////
+//// Public License as published by the Free Software Foundation; ////
+//// either version 2.1 of the License, or (at your option) any   ////
+//// later version.                                               ////
+////                                                              ////
+//// This source is distributed in the hope that it will be       ////
+//// useful, but WITHOUT ANY WARRANTY; without even the implied   ////
+//// warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR      ////
+//// PURPOSE.  See the GNU Lesser General Public License for more ////
+//// details.                                                     ////
+////                                                              ////
+//////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////
+// Module:  openmips_min_sopc_tb
+// File:    openmips_min_sopc_tb.v
+// Author:  Lei Silei
+// E-mail:  leishangwen@163.com
+// Description: openmips_min_sopcµÄtestbench
+// Revision: 1.0
+//////////////////////////////////////////////////////////////////////
 `include "defines.v"
 `timescale 1ns/1ps
 
@@ -5,11 +36,11 @@ module openmips_min_sopc_tb();
 
   reg     CLOCK_50;
   reg     rst;
-  integer file_output;
+  //integer file_output;
   
        
   initial begin
-	file_output = $fopen("D:/Computer Architecture/My-CPU/TestResult/addi.txt");
+	//file_output = $fopen("D:/Computer Architecture/My-CPU/TestResult/beq.txt");
     CLOCK_50 = 1'b0;
     forever #10 CLOCK_50 = ~CLOCK_50;
   end
@@ -17,7 +48,7 @@ module openmips_min_sopc_tb();
   initial begin
     rst = `RstEnable;
     #195 rst= `RstDisable;
-    #10000 $stop;
+    #1000000000 $stop;
   end
    
    openmips_min_sopc openmips_min_sopc0(
@@ -25,9 +56,9 @@ module openmips_min_sopc_tb();
           .rst(rst)    
       );
       
-   always@(posedge CLOCK_50) begin
-		$fdisplay(file_output,"instr = %h", openmips_min_sopc0.openmips0.id0.pc_i);
-		$fdisplay(file_output,"pc = %h", openmips_min_sopc0.openmips0.id0.inst_i);
+   /*always@(posedge CLOCK_50) begin
+		$fdisplay(file_output,"pc = %h", openmips_min_sopc0.openmips0.id0.pc_i);
+		$fdisplay(file_output,"instr = %h", openmips_min_sopc0.openmips0.id0.inst_i);
 		$fdisplay(file_output,"regfiles0 = %h", openmips_min_sopc0.openmips0.regfile1.regs[0]);
    		$fdisplay(file_output,"regfiles1 = %h", openmips_min_sopc0.openmips0.regfile1.regs[1]);
 		$fdisplay(file_output,"regfiles2 = %h", openmips_min_sopc0.openmips0.regfile1.regs[2]);
@@ -56,12 +87,12 @@ module openmips_min_sopc_tb();
 		$fdisplay(file_output,"regfiles25 = %h", openmips_min_sopc0.openmips0.regfile1.regs[25]);
 		$fdisplay(file_output,"regfiles26 = %h", openmips_min_sopc0.openmips0.regfile1.regs[26]);
 		$fdisplay(file_output,"regfiles27 = %h", openmips_min_sopc0.openmips0.regfile1.regs[27]);
-		$fdisplay(file_output,"regfiles28= %h", openmips_min_sopc0.openmips0.regfile1.regs[28]);
+		$fdisplay(file_output,"regfiles28 = %h", openmips_min_sopc0.openmips0.regfile1.regs[28]);
 		$fdisplay(file_output,"regfiles29 = %h", openmips_min_sopc0.openmips0.regfile1.regs[29]);
 		$fdisplay(file_output,"regfiles30 = %h", openmips_min_sopc0.openmips0.regfile1.regs[30]);
 		$fdisplay(file_output,"regfiles31 = %h", openmips_min_sopc0.openmips0.regfile1.regs[31]);
 	end
-   
+   */
   
 
 endmodule

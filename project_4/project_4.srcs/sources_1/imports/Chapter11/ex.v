@@ -1,10 +1,42 @@
+//////////////////////////////////////////////////////////////////////
+////                                                              ////
+//// Copyright (C) 2014 leishangwen@163.com                       ////
+////                                                              ////
+//// This source file may be used and distributed without         ////
+//// restriction provided that this copyright statement is not    ////
+//// removed from the file and that any derivative work contains  ////
+//// the original copyright notice and the associated disclaimer. ////
+////                                                              ////
+//// This source file is free software; you can redistribute it   ////
+//// and/or modify it under the terms of the GNU Lesser General   ////
+//// Public License as published by the Free Software Foundation; ////
+//// either version 2.1 of the License, or (at your option) any   ////
+//// later version.                                               ////
+////                                                              ////
+//// This source is distributed in the hope that it will be       ////
+//// useful, but WITHOUT ANY WARRANTY; without even the implied   ////
+//// warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR      ////
+//// PURPOSE.  See the GNU Lesser General Public License for more ////
+//// details.                                                     ////
+////                                                              ////
+//////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////
+// Module:  ex
+// File:    ex.v
+// Author:  Lei Silei
+// E-mail:  leishangwen@163.com
+// Description: 执行阶段
+// Revision: 1.0
+//////////////////////////////////////////////////////////////////////
+
 `include "defines.v"
 
 module ex(
 
-	input wire					  rst,
+	input wire										rst,
 	
-	//input of execution
+	//送到执行阶段的信息
 	input wire[`AluOpBus]         aluop_i,
 	input wire[`AluSelBus]        alusel_i,
 	input wire[`RegBus]           reg1_i,
@@ -13,18 +45,18 @@ module ex(
 	input wire                    wreg_i,
 	input wire[`RegBus]           inst_i,
 	input wire[31:0]              excepttype_i,
-	input wire[`RegBus]           current_inst_address_i,
+	input wire[`RegBus]          current_inst_address_i,
 	
-	//HI,LO register value
+	//HI、LO寄存器的值
 	input wire[`RegBus]           hi_i,
 	input wire[`RegBus]           lo_i,
 
-	//WriteBack whether write to HI,LO or not
+	//回写阶段的指令是否要写HI、LO，用于检测HI、LO的数据相关
 	input wire[`RegBus]           wb_hi_i,
 	input wire[`RegBus]           wb_lo_i,
 	input wire                    wb_whilo_i,
 	
-	//Mem whether write to HI, LO or not
+	//访存阶段的指令是否要写HI、LO，用于检测HI、LO的数据相关
 	input wire[`RegBus]           mem_hi_i,
 	input wire[`RegBus]           mem_lo_i,
 	input wire                    mem_whilo_i,
@@ -32,29 +64,29 @@ module ex(
 	input wire[`DoubleRegBus]     hilo_temp_i,
 	input wire[1:0]               cnt_i,
 
-	//Connected with DIV module
+	//与除法模块相连
 	input wire[`DoubleRegBus]     div_result_i,
 	input wire                    div_ready_i,
 
-	//Jump related
+	//是否转移、以及link address
 	input wire[`RegBus]           link_address_i,
 	input wire                    is_in_delayslot_i,	
 
-	//Mem Period: write to cp0
-	input wire                    mem_cp0_reg_we,
+	//访存阶段的指令是否要写CP0，用来检测数据相关
+  input wire                    mem_cp0_reg_we,
 	input wire[4:0]               mem_cp0_reg_write_addr,
 	input wire[`RegBus]           mem_cp0_reg_data,
 	
-	//WriteBack Period: write to cp0
-	input wire                    wb_cp0_reg_we,
+	//回写阶段的指令是否要写CP0，用来检测数据相关
+  input wire                    wb_cp0_reg_we,
 	input wire[4:0]               wb_cp0_reg_write_addr,
 	input wire[`RegBus]           wb_cp0_reg_data,
 
-	//Connected to CP0
+	//与CP0相连，读取其中CP0寄存器的值
 	input wire[`RegBus]           cp0_reg_data_i,
 	output reg[4:0]               cp0_reg_read_addr_o,
 
-	//Write Reg in the next period
+	//向下一流水级传递，用于写CP0中的寄存器
 	output reg                    cp0_reg_we_o,
 	output reg[4:0]               cp0_reg_write_addr_o,
 	output reg[`RegBus]           cp0_reg_data_o,
@@ -75,7 +107,7 @@ module ex(
 	output reg                    div_start_o,
 	output reg                    signed_div_o,
 
-	//Load & Store Instructions
+	//下面新增的几个输出是为加载、存储指令准备的
 	output wire[`AluOpBus]        aluop_o,
 	output wire[`RegBus]          mem_addr_o,
 	output wire[`RegBus]          reg2_o,
@@ -84,7 +116,7 @@ module ex(
 	output wire                   is_in_delayslot_o,
 	output wire[`RegBus]          current_inst_address_o,	
 
-	output reg					  stallreq  
+	output reg										stallreq       			
 	
 );
 
@@ -108,18 +140,18 @@ module ex(
 	reg stallreq_for_madd_msub;			
 	reg stallreq_for_div;
 	reg trapassert;
-	reg ovassert;
+	reg breassert;
 
-  //aluop_o for storing and loading
+  //aluop_o传递到访存阶段，用于加载、存储指令
   assign aluop_o = aluop_i;
   
-  //mem_addr for storing and loading
+  //mem_addr传递到访存阶段，是加载、存储指令对应的存储器地址
   assign mem_addr_o = reg1_i + {{16{inst_i[15]}},inst_i[15:0]};
 
-  //operator to mem for storing and loading
+  //将两个操作数也传递到访存阶段，也是为记载、存储指令准备的
   assign reg2_o = reg2_i;
  
-  assign excepttype_o = {excepttype_i[31:12],ovassert,trapassert,excepttype_i[9:8],8'h00};
+  assign excepttype_o = {excepttype_i[31:12],breassert,trapassert,excepttype_i[9:8],8'h00};
   
 	assign is_in_delayslot_o = is_in_delayslot_i;
 	assign current_inst_address_o = current_inst_address_i;
@@ -178,8 +210,8 @@ module ex(
 
 	assign result_sum = reg1_i + reg2_i_mux;										 
 
-	assign ov_sum = ((!reg1_i[31] && !reg2_i_mux[31]) && result_sum[31]) ||
-									((reg1_i[31] && reg2_i_mux[31]) && (!result_sum[31]));  
+	/*assign ov_sum = ((!reg1_i[31] && !reg2_i_mux[31]) && result_sum[31]) ||
+									((reg1_i[31] && reg2_i_mux[31]) && (!result_sum[31]));  */
 									
 	assign reg1_lt_reg2 = ((aluop_i == `EXE_SLT_OP) || (aluop_i == `EXE_TLT_OP) ||
 	                       (aluop_i == `EXE_TLTI_OP) || (aluop_i == `EXE_TGE_OP) ||
@@ -270,17 +302,25 @@ module ex(
 			endcase
 		end
 	end
+	
+	always@ (*) begin
+	   if(aluop_i == `EXE_BREAK_OP) begin
+	       breassert <= 1'b1;
+	   end else begin
+	       breassert <= 1'b0;
+	   end
+	end
 
-	//Multiple operator 
+  //取得乘法操作的操作数，如果是有符号除法且操作数是负数，那么取反加一
 	assign opdata1_mult = (((aluop_i == `EXE_MUL_OP) || (aluop_i == `EXE_MULT_OP) ||
 													(aluop_i == `EXE_MADD_OP) || (aluop_i == `EXE_MSUB_OP))
 													&& (reg1_i[31] == 1'b1)) ? (~reg1_i + 1) : reg1_i;
 
-	assign opdata2_mult = (((aluop_i == `EXE_MUL_OP) || (aluop_i == `EXE_MULT_OP) ||
+  assign opdata2_mult = (((aluop_i == `EXE_MUL_OP) || (aluop_i == `EXE_MULT_OP) ||
 													(aluop_i == `EXE_MADD_OP) || (aluop_i == `EXE_MSUB_OP))
 													&& (reg2_i[31] == 1'b1)) ? (~reg2_i + 1) : reg2_i;	
 
-	assign hilo_temp = opdata1_mult * opdata2_mult;																				
+  assign hilo_temp = opdata1_mult * opdata2_mult;																				
 
 	always @ (*) begin
 		if(rst == `RstEnable) begin
@@ -297,7 +337,7 @@ module ex(
 		end
 	end
 
-	//The latest HI,LO values
+  //得到最新的HI、LO寄存器的值，此处要解决指令数据相关问题
 	always @ (*) begin
 		if(rst == `RstEnable) begin
 			{HI,LO} <= {`ZeroWord,`ZeroWord};
@@ -310,11 +350,11 @@ module ex(
 		end
 	end	
 
-	always @ (*) begin
-		stallreq = stallreq_for_madd_msub || stallreq_for_div;
-	end
+  always @ (*) begin
+    stallreq = stallreq_for_madd_msub || stallreq_for_div;
+  end
 
-  //MADD、MADDU、MSUB、MSUBU
+  //MADD、MADDU、MSUB、MSUBU指令
 	always @ (*) begin
 		if(rst == `RstEnable) begin
 			hilo_temp_o <= {`ZeroWord,`ZeroWord};
@@ -357,7 +397,7 @@ module ex(
 		end
 	end	
 
-	//DIV、DIVU	
+  //DIV、DIVU指令	
 	always @ (*) begin
 		if(rst == `RstEnable) begin
 			stallreq_for_div <= `NoStop;
@@ -374,19 +414,19 @@ module ex(
 			case (aluop_i) 
 				`EXE_DIV_OP:		begin
 					if(div_ready_i == `DivResultNotReady) begin
-						div_opdata1_o <= reg1_i;
+	    			div_opdata1_o <= reg1_i;
 						div_opdata2_o <= reg2_i;
 						div_start_o <= `DivStart;
 						signed_div_o <= 1'b1;
 						stallreq_for_div <= `Stop;
 					end else if(div_ready_i == `DivResultReady) begin
-						div_opdata1_o <= reg1_i;
+	    			div_opdata1_o <= reg1_i;
 						div_opdata2_o <= reg2_i;
 						div_start_o <= `DivStop;
 						signed_div_o <= 1'b1;
 						stallreq_for_div <= `NoStop;
 					end else begin						
-						div_opdata1_o <= `ZeroWord;
+	    			div_opdata1_o <= `ZeroWord;
 						div_opdata2_o <= `ZeroWord;
 						div_start_o <= `DivStop;
 						signed_div_o <= 1'b0;
@@ -420,7 +460,7 @@ module ex(
 		end
 	end	
 
-	//MFHI、MFLO、MOVN、MOVZ
+	//MFHI、MFLO、MOVN、MOVZ指令
 	always @ (*) begin
 		if(rst == `RstEnable) begin
 	  	moveres <= `ZeroWord;

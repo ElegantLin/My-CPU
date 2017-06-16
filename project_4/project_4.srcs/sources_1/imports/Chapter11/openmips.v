@@ -1,25 +1,57 @@
+//////////////////////////////////////////////////////////////////////
+////                                                              ////
+//// Copyright (C) 2014 leishangwen@163.com                       ////
+////                                                              ////
+//// This source file may be used and distributed without         ////
+//// restriction provided that this copyright statement is not    ////
+//// removed from the file and that any derivative work contains  ////
+//// the original copyright notice and the associated disclaimer. ////
+////                                                              ////
+//// This source file is free software; you can redistribute it   ////
+//// and/or modify it under the terms of the GNU Lesser General   ////
+//// Public License as published by the Free Software Foundation; ////
+//// either version 2.1 of the License, or (at your option) any   ////
+//// later version.                                               ////
+////                                                              ////
+//// This source is distributed in the hope that it will be       ////
+//// useful, but WITHOUT ANY WARRANTY; without even the implied   ////
+//// warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR      ////
+//// PURPOSE.  See the GNU Lesser General Public License for more ////
+//// details.                                                     ////
+////                                                              ////
+//////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////
+// Module:  openmips
+// File:    openmips.v
+// Author:  Lei Silei
+// E-mail:  leishangwen@163.com
+// Description: OpenMIPS处理器的顶层文件
+// Revision: 1.0
+//////////////////////////////////////////////////////////////////////
+
 `include "defines.v"
 
 module openmips(
 
-	input wire					 clk,
-	input wire  				 rst,
+	input	wire										clk,
+	input wire										rst,
 	
-    input wire[5:0]                int_i,
+  input wire[5:0]                int_i,
   
-	input wire[`RegBus]          rom_data_i,
-	output wire[`RegBus]         rom_addr_o,
-	output wire                  rom_ce_o,
+	input wire[`RegBus]           rom_data_i,
+	output wire[`RegBus]           rom_addr_o,
+	output wire                    rom_ce_o,
 	
-	//Conneted to data ram
-	input wire[`RegBus]          ram_data_i,
-	output wire[`RegBus]         ram_addr_o,
-	output wire[`RegBus]         ram_data_o,
-	output wire                  ram_we_o,
-	output wire[3:0]             ram_sel_o,
-	output               		 ram_ce_o,
+  //连接数据存储器data_ram
+	input wire[`RegBus]           ram_data_i,
+	output wire[`RegBus]           ram_addr_o,
+	output wire[`RegBus]           ram_data_o,
+	output wire                    ram_we_o,
+	output wire[3:0]               ram_sel_o,
+	output               ram_ce_o,
 	
-	output wire                  timer_int_o
+	output wire                    timer_int_o
 	
 );
 
@@ -35,10 +67,10 @@ module openmips(
 	wire id_wreg_o;
 	wire[`RegAddrBus] id_wd_o;
 	wire id_is_in_delayslot_o;
-    wire[`RegBus] id_link_address_o;	
-    wire[`RegBus] id_inst_o;
-    wire[31:0] id_excepttype_o;
-    wire[`RegBus] id_current_inst_address_o;
+  wire[`RegBus] id_link_address_o;	
+  wire[`RegBus] id_inst_o;
+  wire[31:0] id_excepttype_o;
+  wire[`RegBus] id_current_inst_address_o;
 	
 	//连接ID/EX模块的输出与执行阶段EX模块的输入
 	wire[`AluOpBus] ex_aluop_i;
@@ -48,10 +80,10 @@ module openmips(
 	wire ex_wreg_i;
 	wire[`RegAddrBus] ex_wd_i;
 	wire ex_is_in_delayslot_i;	
-    wire[`RegBus] ex_link_address_i;	
-    wire[`RegBus] ex_inst_i;
-    wire[31:0] ex_excepttype_i;	
-    wire[`RegBus] ex_current_inst_address_i;	
+  wire[`RegBus] ex_link_address_i;	
+  wire[`RegBus] ex_inst_i;
+  wire[31:0] ex_excepttype_i;	
+  wire[`RegBus] ex_current_inst_address_i;	
 	
 	//连接执行阶段EX模块的输出与EX/MEM模块的输入
 	wire ex_wreg_o;
@@ -120,12 +152,12 @@ module openmips(
 	wire[`RegBus] wb_current_inst_address_i;
 	
 	//连接译码阶段ID模块与通用寄存器Regfile模块
-	wire reg1_read;
-	wire reg2_read;
-	wire[`RegBus] reg1_data;
-	wire[`RegBus] reg2_data;
-	wire[`RegAddrBus] reg1_addr;
-	wire[`RegAddrBus] reg2_addr;
+  wire reg1_read;
+  wire reg2_read;
+  wire[`RegBus] reg1_data;
+  wire[`RegBus] reg2_data;
+  wire[`RegAddrBus] reg1_addr;
+  wire[`RegAddrBus] reg2_addr;
 
 	//连接执行阶段与hilo模块的输出，读取HI、LO寄存器
 	wire[`RegBus] 	hi;
@@ -174,6 +206,7 @@ module openmips(
 
   wire[`RegBus] latest_epc;
   
+  
   //pc_reg例化
 	pc_reg pc_reg0(
 		.clk(clk),
@@ -184,11 +217,12 @@ module openmips(
 		.branch_flag_i(id_branch_flag_o),
 		.branch_target_address_i(branch_target_address),		
 		.pc(pc),
-		.ce(rom_ce_o)	
-			
+		.ce(rom_ce_o)
 	);
 	
   assign rom_addr_o = pc;
+  
+
 
   //IF/ID模块例化
 	if_id if_id0(
@@ -385,7 +419,7 @@ module openmips(
 		.stallreq(stallreq_from_ex)     				
 		
 	);
-
+	
   //EX/MEM模块
   ex_mem ex_mem0(
 		.clk(clk),
@@ -573,7 +607,7 @@ module openmips(
 	  .cp0_epc_i(latest_epc),
  
 		.stallreq_from_id(stallreq_from_id),
-	
+	   .branch_from_id(id_branch_flag_o),
   	//来自执行阶段的暂停请求
 		.stallreq_from_ex(stallreq_from_ex),
 	  .new_pc(new_pc),
@@ -581,7 +615,7 @@ module openmips(
 		.stall(stall)       	
 	);
 
-	div div0(
+ 	div div0(
 		.clk(clk),
 		.rst(rst),
 	
@@ -593,8 +627,28 @@ module openmips(
 	
 		.result_o(div_result),
 		.ready_o(div_ready)
-	);
-
+	); 
+	
+/*	div_gen_0 div_signed(
+		.aclk(clk),
+		.s_axis_divisor_tvalid((div_start && signed_div)),
+		.s_axis_divisor_tdata(div_opdata2),
+		.s_axis_dividend_tvalid(div_start),
+		.s_axis_dividend_tdata(div_opdata1),
+		.m_axis_dout_tvalid(div_ready),
+		.m_axis_dout_tdata(div_result)
+		);
+	
+	div_gen_0 div_unsigned(
+		.aclk(clk),
+		.s_axis_divisor_tvalid((div_start && (!signed_div))),
+		.s_axis_divisor_tdata(div_opdata2),
+		.s_axis_dividend_tvalid(div_start),
+		.s_axis_dividend_tdata(div_opdata1),
+		.m_axis_dout_tvalid(div_ready),
+		.m_axis_dout_tdata(div_result)
+		);*/
+	
 	LLbit_reg LLbit_reg0(
 		.clk(clk),
 		.rst(rst),

@@ -1,3 +1,35 @@
+//////////////////////////////////////////////////////////////////////
+////                                                              ////
+//// Copyright (C) 2014 leishangwen@163.com                       ////
+////                                                              ////
+//// This source file may be used and distributed without         ////
+//// restriction provided that this copyright statement is not    ////
+//// removed from the file and that any derivative work contains  ////
+//// the original copyright notice and the associated disclaimer. ////
+////                                                              ////
+//// This source file is free software; you can redistribute it   ////
+//// and/or modify it under the terms of the GNU Lesser General   ////
+//// Public License as published by the Free Software Foundation; ////
+//// either version 2.1 of the License, or (at your option) any   ////
+//// later version.                                               ////
+////                                                              ////
+//// This source is distributed in the hope that it will be       ////
+//// useful, but WITHOUT ANY WARRANTY; without even the implied   ////
+//// warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR      ////
+//// PURPOSE.  See the GNU Lesser General Public License for more ////
+//// details.                                                     ////
+////                                                              ////
+//////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////
+// Module:  data_ram
+// File:    data_ram.v
+// Author:  Lei Silei
+// E-mail:  leishangwen@163.com
+// Description: Êý¾Ý´æ´¢Æ÷
+// Revision: 1.0
+//////////////////////////////////////////////////////////////////////
+
 `include "defines.v"
 
 module data_ram(
@@ -8,8 +40,8 @@ module data_ram(
 	input wire[`DataAddrBus]			addr,
 	input wire[3:0]								sel,
 	input wire[`DataBus]						data_i,
-	output reg[`DataBus]					data_o
-	
+	output reg[`DataBus]					data_o,
+	output wire[`DataBus]                   check
 );
 
 	reg[`ByteWidth]  data_mem0[0:`DataMemNum-1];
@@ -48,5 +80,6 @@ module data_ram(
 				data_o <= `ZeroWord;
 		end
 	end		
-
+    
+    assign check = {data_mem3[0], data_mem2[0], data_mem1[0], data_mem0[0]};
 endmodule

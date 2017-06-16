@@ -1,3 +1,4 @@
+
 `include "defines.v"
 
 module id(
@@ -69,7 +70,7 @@ module id(
   reg excepttype_is_syscall;
   reg excepttype_is_eret;
   
-  assign pc_plus_8 = pc_i + 8;
+  assign pc_plus_8 = (pc_i > 32'h400000) ? (pc_i + 4) : (pc_i + 32'h400000 + 4);
   assign pc_plus_4 = pc_i +4;
   assign imm_sll2_signedext = {{14{inst_i[15]}}, inst_i[15:0], 2'b00 };  
   assign stallreq = stallreq_for_reg1_loadrelate | stallreq_for_reg2_loadrelate;
@@ -322,7 +323,15 @@ module id(
 									wreg_o <= `WriteDisable;		aluop_o <= `EXE_SYSCALL_OP;
 		  						alusel_o <= `EXE_RES_NOP;   reg1_read_o <= 1'b0;	reg2_read_o <= 1'b0;
 		  						instvalid <= `InstValid; excepttype_is_syscall<= `True_v;
-		  					end							 																					
+		  					end	
+		  					`EXE_BREAK : begin
+		  					       wreg_o <=  `WriteDisable;
+		  					       aluop_o <=  `EXE_BREAK_OP;
+		  					       alusel_o <=    `EXE_RES_NOP;
+		  					       reg1_read_o <= 1'b0;
+		  					       reg2_read_o <= 1'b0;          
+                                   instvalid <= `InstValid;  
+                                end  			 																					
 								default:	begin
 								end	
 					 endcase									
@@ -746,7 +755,7 @@ always @ (*) begin
 		if(rst == `RstEnable) begin
 			is_in_delayslot_o <= `NotInDelaySlot;
 		end else begin
-		  is_in_delayslot_o <= is_in_delayslot_i;		
+		  is_in_delayslot_o <= `NotInDelaySlot;		
 	  end
 	end
 
