@@ -2,24 +2,23 @@
 
 module regfile(
 
-	input	wire										clk,
-	input wire										rst,
+	input	wire						clk,
+	input wire							rst,
 	
-	//Ð´¶Ë¿Ú
-	input wire										we,
+	//write port
+	input wire							we,
 	input wire[`RegAddrBus]				waddr,
-	input wire[`RegBus]						wdata,
+	input wire[`RegBus]					wdata,
 	
-	//¶Á¶Ë¿Ú1
-	input wire										re1,
-	input wire[`RegAddrBus]			  raddr1,
-	output reg[`RegBus]           rdata1,
+	//read port1
+	input wire							re1,
+	input wire[`RegAddrBus]			    raddr1,
+	output reg[`RegBus]           		rdata1,
 	
-	//¶Á¶Ë¿Ú2
-	input wire										re2,
-	input wire[`RegAddrBus]			  raddr2,
-	output reg[`RegBus]           rdata2
-	
+	//read port2
+	input wire							re2,
+	input wire[`RegAddrBus]			    raddr2,
+	output reg[`RegBus]           		rdata2
 );
 
 	reg[`RegBus]  regs[0:`RegNum-1];
@@ -68,7 +67,7 @@ module regfile(
               regs[30] <= `ZeroWord;
               regs[31] <= `ZeroWord;
 	  end else if(raddr1 == `RegNumLog2'h0) begin
-	  		rdata1 <= `ZeroWord;
+			rdata1 <= `ZeroWord;
 	  end else if((raddr1 == waddr) && (we == `WriteEnable) 
 	  	            && (re1 == `ReadEnable)) begin
 	  	  rdata1 <= wdata;
