@@ -1,0 +1,35 @@
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Computer Architecture/My-CPU/Final/Final.sim/sim_1/impl/timing/top_tb_time_impl.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module RAM32M_UNIQ_BASE_
+INFO: [VRFC 10-311] analyzing module RAM32M_HD23
+INFO: [VRFC 10-311] analyzing module RAM32M_HD24
+INFO: [VRFC 10-311] analyzing module RAM32M_HD25
+INFO: [VRFC 10-311] analyzing module RAM32M_HD26
+INFO: [VRFC 10-311] analyzing module RAM32M_HD27
+INFO: [VRFC 10-311] analyzing module RAM32M_HD28
+INFO: [VRFC 10-311] analyzing module RAM32M_HD29
+INFO: [VRFC 10-311] analyzing module RAM32M_HD30
+INFO: [VRFC 10-311] analyzing module RAM32M_HD31
+INFO: [VRFC 10-311] analyzing module RAM32M_HD32
+INFO: [VRFC 10-311] analyzing module RAM32M_HD33
+INFO: [VRFC 10-311] analyzing module LLbit_reg
+INFO: [VRFC 10-311] analyzing module cp0_reg
+INFO: [VRFC 10-311] analyzing module ctrl
+INFO: [VRFC 10-311] analyzing module data_ram
+INFO: [VRFC 10-311] analyzing module div
+INFO: [VRFC 10-311] analyzing module ex
+INFO: [VRFC 10-311] analyzing module ex_mem
+INFO: [VRFC 10-311] analyzing module hilo_reg
+INFO: [VRFC 10-311] analyzing module id
+INFO: [VRFC 10-311] analyzing module id_ex
+INFO: [VRFC 10-311] analyzing module if_id
+INFO: [VRFC 10-311] analyzing module mem
+INFO: [VRFC 10-311] analyzing module mem_wb
+INFO: [VRFC 10-311] analyzing module openmips
+INFO: [VRFC 10-311] analyzing module openmips_min_sopc
+INFO: [VRFC 10-311] analyzing module pc_reg
+INFO: [VRFC 10-311] analyzing module regfile
+INFO: [VRFC 10-311] analyzing module seg7x16
+INFO: [VRFC 10-311] analyzing module top
+INFO: [VRFC 10-311] analyzing module glbl
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Computer Architecture/My-CPU/Final/Final.srcs/sources_1/new/top_tb.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module top_tb
