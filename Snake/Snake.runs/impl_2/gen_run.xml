@@ -1,64 +1,64 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="impl_2" LaunchPart="xc7a100tcsg324-1" LaunchTime="1497665252">
-  <File Type="PWROPT-DRC" Name="top_greedy_snake_drc_pwropted.rpt"/>
-  <File Type="OPT-METHODOLOGY-DRC" Name="top_greedy_snake_methodology_drc_opted.rpt"/>
-  <File Type="INIT-TIMING" Name="top_greedy_snake_timing_summary_init.rpt"/>
-  <File Type="ROUTE-PWR-RPX" Name="top_greedy_snake_power_routed.rpx"/>
-  <File Type="PA-TCL" Name="top_greedy_snake.tcl"/>
-  <File Type="OPT-HWDEF" Name="top_greedy_snake.hwdef"/>
-  <File Type="RDI-RDI" Name="top_greedy_snake.vdi"/>
-  <File Type="OPT-DCP" Name="top_greedy_snake_opt.dcp"/>
-  <File Type="OPT-DRC" Name="top_greedy_snake_drc_opted.rpt"/>
-  <File Type="OPT-TIMING" Name="top_greedy_snake_timing_summary_opted.rpt"/>
-  <File Type="PWROPT-DCP" Name="top_greedy_snake_pwropt.dcp"/>
-  <File Type="PWROPT-TIMING" Name="top_greedy_snake_timing_summary_pwropted.rpt"/>
-  <File Type="PLACE-DCP" Name="top_greedy_snake_placed.dcp"/>
-  <File Type="PLACE-IO" Name="top_greedy_snake_io_placed.rpt"/>
-  <File Type="PLACE-CLK" Name="top_greedy_snake_clock_utilization_placed.rpt"/>
-  <File Type="PLACE-UTIL" Name="top_greedy_snake_utilization_placed.rpt"/>
-  <File Type="PLACE-UTIL-PB" Name="top_greedy_snake_utilization_placed.pb"/>
-  <File Type="PLACE-CTRL" Name="top_greedy_snake_control_sets_placed.rpt"/>
-  <File Type="PLACE-SIMILARITY" Name="top_greedy_snake_incremental_reuse_placed.rpt"/>
-  <File Type="PLACE-PRE-SIMILARITY" Name="top_greedy_snake_incremental_reuse_pre_placed.rpt"/>
-  <File Type="PLACE-TIMING" Name="top_greedy_snake_timing_summary_placed.rpt"/>
-  <File Type="POSTPLACE-PWROPT-DCP" Name="top_greedy_snake_postplace_pwropt.dcp"/>
-  <File Type="POSTPLACE-PWROPT-TIMING" Name="top_greedy_snake_timing_summary_postplace_pwropted.rpt"/>
-  <File Type="PHYSOPT-DCP" Name="top_greedy_snake_physopt.dcp"/>
-  <File Type="PHYSOPT-DRC" Name="top_greedy_snake_drc_physopted.rpt"/>
-  <File Type="PHYSOPT-TIMING" Name="top_greedy_snake_timing_summary_physopted.rpt"/>
-  <File Type="ROUTE-ERROR-DCP" Name="top_greedy_snake_routed_error.dcp"/>
-  <File Type="ROUTE-DCP" Name="top_greedy_snake_routed.dcp"/>
-  <File Type="ROUTE-BLACKBOX-DCP" Name="top_greedy_snake_routed_bb.dcp"/>
-  <File Type="ROUTE-DRC" Name="top_greedy_snake_drc_routed.rpt"/>
-  <File Type="ROUTE-DRC-PB" Name="top_greedy_snake_drc_routed.pb"/>
-  <File Type="BG-BIN" Name="top_greedy_snake.bin"/>
-  <File Type="ROUTE-DRC-RPX" Name="top_greedy_snake_drc_routed.rpx"/>
-  <File Type="BG-DRC" Name="top_greedy_snake.drc"/>
-  <File Type="ROUTE-METHODOLOGY-DRC" Name="top_greedy_snake_methodology_drc_routed.rpt"/>
-  <File Type="BITSTR-MSK" Name="top_greedy_snake.msk"/>
-  <File Type="ROUTE-METHODOLOGY-DRC-RPX" Name="top_greedy_snake_methodology_drc_routed.rpx"/>
-  <File Type="BG-BGN" Name="top_greedy_snake.bgn"/>
-  <File Type="ROUTE-METHODOLOGY-DRC-PB" Name="top_greedy_snake_methodology_drc_routed.pb"/>
-  <File Type="ROUTE-PWR" Name="top_greedy_snake_power_routed.rpt"/>
-  <File Type="ROUTE-PWR-SUM" Name="top_greedy_snake_power_summary_routed.pb"/>
-  <File Type="ROUTE-STATUS" Name="top_greedy_snake_route_status.rpt"/>
-  <File Type="ROUTE-STATUS-PB" Name="top_greedy_snake_route_status.pb"/>
-  <File Type="ROUTE-TIMINGSUMMARY" Name="top_greedy_snake_timing_summary_routed.rpt"/>
-  <File Type="ROUTE-TIMING-PB" Name="top_greedy_snake_timing_summary_routed.pb"/>
-  <File Type="ROUTE-TIMING-RPX" Name="top_greedy_snake_timing_summary_routed.rpx"/>
-  <File Type="ROUTE-SIMILARITY" Name="top_greedy_snake_incremental_reuse_routed.rpt"/>
-  <File Type="ROUTE-CLK" Name="top_greedy_snake_clock_utilization_routed.rpt"/>
-  <File Type="POSTROUTE-PHYSOPT-DCP" Name="top_greedy_snake_postroute_physopt.dcp"/>
-  <File Type="POSTROUTE-PHYSOPT-BLACKBOX-DCP" Name="top_greedy_snake_postroute_physopt_bb.dcp"/>
-  <File Type="POSTROUTE-PHYSOPT-TIMING" Name="top_greedy_snake_timing_summary_postroute_physopted.rpt"/>
-  <File Type="POSTROUTE-PHYSOPT-TIMING-PB" Name="top_greedy_snake_timing_summary_postroute_physopted.pb"/>
-  <File Type="POSTROUTE-PHYSOPT-TIMING-RPX" Name="top_greedy_snake_timing_summary_postroute_physopted.rpx"/>
-  <File Type="BG-BIT" Name="top_greedy_snake.bit"/>
-  <File Type="BITSTR-RBT" Name="top_greedy_snake.rbt"/>
-  <File Type="BITSTR-NKY" Name="top_greedy_snake.nky"/>
-  <File Type="BITSTR-BMM" Name="top_greedy_snake_bd.bmm"/>
-  <File Type="BITSTR-MMI" Name="top_greedy_snake.mmi"/>
-  <File Type="BITSTR-SYSDEF" Name="top_greedy_snake.sysdef"/>
+<GenRun Id="impl_2" LaunchPart="xc7a100tcsg324-1" LaunchTime="1497705656">
+  <File Type="PWROPT-DRC" Name="tb_drc_pwropted.rpt"/>
+  <File Type="OPT-METHODOLOGY-DRC" Name="tb_methodology_drc_opted.rpt"/>
+  <File Type="INIT-TIMING" Name="tb_timing_summary_init.rpt"/>
+  <File Type="ROUTE-PWR-RPX" Name="tb_power_routed.rpx"/>
+  <File Type="PA-TCL" Name="tb.tcl"/>
+  <File Type="OPT-HWDEF" Name="tb.hwdef"/>
+  <File Type="RDI-RDI" Name="tb.vdi"/>
+  <File Type="OPT-DCP" Name="tb_opt.dcp"/>
+  <File Type="OPT-DRC" Name="tb_drc_opted.rpt"/>
+  <File Type="OPT-TIMING" Name="tb_timing_summary_opted.rpt"/>
+  <File Type="PWROPT-DCP" Name="tb_pwropt.dcp"/>
+  <File Type="PWROPT-TIMING" Name="tb_timing_summary_pwropted.rpt"/>
+  <File Type="PLACE-DCP" Name="tb_placed.dcp"/>
+  <File Type="PLACE-IO" Name="tb_io_placed.rpt"/>
+  <File Type="PLACE-CLK" Name="tb_clock_utilization_placed.rpt"/>
+  <File Type="PLACE-UTIL" Name="tb_utilization_placed.rpt"/>
+  <File Type="PLACE-UTIL-PB" Name="tb_utilization_placed.pb"/>
+  <File Type="PLACE-CTRL" Name="tb_control_sets_placed.rpt"/>
+  <File Type="PLACE-SIMILARITY" Name="tb_incremental_reuse_placed.rpt"/>
+  <File Type="PLACE-PRE-SIMILARITY" Name="tb_incremental_reuse_pre_placed.rpt"/>
+  <File Type="PLACE-TIMING" Name="tb_timing_summary_placed.rpt"/>
+  <File Type="POSTPLACE-PWROPT-DCP" Name="tb_postplace_pwropt.dcp"/>
+  <File Type="POSTPLACE-PWROPT-TIMING" Name="tb_timing_summary_postplace_pwropted.rpt"/>
+  <File Type="PHYSOPT-DCP" Name="tb_physopt.dcp"/>
+  <File Type="PHYSOPT-DRC" Name="tb_drc_physopted.rpt"/>
+  <File Type="PHYSOPT-TIMING" Name="tb_timing_summary_physopted.rpt"/>
+  <File Type="ROUTE-ERROR-DCP" Name="tb_routed_error.dcp"/>
+  <File Type="ROUTE-DCP" Name="tb_routed.dcp"/>
+  <File Type="ROUTE-BLACKBOX-DCP" Name="tb_routed_bb.dcp"/>
+  <File Type="ROUTE-DRC" Name="tb_drc_routed.rpt"/>
+  <File Type="ROUTE-DRC-PB" Name="tb_drc_routed.pb"/>
+  <File Type="BG-BIN" Name="tb.bin"/>
+  <File Type="ROUTE-DRC-RPX" Name="tb_drc_routed.rpx"/>
+  <File Type="BG-DRC" Name="tb.drc"/>
+  <File Type="ROUTE-METHODOLOGY-DRC" Name="tb_methodology_drc_routed.rpt"/>
+  <File Type="BITSTR-MSK" Name="tb.msk"/>
+  <File Type="ROUTE-METHODOLOGY-DRC-RPX" Name="tb_methodology_drc_routed.rpx"/>
+  <File Type="BG-BGN" Name="tb.bgn"/>
+  <File Type="ROUTE-METHODOLOGY-DRC-PB" Name="tb_methodology_drc_routed.pb"/>
+  <File Type="ROUTE-PWR" Name="tb_power_routed.rpt"/>
+  <File Type="ROUTE-PWR-SUM" Name="tb_power_summary_routed.pb"/>
+  <File Type="ROUTE-STATUS" Name="tb_route_status.rpt"/>
+  <File Type="ROUTE-STATUS-PB" Name="tb_route_status.pb"/>
+  <File Type="ROUTE-TIMINGSUMMARY" Name="tb_timing_summary_routed.rpt"/>
+  <File Type="ROUTE-TIMING-PB" Name="tb_timing_summary_routed.pb"/>
+  <File Type="ROUTE-TIMING-RPX" Name="tb_timing_summary_routed.rpx"/>
+  <File Type="ROUTE-SIMILARITY" Name="tb_incremental_reuse_routed.rpt"/>
+  <File Type="ROUTE-CLK" Name="tb_clock_utilization_routed.rpt"/>
+  <File Type="POSTROUTE-PHYSOPT-DCP" Name="tb_postroute_physopt.dcp"/>
+  <File Type="POSTROUTE-PHYSOPT-BLACKBOX-DCP" Name="tb_postroute_physopt_bb.dcp"/>
+  <File Type="POSTROUTE-PHYSOPT-TIMING" Name="tb_timing_summary_postroute_physopted.rpt"/>
+  <File Type="POSTROUTE-PHYSOPT-TIMING-PB" Name="tb_timing_summary_postroute_physopted.pb"/>
+  <File Type="POSTROUTE-PHYSOPT-TIMING-RPX" Name="tb_timing_summary_postroute_physopted.rpx"/>
+  <File Type="BG-BIT" Name="tb.bit"/>
+  <File Type="BITSTR-RBT" Name="tb.rbt"/>
+  <File Type="BITSTR-NKY" Name="tb.nky"/>
+  <File Type="BITSTR-BMM" Name="tb_bd.bmm"/>
+  <File Type="BITSTR-MMI" Name="tb.mmi"/>
+  <File Type="BITSTR-SYSDEF" Name="tb.sysdef"/>
   <File Type="WBT-USG" Name="usage_statistics_webtalk.html"/>
   <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1">
     <Filter Type="Srcs"/>
@@ -125,9 +125,16 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
+    <File Path="$PSRCDIR/sources_1/new/tb.v">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
     <Config>
       <Option Name="DesignMode" Val="RTL"/>
-      <Option Name="TopModule" Val="top_greedy_snake"/>
+      <Option Name="TopModule" Val="tb"/>
       <Option Name="TopAutoSet" Val="TRUE"/>
     </Config>
   </FileSet>

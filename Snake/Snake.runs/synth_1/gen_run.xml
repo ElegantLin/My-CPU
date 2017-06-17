@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="synth_1" LaunchPart="xc7a100tcsg324-1" LaunchTime="1497665252">
-  <File Type="RDS-PROPCONSTRS" Name="top_greedy_snake_drc_synth.rpt"/>
-  <File Type="PA-TCL" Name="top_greedy_snake.tcl"/>
-  <File Type="RDS-RDS" Name="top_greedy_snake.vds"/>
-  <File Type="RDS-UTIL" Name="top_greedy_snake_utilization_synth.rpt"/>
-  <File Type="RDS-UTIL-PB" Name="top_greedy_snake_utilization_synth.pb"/>
-  <File Type="RDS-DCP" Name="top_greedy_snake.dcp"/>
-  <File Type="VDS-TIMINGSUMMARY" Name="top_greedy_snake_timing_summary_synth.rpt"/>
-  <File Type="VDS-TIMING-PB" Name="top_greedy_snake_timing_summary_synth.pb"/>
+<GenRun Id="synth_1" LaunchPart="xc7a100tcsg324-1" LaunchTime="1497705656">
+  <File Type="RDS-PROPCONSTRS" Name="tb_drc_synth.rpt"/>
+  <File Type="PA-TCL" Name="tb.tcl"/>
+  <File Type="RDS-RDS" Name="tb.vds"/>
+  <File Type="RDS-UTIL" Name="tb_utilization_synth.rpt"/>
+  <File Type="RDS-UTIL-PB" Name="tb_utilization_synth.pb"/>
+  <File Type="RDS-DCP" Name="tb.dcp"/>
+  <File Type="VDS-TIMINGSUMMARY" Name="tb_timing_summary_synth.rpt"/>
+  <File Type="VDS-TIMING-PB" Name="tb_timing_summary_synth.pb"/>
   <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1">
     <Filter Type="Srcs"/>
     <File Path="$PSRCDIR/sources_1/new/VGA_Control.v">
@@ -73,9 +73,16 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
+    <File Path="$PSRCDIR/sources_1/new/tb.v">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
     <Config>
       <Option Name="DesignMode" Val="RTL"/>
-      <Option Name="TopModule" Val="top_greedy_snake"/>
+      <Option Name="TopModule" Val="tb"/>
       <Option Name="TopAutoSet" Val="TRUE"/>
     </Config>
   </FileSet>

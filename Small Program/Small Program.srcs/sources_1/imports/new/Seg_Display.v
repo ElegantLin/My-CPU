@@ -17,7 +17,7 @@ module Seg_Display
 	
 	reg[31:0]clk_cnt;
 	
-	always@(posedge clk or negedge rst)
+	always@(posedge clk or posedge rst)
 	begin
 		if(!rst)
 			begin

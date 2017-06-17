@@ -5,11 +5,11 @@ module openmips_min_sopc_tb();
 
   reg     CLOCK_50;
   reg     rst;
-  //integer file_output;
+  integer file_output;
   
        
   initial begin
-	//file_output = $fopen("D:/Computer Architecture/My-CPU/TestResult/beq.txt");
+	file_output = $fopen("D:/Computer Architecture/My-CPU/TestResult/beq.txt");
     CLOCK_50 = 1'b0;
     forever #10 CLOCK_50 = ~CLOCK_50;
   end
@@ -17,7 +17,7 @@ module openmips_min_sopc_tb();
   initial begin
     rst = `RstEnable;
     #195 rst= `RstDisable;
-    #1000000000 $stop;
+    #100000 $stop;
   end
    
    openmips_min_sopc openmips_min_sopc0(
@@ -25,7 +25,7 @@ module openmips_min_sopc_tb();
           .rst(rst)    
       );
       
-   /*always@(posedge CLOCK_50) begin
+   always@(posedge CLOCK_50) begin
 		$fdisplay(file_output,"pc = %h", openmips_min_sopc0.openmips0.id0.pc_i);
 		$fdisplay(file_output,"instr = %h", openmips_min_sopc0.openmips0.id0.inst_i);
 		$fdisplay(file_output,"regfiles0 = %h", openmips_min_sopc0.openmips0.regfile1.regs[0]);
@@ -61,7 +61,4 @@ module openmips_min_sopc_tb();
 		$fdisplay(file_output,"regfiles30 = %h", openmips_min_sopc0.openmips0.regfile1.regs[30]);
 		$fdisplay(file_output,"regfiles31 = %h", openmips_min_sopc0.openmips0.regfile1.regs[31]);
 	end
-   */
-  
-
 endmodule

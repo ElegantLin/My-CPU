@@ -47,8 +47,10 @@ module data_ram(
 	input wire[2:0]                        direction,
 	output wire                             signal,
 	output reg[15:0]                       point,
-	input wire[5:0]                        AppleX,
-	input wire[4:0]                        AppleY
+	input wire[7:0]                        AppleX,
+	input wire[7:0]                        AppleY,
+	inout wire[1:0]                        gamestatus,
+	output [7:0]                        snake
 );
 
 	reg[`ByteWidth]  data_mem0[0:`DataMemNum-1];
@@ -60,6 +62,25 @@ module data_ram(
 		if (ce == `ChipDisable) begin
 			//data_o <= ZeroWord;
 		end else if(we == `WriteEnable) begin
+		      if(addr[`DataMemNumLog2+1:2] == 0) begin
+		          data_mem3[0] <= 8'b0;
+                  data_mem2[0] <= 8'b0;
+                  data_mem1[0] <= 8'b0;
+                  data_mem0[0] <= direction;
+              end
+              else if(addr[`DataMemNumLog2+1:2] == 22) begin
+                  data_mem3[22] <= 8'b0;
+                  data_mem2[22] <= 8'b0;
+                  data_mem1[22] <= 8'b0;
+                  data_mem0[22] <= AppleX;
+              end
+              else if(addr[`DataMemNumLog2+1:2] == 23) begin
+                  data_mem3[23] <= 8'b0;
+                  data_mem2[23] <= 8'b0;
+                  data_mem1[23] <= 8'b0;
+                  data_mem0[23] <= AppleY;
+              end
+              else begin
 			  if (sel[3] == 1'b1) begin
 		      data_mem3[addr[`DataMemNumLog2+1:2]] <= data_i[31:24];
 		    end
@@ -72,6 +93,7 @@ module data_ram(
 			  if (sel[0] == 1'b1) begin
 		      data_mem0[addr[`DataMemNumLog2+1:2]] <= data_i[7:0];
 		    end			   	    
+		end
 		end
 	end
 	
@@ -89,18 +111,10 @@ module data_ram(
 		end
 	end
 	
-	always @ (direction) begin
-	       data_mem3[0] <= 8'b0;
-	       data_mem2[0] <= 8'b0;
-	       data_mem1[0] <= 8'b0;
-	       data_mem0[0] <= {5'b0,direction};
-	end	
 	
-	always @ (AppleX or AppleY) begin
-	   data_mem0[22] <= {2'b0,AppleX};
-	   data_mem0[23] <= {3'b0,AppleY};
-	end	
     
+    assign snake = data_mem0[28];
+    assign gamestatus = 2'b01;
     assign signal = (data_mem0[25] == 0) ? 0 : 1;     
     assign check = {data_mem3[0], data_mem2[0], data_mem1[0], data_mem0[0]};
 endmodule

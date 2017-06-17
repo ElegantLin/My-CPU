@@ -8,7 +8,7 @@
   <ObjectList object_type="hw_device" gui_info="">
     <Object name="xc7a100t_0" gui_info="">
       <Properties Property="PROBES.FILE" value=""/>
-      <Properties Property="PROGRAM.HW_BITSTREAM" value="D:/Computer Architecture/My-CPU/Snake/Snake.runs/impl_2/top_greedy_snake.bit"/>
+      <Properties Property="PROGRAM.HW_BITSTREAM" value="$_project_name_.runs/impl_1/Small_Program_Top.bit"/>
     </Object>
   </ObjectList>
   <probeset name="hw project" active="false"/>

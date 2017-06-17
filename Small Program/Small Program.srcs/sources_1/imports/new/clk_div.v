@@ -25,13 +25,13 @@ module clk_div(
     output clkout);
 
     reg clkout;
-    reg[2:0] temp;
+    reg temp = 1'b0;
 always @(posedge clkin) begin
-    temp<=temp+1;
+    temp <= temp + 1'b1;
     if(temp==1) begin
-        clkout<=~clkout;
+        clkout<=1'b0;
         temp<=0;
     end else 
-        clkout<=clkout;
+        clkout<=1'b1;
     end
 endmodule

@@ -25,8 +25,8 @@ module Apple(
     input rst,
     input signal,
     
-    output reg[5:0] apple_x,
-    output reg[4:0] apple_y
+    output reg[7:0] apple_x,
+    output reg[7:0] apple_y
     );
     reg [31:0]clk_cnt;
     reg [10:0]random_num;

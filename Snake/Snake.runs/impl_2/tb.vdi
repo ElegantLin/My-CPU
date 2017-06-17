@@ -1,0 +1,219 @@
+#-----------------------------------------------------------
+# Vivado v2016.4 (64-bit)
+# SW Build 1756540 on Mon Jan 23 19:11:23 MST 2017
+# IP Build 1755317 on Mon Jan 23 20:30:07 MST 2017
+# Start of session at: Sat Jun 17 21:21:58 2017
+# Process ID: 17868
+# Current directory: D:/Computer Architecture/My-CPU/Snake/Snake.runs/impl_2
+# Command line: vivado.exe -log tb.vdi -applog -product Vivado -messageDb vivado.pb -mode batch -source tb.tcl -notrace
+# Log file: D:/Computer Architecture/My-CPU/Snake/Snake.runs/impl_2/tb.vdi
+# Journal file: D:/Computer Architecture/My-CPU/Snake/Snake.runs/impl_2\vivado.jou
+#-----------------------------------------------------------
+source tb.tcl -notrace
+Design is defaulting to srcset: sources_1
+Design is defaulting to constrset: constrs_1
+INFO: [Project 1-479] Netlist was created with Vivado 2016.4
+INFO: [Device 21-403] Loading part xc7a100tcsg324-1
+INFO: [Project 1-570] Preparing netlist for logic optimization
+Parsing XDC File [D:/Computer Architecture/My-CPU/Snake/Snake.srcs/constrs_1/new/snake_basys3_xc.xdc]
+WARNING: [Vivado 12-584] No ports matched 'clk'. [D:/Computer Architecture/My-CPU/Snake/Snake.srcs/constrs_1/new/snake_basys3_xc.xdc:7]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [D:/Computer Architecture/My-CPU/Snake/Snake.srcs/constrs_1/new/snake_basys3_xc.xdc:7]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'clk'. [D:/Computer Architecture/My-CPU/Snake/Snake.srcs/constrs_1/new/snake_basys3_xc.xdc:8]
+CRITICAL WARNING: [Vivado 12-4739] create_clock:No valid object(s) found for '-objects [get_ports clk]'. [D:/Computer Architecture/My-CPU/Snake/Snake.srcs/constrs_1/new/snake_basys3_xc.xdc:8]
+Resolution: Check if the specified object(s) exists in the current design. If it does, ensure that the correct design hierarchy was specified for the object. If you are working with clocks, make sure create_clock was used to create the clock object before it is referenced.
+WARNING: [Vivado 12-584] No ports matched 'seg_out[0]'. [D:/Computer Architecture/My-CPU/Snake/Snake.srcs/constrs_1/new/snake_basys3_xc.xdc:60]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [D:/Computer Architecture/My-CPU/Snake/Snake.srcs/constrs_1/new/snake_basys3_xc.xdc:60]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'seg_out[1]'. [D:/Computer Architecture/My-CPU/Snake/Snake.srcs/constrs_1/new/snake_basys3_xc.xdc:61]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [D:/Computer Architecture/My-CPU/Snake/Snake.srcs/constrs_1/new/snake_basys3_xc.xdc:61]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'seg_out[2]'. [D:/Computer Architecture/My-CPU/Snake/Snake.srcs/constrs_1/new/snake_basys3_xc.xdc:62]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [D:/Computer Architecture/My-CPU/Snake/Snake.srcs/constrs_1/new/snake_basys3_xc.xdc:62]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'seg_out[3]'. [D:/Computer Architecture/My-CPU/Snake/Snake.srcs/constrs_1/new/snake_basys3_xc.xdc:63]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [D:/Computer Architecture/My-CPU/Snake/Snake.srcs/constrs_1/new/snake_basys3_xc.xdc:63]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'seg_out[4]'. [D:/Computer Architecture/My-CPU/Snake/Snake.srcs/constrs_1/new/snake_basys3_xc.xdc:64]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [D:/Computer Architecture/My-CPU/Snake/Snake.srcs/constrs_1/new/snake_basys3_xc.xdc:64]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'seg_out[5]'. [D:/Computer Architecture/My-CPU/Snake/Snake.srcs/constrs_1/new/snake_basys3_xc.xdc:65]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [D:/Computer Architecture/My-CPU/Snake/Snake.srcs/constrs_1/new/snake_basys3_xc.xdc:65]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'seg_out[6]'. [D:/Computer Architecture/My-CPU/Snake/Snake.srcs/constrs_1/new/snake_basys3_xc.xdc:66]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [D:/Computer Architecture/My-CPU/Snake/Snake.srcs/constrs_1/new/snake_basys3_xc.xdc:66]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'seg_out[7]'. [D:/Computer Architecture/My-CPU/Snake/Snake.srcs/constrs_1/new/snake_basys3_xc.xdc:68]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [D:/Computer Architecture/My-CPU/Snake/Snake.srcs/constrs_1/new/snake_basys3_xc.xdc:68]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'sel[0]'. [D:/Computer Architecture/My-CPU/Snake/Snake.srcs/constrs_1/new/snake_basys3_xc.xdc:70]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [D:/Computer Architecture/My-CPU/Snake/Snake.srcs/constrs_1/new/snake_basys3_xc.xdc:70]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'sel[1]'. [D:/Computer Architecture/My-CPU/Snake/Snake.srcs/constrs_1/new/snake_basys3_xc.xdc:71]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [D:/Computer Architecture/My-CPU/Snake/Snake.srcs/constrs_1/new/snake_basys3_xc.xdc:71]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'sel[2]'. [D:/Computer Architecture/My-CPU/Snake/Snake.srcs/constrs_1/new/snake_basys3_xc.xdc:72]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [D:/Computer Architecture/My-CPU/Snake/Snake.srcs/constrs_1/new/snake_basys3_xc.xdc:72]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'sel[3]'. [D:/Computer Architecture/My-CPU/Snake/Snake.srcs/constrs_1/new/snake_basys3_xc.xdc:73]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [D:/Computer Architecture/My-CPU/Snake/Snake.srcs/constrs_1/new/snake_basys3_xc.xdc:73]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'rst'. [D:/Computer Architecture/My-CPU/Snake/Snake.srcs/constrs_1/new/snake_basys3_xc.xdc:84]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [D:/Computer Architecture/My-CPU/Snake/Snake.srcs/constrs_1/new/snake_basys3_xc.xdc:84]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'up'. [D:/Computer Architecture/My-CPU/Snake/Snake.srcs/constrs_1/new/snake_basys3_xc.xdc:85]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [D:/Computer Architecture/My-CPU/Snake/Snake.srcs/constrs_1/new/snake_basys3_xc.xdc:85]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'left'. [D:/Computer Architecture/My-CPU/Snake/Snake.srcs/constrs_1/new/snake_basys3_xc.xdc:86]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [D:/Computer Architecture/My-CPU/Snake/Snake.srcs/constrs_1/new/snake_basys3_xc.xdc:86]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'right'. [D:/Computer Architecture/My-CPU/Snake/Snake.srcs/constrs_1/new/snake_basys3_xc.xdc:87]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [D:/Computer Architecture/My-CPU/Snake/Snake.srcs/constrs_1/new/snake_basys3_xc.xdc:87]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'down'. [D:/Computer Architecture/My-CPU/Snake/Snake.srcs/constrs_1/new/snake_basys3_xc.xdc:88]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [D:/Computer Architecture/My-CPU/Snake/Snake.srcs/constrs_1/new/snake_basys3_xc.xdc:88]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'color_out[0]'. [D:/Computer Architecture/My-CPU/Snake/Snake.srcs/constrs_1/new/snake_basys3_xc.xdc:156]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [D:/Computer Architecture/My-CPU/Snake/Snake.srcs/constrs_1/new/snake_basys3_xc.xdc:156]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'color_out[1]'. [D:/Computer Architecture/My-CPU/Snake/Snake.srcs/constrs_1/new/snake_basys3_xc.xdc:157]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [D:/Computer Architecture/My-CPU/Snake/Snake.srcs/constrs_1/new/snake_basys3_xc.xdc:157]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'color_out[2]'. [D:/Computer Architecture/My-CPU/Snake/Snake.srcs/constrs_1/new/snake_basys3_xc.xdc:158]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [D:/Computer Architecture/My-CPU/Snake/Snake.srcs/constrs_1/new/snake_basys3_xc.xdc:158]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'color_out[3]'. [D:/Computer Architecture/My-CPU/Snake/Snake.srcs/constrs_1/new/snake_basys3_xc.xdc:159]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [D:/Computer Architecture/My-CPU/Snake/Snake.srcs/constrs_1/new/snake_basys3_xc.xdc:159]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'color_out[4]'. [D:/Computer Architecture/My-CPU/Snake/Snake.srcs/constrs_1/new/snake_basys3_xc.xdc:161]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [D:/Computer Architecture/My-CPU/Snake/Snake.srcs/constrs_1/new/snake_basys3_xc.xdc:161]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'color_out[5]'. [D:/Computer Architecture/My-CPU/Snake/Snake.srcs/constrs_1/new/snake_basys3_xc.xdc:162]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [D:/Computer Architecture/My-CPU/Snake/Snake.srcs/constrs_1/new/snake_basys3_xc.xdc:162]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'color_out[6]'. [D:/Computer Architecture/My-CPU/Snake/Snake.srcs/constrs_1/new/snake_basys3_xc.xdc:163]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [D:/Computer Architecture/My-CPU/Snake/Snake.srcs/constrs_1/new/snake_basys3_xc.xdc:163]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'color_out[7]'. [D:/Computer Architecture/My-CPU/Snake/Snake.srcs/constrs_1/new/snake_basys3_xc.xdc:164]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [D:/Computer Architecture/My-CPU/Snake/Snake.srcs/constrs_1/new/snake_basys3_xc.xdc:164]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'color_out[8]'. [D:/Computer Architecture/My-CPU/Snake/Snake.srcs/constrs_1/new/snake_basys3_xc.xdc:166]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [D:/Computer Architecture/My-CPU/Snake/Snake.srcs/constrs_1/new/snake_basys3_xc.xdc:166]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'color_out[9]'. [D:/Computer Architecture/My-CPU/Snake/Snake.srcs/constrs_1/new/snake_basys3_xc.xdc:167]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [D:/Computer Architecture/My-CPU/Snake/Snake.srcs/constrs_1/new/snake_basys3_xc.xdc:167]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'color_out[10]'. [D:/Computer Architecture/My-CPU/Snake/Snake.srcs/constrs_1/new/snake_basys3_xc.xdc:168]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [D:/Computer Architecture/My-CPU/Snake/Snake.srcs/constrs_1/new/snake_basys3_xc.xdc:168]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'color_out[11]'. [D:/Computer Architecture/My-CPU/Snake/Snake.srcs/constrs_1/new/snake_basys3_xc.xdc:169]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [D:/Computer Architecture/My-CPU/Snake/Snake.srcs/constrs_1/new/snake_basys3_xc.xdc:169]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'hsync'. [D:/Computer Architecture/My-CPU/Snake/Snake.srcs/constrs_1/new/snake_basys3_xc.xdc:171]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [D:/Computer Architecture/My-CPU/Snake/Snake.srcs/constrs_1/new/snake_basys3_xc.xdc:171]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'vsync'. [D:/Computer Architecture/My-CPU/Snake/Snake.srcs/constrs_1/new/snake_basys3_xc.xdc:172]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [D:/Computer Architecture/My-CPU/Snake/Snake.srcs/constrs_1/new/snake_basys3_xc.xdc:172]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+Finished Parsing XDC File [D:/Computer Architecture/My-CPU/Snake/Snake.srcs/constrs_1/new/snake_basys3_xc.xdc]
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+link_design: Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 508.551 ; gain = 262.262
+INFO: [Vivado_Tcl 4-424] Cannot write hardware definition file as there are no IPI block design hardware handoff files present
+Command: opt_design
+Attempting to get a license for feature 'Implementation' and/or device 'xc7a100t'
+INFO: [Common 17-349] Got license for feature 'Implementation' and/or device 'xc7a100t'
+Running DRC as a precondition to command opt_design
+
+Starting DRC Task
+INFO: [DRC 23-27] Running DRC with 2 threads
+INFO: [Project 1-461] DRC finished with 0 Errors
+INFO: [Project 1-462] Please refer to the DRC report (report_drc) for more information.
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.050 . Memory (MB): peak = 508.551 ; gain = 0.000
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+
+Starting Logic Optimization Task
+Implement Debug Cores | Checksum: a936ae79
+
+Phase 1 Retarget
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+INFO: [Opt 31-49] Retargeted 0 cell(s).
+Phase 1 Retarget | Checksum: a936ae79
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.004 . Memory (MB): peak = 934.023 ; gain = 0.000
+
+Phase 2 Constant propagation
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+INFO: [Opt 31-10] Eliminated 0 cells.
+Phase 2 Constant propagation | Checksum: a936ae79
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.005 . Memory (MB): peak = 934.023 ; gain = 0.000
+
+Phase 3 Sweep
+INFO: [Opt 31-12] Eliminated 0 unconnected nets.
+INFO: [Opt 31-11] Eliminated 0 unconnected cells.
+Phase 3 Sweep | Checksum: a936ae79
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.006 . Memory (MB): peak = 934.023 ; gain = 0.000
+
+Phase 4 BUFG optimization
+INFO: [Opt 31-12] Eliminated 0 unconnected nets.
+INFO: [Opt 31-11] Eliminated 0 unconnected cells.
+Phase 4 BUFG optimization | Checksum: a936ae79
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.008 . Memory (MB): peak = 934.023 ; gain = 0.000
+
+Starting Connectivity Check Task
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 934.023 ; gain = 0.000
+Ending Logic Optimization Task | Checksum: a936ae79
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.009 . Memory (MB): peak = 934.023 ; gain = 0.000
+
+Starting Power Optimization Task
+INFO: [Pwropt 34-132] Skipping clock gating for clocks with a period < 2.00 ns.
+Ending Power Optimization Task | Checksum: a936ae79
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.009 . Memory (MB): peak = 934.023 ; gain = 0.000
+INFO: [Common 17-83] Releasing license: Implementation
+21 Infos, 33 Warnings, 33 Critical Warnings and 0 Errors encountered.
+opt_design completed successfully
+opt_design: Time (s): cpu = 00:00:17 ; elapsed = 00:00:17 . Memory (MB): peak = 934.023 ; gain = 425.473
+INFO: [Common 17-1381] The checkpoint 'D:/Computer Architecture/My-CPU/Snake/Snake.runs/impl_2/tb_opt.dcp' has been generated.
+INFO: [DRC 23-27] Running DRC with 2 threads
+INFO: [Coretcl 2-168] The results of DRC are in file D:/Computer Architecture/My-CPU/Snake/Snake.runs/impl_2/tb_drc_opted.rpt.
+INFO: [Chipscope 16-241] No debug cores found in the current design.
+Before running the implement_debug_core command, either use the Set Up Debug wizard (GUI mode)
+or use the create_debug_core and connect_debug_core Tcl commands to insert debug cores into the design.
+Command: place_design
+Attempting to get a license for feature 'Implementation' and/or device 'xc7a100t'
+INFO: [Common 17-349] Got license for feature 'Implementation' and/or device 'xc7a100t'
+INFO: [DRC 23-27] Running DRC with 2 threads
+INFO: [Vivado_Tcl 4-198] DRC finished with 0 Errors
+INFO: [Vivado_Tcl 4-199] Please refer to the DRC report (report_drc) for more information.
+Running DRC as a precondition to command place_design
+INFO: [DRC 23-27] Running DRC with 2 threads
+INFO: [Vivado_Tcl 4-198] DRC finished with 0 Errors
+INFO: [Vivado_Tcl 4-199] Please refer to the DRC report (report_drc) for more information.
+
+Starting Placer Task
+INFO: [Place 30-611] Multithreading enabled for place_design using a maximum of 2 CPUs
+
+Phase 1 Placer Initialization
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 937.164 ; gain = 0.000
+Phase 1 Placer Initialization | Checksum: 00000000
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.126 . Memory (MB): peak = 937.164 ; gain = 0.000
+ERROR: [Place 30-494] The design is empty
+Resolution: Check if opt_design has removed all the leaf cells of your design.  Check whether you have instantiated and connected all of the top level ports.
+Ending Placer Task | Checksum: 00000000
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.127 . Memory (MB): peak = 937.164 ; gain = 0.000
+INFO: [Common 17-83] Releasing license: Implementation
+34 Infos, 33 Warnings, 33 Critical Warnings and 2 Errors encountered.
+place_design failed
+ERROR: [Common 17-69] Command failed: Placer could not place all instances
+INFO: [Common 17-206] Exiting Vivado at Sat Jun 17 21:22:34 2017...

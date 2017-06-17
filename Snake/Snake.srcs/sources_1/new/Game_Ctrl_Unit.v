@@ -55,27 +55,9 @@ module Game_Ctrl_Unit
 					   game_status <= PLAY;
 				end					
 				DIE:begin
-					if(clk_cnt <= 200_000_000) begin
-						clk_cnt <= clk_cnt + 1'b1;
-					   if(clk_cnt == 25_000_000)
-					       die_flash <= 0;
-					   else if(clk_cnt == 50_000_000)
-					       die_flash <= 1'b1;
-					   else if(clk_cnt == 75_000_000)
-					       die_flash <= 1'b0;
-					   else if(clk_cnt == 100_000_000)
-					       die_flash <= 1'b1;
-					   else if(clk_cnt == 125_000_000)
-					       die_flash <= 1'b0;
-					   else if(clk_cnt == 150_000_000)
-					       die_flash <= 1'b1;
-				    end                        //иак╦
-					else
-						begin
 							die_flash <= 1;
 							clk_cnt <= 0;
 							game_status <= RESTART;
-						end
 					end
 			endcase
 		end

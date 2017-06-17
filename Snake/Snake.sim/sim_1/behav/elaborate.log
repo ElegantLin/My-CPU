@@ -1,0 +1,41 @@
+Vivado Simulator 2016.4
+Copyright 1986-1999, 2001-2016 Xilinx, Inc. All Rights Reserved.
+Running: D:/Xilinx/Vivado/2016.4/bin/unwrapped/win64.o/xelab.exe -wto b390b4ed2a284582885d5c6ac9595463 --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot tb_behav xil_defaultlib.tb xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+WARNING: [VRFC 10-278] actual bit length 32 differs from formal bit length 1 for port left [D:/Computer Architecture/My-CPU/Snake/Snake.srcs/sources_1/new/tb.v:50]
+WARNING: [VRFC 10-278] actual bit length 32 differs from formal bit length 1 for port right [D:/Computer Architecture/My-CPU/Snake/Snake.srcs/sources_1/new/tb.v:51]
+WARNING: [VRFC 10-278] actual bit length 32 differs from formal bit length 1 for port up [D:/Computer Architecture/My-CPU/Snake/Snake.srcs/sources_1/new/tb.v:52]
+WARNING: [VRFC 10-278] actual bit length 32 differs from formal bit length 1 for port down [D:/Computer Architecture/My-CPU/Snake/Snake.srcs/sources_1/new/tb.v:53]
+Completed static elaboration
+Starting simulation data flow analysis
+WARNING: [XSIM 43-4099] "D:/Computer Architecture/My-CPU/Snake/Snake.srcs/sources_1/new/top_greedy_snake.v" Line 3. Module top_greedy_snake doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "D:/Computer Architecture/My-CPU/Snake/Snake.srcs/sources_1/new/Game_Ctrl_Unit.v" Line 1. Module Game_Ctrl_Unit doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "D:/Computer Architecture/My-CPU/Snake/Snake.srcs/sources_1/new/Snake_Eating_Apple.v" Line 2. Module Snake_Eatting_Apple doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "D:/Computer Architecture/My-CPU/Snake/Snake.srcs/sources_1/new/Snake.v" Line 2. Module Snake doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "D:/Computer Architecture/My-CPU/Snake/Snake.srcs/sources_1/new/clk_unit.v" Line 1. Module clk_unit doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "D:/Computer Architecture/My-CPU/Snake/Snake.srcs/sources_1/new/VGA_Control.v" Line 2. Module VGA_Control doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "D:/Computer Architecture/My-CPU/Snake/Snake.srcs/sources_1/new/Key.v" Line 2. Module Key doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "D:/Computer Architecture/My-CPU/Snake/Snake.srcs/sources_1/new/Seg_Display.v" Line 2. Module Seg_Display doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "D:/Computer Architecture/My-CPU/Snake/Snake.srcs/sources_1/new/top_greedy_snake.v" Line 3. Module top_greedy_snake doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "D:/Computer Architecture/My-CPU/Snake/Snake.srcs/sources_1/new/Game_Ctrl_Unit.v" Line 1. Module Game_Ctrl_Unit doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "D:/Computer Architecture/My-CPU/Snake/Snake.srcs/sources_1/new/Snake_Eating_Apple.v" Line 2. Module Snake_Eatting_Apple doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "D:/Computer Architecture/My-CPU/Snake/Snake.srcs/sources_1/new/Snake.v" Line 2. Module Snake doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "D:/Computer Architecture/My-CPU/Snake/Snake.srcs/sources_1/new/clk_unit.v" Line 1. Module clk_unit doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "D:/Computer Architecture/My-CPU/Snake/Snake.srcs/sources_1/new/VGA_Control.v" Line 2. Module VGA_Control doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "D:/Computer Architecture/My-CPU/Snake/Snake.srcs/sources_1/new/Key.v" Line 2. Module Key doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "D:/Computer Architecture/My-CPU/Snake/Snake.srcs/sources_1/new/Seg_Display.v" Line 2. Module Seg_Display doesn't have a timescale but at least one module in design has a timescale.
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.Game_Ctrl_Unit
+Compiling module xil_defaultlib.Snake_Eatting_Apple
+Compiling module xil_defaultlib.Snake
+Compiling module xil_defaultlib.clk_unit
+Compiling module xil_defaultlib.VGA_Control
+Compiling module xil_defaultlib.VGA_top
+Compiling module xil_defaultlib.Key
+Compiling module xil_defaultlib.Seg_Display
+Compiling module xil_defaultlib.top_greedy_snake
+Compiling module xil_defaultlib.tb
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot tb_behav

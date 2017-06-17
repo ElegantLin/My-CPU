@@ -5,14 +5,16 @@ module openmips_min_sopc(
 	input  wire				clk,
 	input  wire				rst,
 	output wire[`DataBus]   data0,
-	input  wire[2:0]        direction,
+	input  wire[7:0]        direction,
 	
 	output wire            signal,
 	output wire[15:0]      point,
 	
-	input wire[5:0]        AppleX,
-	input wire[4:0]        AppleY,
-	output wire[1:0]       snake
+	input wire[7:0]        AppleX,
+	input wire[7:0]        AppleY,
+	output wire[7:0]       snake,
+    inout wire[1:0]       gamestatus
+
 );
 
   //Á¬½ÓÖ¸Áî´æ´¢Æ÷
@@ -71,7 +73,9 @@ module openmips_min_sopc(
 		.signal(signal),
 		.point(point),
 		.AppleX(AppleX),
-		.AppleY(AppleY)	
+		.AppleY(AppleY),
+		.snake(snake),
+		.gamestatus(gamestatus)
 	);
 
 endmodule

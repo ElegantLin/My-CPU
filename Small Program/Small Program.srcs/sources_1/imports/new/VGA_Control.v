@@ -4,9 +4,9 @@ module VGA_Control
 	input clk,
 	input rst,
 	
-	input [1:0]snake,
-	input [5:0]apple_x,
-	input [4:0]apple_y,
+	input [7:0]snake,
+	input [7:0]apple_x,
+	input [7:0]apple_y,
 	output reg[9:0]x_pos,
 	output reg[9:0]y_pos,	
 	output reg hsync,
@@ -18,10 +18,10 @@ module VGA_Control
 	reg [9:0]line_cnt;
 	reg clk_25M;
 	
-	localparam NONE = 2'b00;
-	localparam HEAD = 2'b01;
-	localparam BODY = 2'b10;
-	localparam WALL = 2'b11;
+	localparam NONE = 7'b0000_000;
+	localparam HEAD = 7'b0000_001;
+	localparam BODY = 7'b0000_010;
+	localparam WALL = 7'b0000_011;
 	
 	localparam HEAD_COLOR = 12'b0000_1111_0000;
 	localparam BODY_COLOR = 12'b0000_1111_1111;
@@ -30,7 +30,7 @@ module VGA_Control
 	reg [3:0]lox;
 	reg [3:0]loy;
 		
-	always@(posedge clk or negedge rst) begin
+	always@(posedge clk or posedge rst) begin
 		if(rst) begin
 			clk_cnt <= 0;
 			line_cnt <= 0;

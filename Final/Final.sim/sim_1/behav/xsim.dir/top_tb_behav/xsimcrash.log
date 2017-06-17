@@ -1,13 +1,11 @@
-Unable to capture context for thread 13020 in process 10000, can not generate back trace
-Unable to capture context for thread 11312 in process 10000, can not generate back trace
-Unable to capture context for thread 12044 in process 10000, can not generate back trace
+Unable to capture context for thread 4660 in process 14988, can not generate back trace
 Exception at PC 0x00007FFEDCBD9E08
-Unable to capture context for thread 12044 in process 10000, can not generate back trace
+Unable to capture context for thread 14104 in process 14988, can not generate back trace
+Unable to capture context for thread 4548 in process 14988, can not generate back trace
 Exception at PC 0x00007FFE625ABB93
 Printing stacktrace...
 
-Exception at PC 0x00007FFEDCBD9E08
-Exception at PC 0x00007FFEDCBD9E08
+Unable to capture context for thread 4548 in process 14988, can not generate back trace
 Exception at PC 0x00007FFEDCBD9E08
 Exception at PC 0x00007FFEDCBD9E08
 Exception at PC 0x00007FFEDCBD9E08
@@ -37,3 +35,5 @@ Exception at PC 0x00007FFEDCBD9E08
 [12] (BaseThreadInitThunk+0x14) [0x00007FFEDD8D2774]
 [13] (RtlUserThreadStart+0x21) [0x00007FFEE01A0D61]
 Done
+Exception at PC 0x00007FFEDCBD9E08
+Exception at PC 0x00007FFEDCBD9E08

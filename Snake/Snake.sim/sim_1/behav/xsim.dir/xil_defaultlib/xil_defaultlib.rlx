@@ -1,0 +1,15 @@
+0.6
+2016.4
+Jan 23 2017
+19:37:30
+D:/Computer Architecture/My-CPU/Snake/Snake.sim/sim_1/behav/glbl.v,1485222234,verilog,,,,glbl,,,,,,,,
+D:/Computer Architecture/My-CPU/Snake/Snake.srcs/sources_1/new/Game_Ctrl_Unit.v,1497526482,verilog,,,,Game_Ctrl_Unit,,,,,,,,
+D:/Computer Architecture/My-CPU/Snake/Snake.srcs/sources_1/new/Key.v,1497526480,verilog,,,,Key,,,,,,,,
+D:/Computer Architecture/My-CPU/Snake/Snake.srcs/sources_1/new/Seg_Display.v,1497613986,verilog,,,,Seg_Display,,,,,,,,
+D:/Computer Architecture/My-CPU/Snake/Snake.srcs/sources_1/new/Snake.v,1497665247,verilog,,,,Snake,,,,,,,,
+D:/Computer Architecture/My-CPU/Snake/Snake.srcs/sources_1/new/Snake_Eating_Apple.v,1497526701,verilog,,,,Snake_Eatting_Apple,,,,,,,,
+D:/Computer Architecture/My-CPU/Snake/Snake.srcs/sources_1/new/VGA_Control.v,1497526856,verilog,,,,VGA_Control,,,,,,,,
+D:/Computer Architecture/My-CPU/Snake/Snake.srcs/sources_1/new/VGA_top.v,1497526908,verilog,,,,VGA_top,,,,,,,,
+D:/Computer Architecture/My-CPU/Snake/Snake.srcs/sources_1/new/clk_unit.v,1497526352,verilog,,,,clk_unit,,,,,,,,
+D:/Computer Architecture/My-CPU/Snake/Snake.srcs/sources_1/new/tb.v,1497704061,verilog,,,,tb,,,,,,,,
+D:/Computer Architecture/My-CPU/Snake/Snake.srcs/sources_1/new/top_greedy_snake.v,1497614048,verilog,,,,top_greedy_snake,,,,,,,,

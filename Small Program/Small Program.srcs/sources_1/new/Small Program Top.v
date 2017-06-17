@@ -21,7 +21,7 @@
 
 
 module Small_Program_Top(
-    input clk0,
+    input clk,
 	input rst,
 	
 	input left,
@@ -35,22 +35,27 @@ module Small_Program_Top(
 	output [7:0]seg_out,
 	output [3:0]sel
     );
-    wire[2:0]  direction;
-    wire[5:0]  appleX;
-    wire[4:0]  appleY;
+    wire[7:0]  direction;
+    wire[7:0]  appleX;
+    wire[7:0]  appleY;
     wire[15:0] point;
     wire[1:0]  game_status;
-    wire[1:0]  snake;
+    wire[7:0]  snake;
     wire[9:0]  pos_x;
     wire[9:0]  pos_y;
+    wire clk0;
+    wire clk1;
     
-    clk_unit(
-    .clk(clk0),
-    .rst(rst),
-    .clk_n(clk));
+    clk_div clk_div0(
+    .clkin(clk),
+    .clkout(clk0));
+    
+    clk_div clk_div1(
+    .clkin(clk0),
+    .clkout(clk1));
     
     Key key0(
-    .clk(clk),
+    .clk(clk0),
     .rst(rst),
     .left(left),
     .right(right),
@@ -59,26 +64,27 @@ module Small_Program_Top(
     .direction(direction));
     
     Apple apple0(
-    .clk(clk),
+    .clk(clk0),
     .rst(rst),
     .signal(signal),
     .apple_x(appleX),
     .apple_y(appleY));
     
     openmips_min_sopc openmips_min_sopc0(
-    .clk(clk),
+    .clk(clk0),
     .rst(rst),
     .direction(direction),
     .signal(signal),
     .point(point),
     .AppleX(appleX),
     .AppleY(appleY),
-    .snake(snake)
+    .snake(snake),
+    .gamestatus(game_status)
     );
     
    Seg_Display seg_display0
     (
-    .clk(clk),
+    .clk(clk0),
     .rst(rst),
     .add_cube(signal),
     .game_status(game_status),
@@ -87,8 +93,8 @@ module Small_Program_Top(
     .sel(sel)
     );
     
-    VGA_top vga1(
-    .clk(clk),
+    VGA_Control vga1(
+    .clk(clk1),
     .rst(rst),
     .snake(snake),
     .apple_x(appleX),
@@ -97,8 +103,7 @@ module Small_Program_Top(
     .y_pos(pos_y),
     .hsync(hsync),
     .vsync(vsync),
-    .color_out(color_out)
-        );
+    .color_out(color_out));
     
     
 endmodule

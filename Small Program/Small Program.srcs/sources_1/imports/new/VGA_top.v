@@ -24,9 +24,9 @@ module VGA_top(
 	input clk,
     input rst,
 
-    input [1:0]snake,
-    input [5:0]apple_x,
-    input [4:0]apple_y,
+    input [7:0]snake,
+    input [7:0]apple_x,
+    input [7:0]apple_y,
     output [9:0]x_pos,
     output [9:0]y_pos,    
     output hsync,

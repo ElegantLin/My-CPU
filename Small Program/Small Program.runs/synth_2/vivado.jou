@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Vivado v2016.4 (64-bit)
+# SW Build 1756540 on Mon Jan 23 19:11:23 MST 2017
+# IP Build 1755317 on Mon Jan 23 20:30:07 MST 2017
+# Start of session at: Sat Jun 17 21:09:47 2017
+# Process ID: 2464
+# Current directory: D:/Computer Architecture/My-CPU/Small Program/Small Program.runs/synth_2
+# Command line: vivado.exe -log Small_Program_Top.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source Small_Program_Top.tcl
+# Log file: D:/Computer Architecture/My-CPU/Small Program/Small Program.runs/synth_2/Small_Program_Top.vds
+# Journal file: D:/Computer Architecture/My-CPU/Small Program/Small Program.runs/synth_2\vivado.jou
+#-----------------------------------------------------------
+source Small_Program_Top.tcl -notrace

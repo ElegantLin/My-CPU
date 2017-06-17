@@ -1,0 +1,54 @@
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Computer Architecture/My-CPU/Small Program/Small Program.srcs/sources_1/imports/imports/sources_1/imports/Chapter11/regfile.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module regfile
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Computer Architecture/My-CPU/Small Program/Small Program.srcs/sources_1/imports/imports/sources_1/imports/Chapter11/pc_reg.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module pc_reg
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Computer Architecture/My-CPU/Small Program/Small Program.srcs/sources_1/imports/imports/sources_1/imports/Chapter11/mem_wb.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module mem_wb
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Computer Architecture/My-CPU/Small Program/Small Program.srcs/sources_1/imports/imports/sources_1/imports/Chapter11/mem.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module mem
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Computer Architecture/My-CPU/Small Program/Small Program.srcs/sources_1/imports/imports/sources_1/imports/Chapter11/LLbit_reg.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module LLbit_reg
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Computer Architecture/My-CPU/Small Program/Small Program.srcs/sources_1/imports/imports/sources_1/imports/Chapter11/if_id.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module if_id
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Computer Architecture/My-CPU/Small Program/Small Program.srcs/sources_1/imports/imports/sources_1/imports/Chapter11/id_ex.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module id_ex
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Computer Architecture/My-CPU/Small Program/Small Program.srcs/sources_1/imports/imports/sources_1/imports/Chapter11/id.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module id
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Computer Architecture/My-CPU/Small Program/Small Program.srcs/sources_1/imports/imports/sources_1/imports/Chapter11/hilo_reg.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module hilo_reg
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Computer Architecture/My-CPU/Small Program/Small Program.srcs/sources_1/imports/imports/sources_1/imports/Chapter11/ex_mem.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ex_mem
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Computer Architecture/My-CPU/Small Program/Small Program.srcs/sources_1/imports/imports/sources_1/imports/Chapter11/ex.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ex
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Computer Architecture/My-CPU/Small Program/Small Program.srcs/sources_1/imports/imports/sources_1/imports/Chapter11/div.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module div
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Computer Architecture/My-CPU/Small Program/Small Program.srcs/sources_1/imports/imports/sources_1/imports/Chapter11/ctrl.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ctrl
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Computer Architecture/My-CPU/Small Program/Small Program.srcs/sources_1/imports/imports/sources_1/imports/Chapter11/cp0_reg.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module cp0_reg
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Computer Architecture/My-CPU/Small Program/Small Program.srcs/sources_1/imports/imports/sources_1/imports/Chapter11/openmips.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module openmips
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Computer Architecture/My-CPU/Small Program/Small Program.srcs/sources_1/imports/imports/sources_1/imports/Chapter11/inst_rom.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module inst_rom
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Computer Architecture/My-CPU/Small Program/Small Program.srcs/sources_1/imports/imports/sources_1/imports/Chapter11/data_ram.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module data_ram
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Computer Architecture/My-CPU/Small Program/Small Program.srcs/sources_1/imports/new/VGA_Control.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module VGA_Control
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Computer Architecture/My-CPU/Small Program/Small Program.srcs/sources_1/imports/new/clk_div.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module clk_div
+WARNING: [VRFC 10-1315] redeclaration of ansi port clkout is not allowed [D:/Computer Architecture/My-CPU/Small Program/Small Program.srcs/sources_1/imports/new/clk_div.v:27]
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Computer Architecture/My-CPU/Small Program/Small Program.srcs/sources_1/imports/new/Seg_Display.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Seg_Display
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Computer Architecture/My-CPU/Small Program/Small Program.srcs/sources_1/new/Key.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Key
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Computer Architecture/My-CPU/Small Program/Small Program.srcs/sources_1/new/Apple.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Apple
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Computer Architecture/My-CPU/Small Program/Small Program.srcs/sources_1/imports/imports/sources_1/imports/Chapter11/openmips_min_sopc.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module openmips_min_sopc
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Computer Architecture/My-CPU/Small Program/Small Program.srcs/sources_1/new/Small Program Top.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Small_Program_Top
+INFO: [VRFC 10-2458] undeclared symbol signal, assumed default net type wire [D:/Computer Architecture/My-CPU/Small Program/Small Program.srcs/sources_1/new/Small Program Top.v:69]
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Computer Architecture/My-CPU/Small Program/Small Program.srcs/sources_1/new/tb.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module tb
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Computer Architecture/My-CPU/Small Program/Small Program.sim/sim_1/behav/glbl.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module glbl
