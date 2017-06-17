@@ -40,13 +40,13 @@ io_sel io_sel1(
     );
 
 openmips_min_sopc openmips_min_sopc1(
-    .clk(clk),
+    .clk(clk50),
     .rst(rst),
     .data0(addr)
     );
     
 seg7x16 seg7x16_1(
-    .clk(clk),
+    .clk(clk50),
     .reset(rst),
     .cs(1),
     .i_data(addr),

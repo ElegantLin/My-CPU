@@ -1,0 +1,20 @@
+#-----------------------------------------------------------
+# Vivado v2016.4 (64-bit)
+# SW Build 1756540 on Mon Jan 23 19:11:23 MST 2017
+# IP Build 1755317 on Mon Jan 23 20:30:07 MST 2017
+# Start of session at: Sat Jun 17 01:55:52 2017
+# Process ID: 460
+# Current directory: D:/Computer Architecture/My-CPU/Small Program
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent11384 D:\Computer Architecture\My-CPU\Small Program\Small Program.xpr
+# Log file: D:/Computer Architecture/My-CPU/Small Program/vivado.log
+# Journal file: D:/Computer Architecture/My-CPU/Small Program\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project {D:/Computer Architecture/My-CPU/Small Program/Small Program.xpr}
+Scanning sources...
+Finished scanning sources
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'D:/Xilinx/Vivado/2016.4/data/ip'.
+exit
+INFO: [Common 17-206] Exiting Vivado at Sat Jun 17 02:11:03 2017...

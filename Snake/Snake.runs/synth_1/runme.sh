@@ -24,7 +24,7 @@ else
 fi
 export LD_LIBRARY_PATH
 
-HD_PWD='D:/Computer Architecture/Snake/Snake.runs/synth_1'
+HD_PWD='D:/Computer Architecture/My-CPU/Snake/Snake.runs/synth_1'
 cd "$HD_PWD"
 
 HD_LOG=runme.log

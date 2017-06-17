@@ -38,7 +38,7 @@ INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Computer Architecture/My-CPU/Fin
 INFO: [VRFC 10-311] analyzing module openmips_min_sopc
 INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Computer Architecture/My-CPU/Final/Final.srcs/sources_1/imports/sources_1/new/clk_div.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module clk_div
-WARNING: [VRFC 10-1315] redeclaration of ansi port clkout is not allowed [D:/Computer Architecture/My-CPU/Final/Final.srcs/sources_1/imports/sources_1/new/clk_div.v:28]
+WARNING: [VRFC 10-1315] redeclaration of ansi port clkout is not allowed [D:/Computer Architecture/My-CPU/Final/Final.srcs/sources_1/imports/sources_1/new/clk_div.v:27]
 INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Computer Architecture/My-CPU/Final/Final.srcs/sources_1/imports/sources_1/new/io_sel.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module io_sel
 INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Computer Architecture/My-CPU/Final/Final.srcs/sources_1/imports/sources_1/new/top.v" into library xil_defaultlib

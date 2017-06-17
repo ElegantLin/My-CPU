@@ -306,7 +306,9 @@ The simulation wave is
 * Vivado & Verilog: **Zijian WANG** (CS Junior from Tongji University)
 * Vivado, Top Test Module & VGA: **Hongwei ZHANG** (CS Junior from Tongji University)
 * Exception Instruction Handling: **Kun 5.00** (CS Junior from Tongji University)
-* **Silei LEI**,  *Write CPU By Yourself 1st version* 
+*  Audio Suggestion: **Jiaqi FAN** (CS Junior from Tongji University)
+* Help and useful advice: **Tianchen LIU** (CS Junior from Tongji University)
+* **Silei LEI**,  *Write CPU By Yourself 1st version, Sept. 2014*, *Publishing House Of Electronics History*
 
 
 *All Rights Reserved. If you want to use in another project, please refer to **[GPL-3.0](https://www.gnu.org/licenses/gpl-3.0.en.html "GPL-3.0")** for more information.*
