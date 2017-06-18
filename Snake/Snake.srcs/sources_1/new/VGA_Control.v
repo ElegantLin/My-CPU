@@ -23,8 +23,8 @@ module VGA_Control
 	localparam BODY = 2'b10;
 	localparam WALL = 2'b11;
 	
-	localparam HEAD_COLOR = 12'b0000_1111_0000;
-	localparam BODY_COLOR = 12'b0000_1111_1111;
+	localparam HEAD_COLOR = 12'b1010_1111_0000;
+	localparam BODY_COLOR = 12'b0001_1111_1111;
 	
 	
 	reg [3:0]lox;

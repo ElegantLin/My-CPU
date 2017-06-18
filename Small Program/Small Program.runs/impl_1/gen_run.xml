@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <GenRun Id="impl_1" LaunchPart="xc7a100tcsg324-1" LaunchTime="1497692279">
+  <File Type="PWROPT-DRC" Name="Small_Program_Top_drc_pwropted.rpt"/>
+  <File Type="OPT-METHODOLOGY-DRC" Name="Small_Program_Top_methodology_drc_opted.rpt"/>
+  <File Type="INIT-TIMING" Name="Small_Program_Top_timing_summary_init.rpt"/>
   <File Type="ROUTE-PWR-RPX" Name="Small_Program_Top_power_routed.rpx"/>
   <File Type="PA-TCL" Name="Small_Program_Top.tcl"/>
-  <File Type="INIT-TIMING" Name="Small_Program_Top_timing_summary_init.rpt"/>
-  <File Type="OPT-METHODOLOGY-DRC" Name="Small_Program_Top_methodology_drc_opted.rpt"/>
-  <File Type="PWROPT-DRC" Name="Small_Program_Top_drc_pwropted.rpt"/>
+  <File Type="OPT-HWDEF" Name="Small_Program_Top.hwdef"/>
   <File Type="RDI-RDI" Name="Small_Program_Top.vdi"/>
   <File Type="OPT-DCP" Name="Small_Program_Top_opt.dcp"/>
-  <File Type="OPT-HWDEF" Name="Small_Program_Top.hwdef"/>
   <File Type="OPT-DRC" Name="Small_Program_Top_drc_opted.rpt"/>
   <File Type="OPT-TIMING" Name="Small_Program_Top_timing_summary_opted.rpt"/>
   <File Type="PWROPT-DCP" Name="Small_Program_Top_pwropt.dcp"/>
@@ -31,14 +31,14 @@
   <File Type="ROUTE-BLACKBOX-DCP" Name="Small_Program_Top_routed_bb.dcp"/>
   <File Type="ROUTE-DRC" Name="Small_Program_Top_drc_routed.rpt"/>
   <File Type="ROUTE-DRC-PB" Name="Small_Program_Top_drc_routed.pb"/>
-  <File Type="ROUTE-DRC-RPX" Name="Small_Program_Top_drc_routed.rpx"/>
   <File Type="BG-BIN" Name="Small_Program_Top.bin"/>
-  <File Type="ROUTE-METHODOLOGY-DRC" Name="Small_Program_Top_methodology_drc_routed.rpt"/>
+  <File Type="ROUTE-DRC-RPX" Name="Small_Program_Top_drc_routed.rpx"/>
   <File Type="BG-DRC" Name="Small_Program_Top.drc"/>
-  <File Type="ROUTE-METHODOLOGY-DRC-RPX" Name="Small_Program_Top_methodology_drc_routed.rpx"/>
+  <File Type="ROUTE-METHODOLOGY-DRC" Name="Small_Program_Top_methodology_drc_routed.rpt"/>
   <File Type="BITSTR-MSK" Name="Small_Program_Top.msk"/>
-  <File Type="ROUTE-METHODOLOGY-DRC-PB" Name="Small_Program_Top_methodology_drc_routed.pb"/>
+  <File Type="ROUTE-METHODOLOGY-DRC-RPX" Name="Small_Program_Top_methodology_drc_routed.rpx"/>
   <File Type="BG-BGN" Name="Small_Program_Top.bgn"/>
+  <File Type="ROUTE-METHODOLOGY-DRC-PB" Name="Small_Program_Top_methodology_drc_routed.pb"/>
   <File Type="ROUTE-PWR" Name="Small_Program_Top_power_routed.rpt"/>
   <File Type="ROUTE-PWR-SUM" Name="Small_Program_Top_power_summary_routed.pb"/>
   <File Type="ROUTE-STATUS" Name="Small_Program_Top_route_status.rpt"/>

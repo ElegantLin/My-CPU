@@ -35,7 +35,8 @@ module Snake_Eatting_Apple
 					add_cube <= 1;
 					apple_x <= (random_num[10:5] > 38) ? (random_num[10:5] - 25) : (random_num[10:5] == 0) ? 1 : random_num[10:5];
 					apple_y <= (random_num[4:0] > 28) ? (random_num[4:0] - 3) : (random_num[4:0] == 0) ? 1:random_num[4:0];
-				end   //判断随机数是否超出频幕坐标范围 将随机数转换为下个苹果的X Y坐标
+				end
+				   //判断随机数是否超出频幕坐标范围 将随机数转换为下个苹果的X Y坐标
 				else
 					add_cube <= 0;
 			end

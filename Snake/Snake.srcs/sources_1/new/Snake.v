@@ -45,7 +45,8 @@ module Snake
 	reg[31:0]cnt;
 	
 	reg[31:0] cnt_lv1 = 32'd12_500_000;
-	reg[31:0] cnt_lv2 = 32'd62_500_00;
+//	reg[31:0] cnt_lv2 = 32'd62_500_00;
+//	reg[31:0] cnt_lv3 = 32'd41_666_67;
 	
 	wire[1:0]direct;
 	reg [1:0]direct_r;     //寄存方向
@@ -67,10 +68,12 @@ module Snake
 	assign head_y = cube_y[0]; 
 	
 	always @(posedge clk or negedge rst) begin		
-		if(!rst)
-			direct_r <= RIGHT; //默认一出来向右移动
-		else if(game_status == RESTART) 
+		if(!rst) begin
+			direct_r <= RIGHT;
+	    end//默认一出来向右移动
+		else if(game_status == RESTART) begin
 		    direct_r <= RIGHT;
+		end
 		else
 			direct_r <= direct_next;
 	end
@@ -407,8 +410,14 @@ module Snake
 	end
 	
 	always@(point) begin
-		if(point > 3) begin
-			cnt_lv1 <= cnt_lv2;
+	    if(point < 3) begin
+	        cnt_lv1 <= 32'd12_500_000;
+	    end
+		if(point > 3 && point < 5) begin
+			cnt_lv1 <= 32'd92_500_00;
+		end
+		if(point > 5) begin
+		    cnt_lv1 <= 32'd41_666_67;
 		end
 	end
 			

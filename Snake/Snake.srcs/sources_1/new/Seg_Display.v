@@ -37,7 +37,7 @@ module Seg_Display
 					clk_cnt <= clk_cnt+1;
 					if(clk_cnt == 5_0000)
 						begin
-							sel <= 4'b0111;
+							sel <= 4'b1110;
 							case(point[3:0])
 								4'b0000:seg_out <= 8'b1100_0000;
 								4'b0001:seg_out <= 8'b1111_1001;
@@ -56,7 +56,7 @@ module Seg_Display
 						end					
 					else if(clk_cnt == 10_0000)
 						begin
-							sel <= 4'b1011;							
+							sel <= 4'b1101;							
 							case(point[7:4])
 								4'b0000:seg_out <= 8'b1100_0000;
 								4'b0001:seg_out <= 8'b1111_1001;
@@ -75,7 +75,7 @@ module Seg_Display
 						end					
 					else if(clk_cnt == 15_0000)
 						begin
-							sel <= 4'b1101;
+							sel <= 4'b1011;
 							case(point[11:8])
 								4'b0000:seg_out <= 8'b1100_0000;
 								4'b0001:seg_out <= 8'b1111_1001;
@@ -94,7 +94,7 @@ module Seg_Display
 						end					
 					else if(clk_cnt == 20_0000)
 						begin
-						    sel <= 4'b1110;
+						    sel <= 4'b0111;
 							case(point[15:12])
 								4'b0000:seg_out <= 8'b1100_0000;
 								4'b0001:seg_out <= 8'b1111_1001;

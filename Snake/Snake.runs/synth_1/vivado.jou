@@ -2,11 +2,11 @@
 # Vivado v2016.4 (64-bit)
 # SW Build 1756540 on Mon Jan 23 19:11:23 MST 2017
 # IP Build 1755317 on Mon Jan 23 20:30:07 MST 2017
-# Start of session at: Sat Jun 17 21:20:58 2017
-# Process ID: 19896
+# Start of session at: Sun Jun 18 00:43:21 2017
+# Process ID: 17656
 # Current directory: D:/Computer Architecture/My-CPU/Snake/Snake.runs/synth_1
-# Command line: vivado.exe -log tb.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source tb.tcl
-# Log file: D:/Computer Architecture/My-CPU/Snake/Snake.runs/synth_1/tb.vds
+# Command line: vivado.exe -log top_greedy_snake.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source top_greedy_snake.tcl
+# Log file: D:/Computer Architecture/My-CPU/Snake/Snake.runs/synth_1/top_greedy_snake.vds
 # Journal file: D:/Computer Architecture/My-CPU/Snake/Snake.runs/synth_1\vivado.jou
 #-----------------------------------------------------------
-source tb.tcl -notrace
+source top_greedy_snake.tcl -notrace

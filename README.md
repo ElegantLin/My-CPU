@@ -5,7 +5,7 @@ For this course hasn't ended until the summer 2017. To prevent being copied by o
 
 ## Course Info
 
-This project is **Zonglin**'s final project of Computer Architecture and Structure of Tonji University, Shanghai, P.R.China,  whose class ID is **10101602** and its corresponding experiment ID is  **10012502**. These courses are given in the spring semester. Students can learn about the core of computer design in one semester through several projects and homework. Those who want to join this course are strongly recommended to have learned **Digital Logic** and **Verilog and FPGA Design**. The website of this course is mips246.tongji.edu.cn. The total credits of this course is **5.5**.
+This project is **Zonglin**'s final project of Computer Architecture and Structure of Tonji University, Shanghai, P.R.China,  whose class ID is **10101602** and its corresponding experiment ID is  **10012502**. These courses are given in the spring semester. Students can learn about the core of computer design in one semester through several projects and homework. Those who want to join this course are strongly recommended to have learned **Digital Logic** and **Verilog and FPGA Design**. The website of this course is [mips246.tongji.edu.cn](http://mips246.tongji.edu.cn). The total credits of this course is **5.5**.
 
 ## Course Instructors
 * Prof. Lisheng WANG
@@ -16,8 +16,23 @@ This project is **Zonglin**'s final project of Computer Architecture and Structu
 
 ## Structure of this project
 
-* PC.v
-* ALU.v
+* **PC**
+* **if_id**(Instruction_Fetch & Instruction_decoding)
+* id(Instruction_decoding)
+* **regfile**(register file)
+* **id_ex**(Instruction_decoding & execution)
+* ex(execution)
+* **div**
+* **ex_mem**(execution & memory)
+* **mem_wb**(memory & write back)
+* **hilo_reg**(high & low)
+* ctrl(control signal)
+* **LLbit**(LLbit)
+* **cp0**
+* inst_rom
+* data_ram
+
+PS: Bolded elements are driven by clock.
 
 ## My Instruction set
 The instructions I have successfully constructed are:

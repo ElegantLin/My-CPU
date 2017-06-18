@@ -52,15 +52,12 @@ set rc [catch {
   create_msg_db init_design.pb
   set_param xicom.use_bs_reader 1
   set_param simulator.modelsimInstallPath D:/modeltech_pe_10.5c/win32pe
-  set_property design_mode GateLvl [current_fileset]
-  set_param project.singleFileAddWarning.threshold 0
+  reset_param project.defaultXPMLibraries 
+  open_checkpoint {D:/Computer Architecture/My-CPU/Final/Final.runs/impl_2/top.dcp}
   set_property webtalk.parent_dir {D:/Computer Architecture/My-CPU/Final/Final.cache/wt} [current_project]
   set_property parent.project_path {D:/Computer Architecture/My-CPU/Final/Final.xpr} [current_project]
   set_property ip_output_repo {{D:/Computer Architecture/My-CPU/Final/Final.cache/ip}} [current_project]
   set_property ip_cache_permissions {read write} [current_project]
-  add_files -quiet {{D:/Computer Architecture/My-CPU/Final/Final.runs/synth_2/top.dcp}}
-  read_xdc {{D:/Computer Architecture/My-CPU/Final/Final.srcs/constrs_1/imports/new/top.xdc}}
-  link_design -top top -part xc7a100tcsg324-1
   write_hwdef -file top.hwdef
   close_msg_db -file init_design.pb
 } RESULT]
@@ -129,24 +126,6 @@ if {$rc} {
   return -code error $RESULT
 } else {
   end_step route_design
-  unset ACTIVE_STEP 
-}
-
-start_step write_bitstream
-set ACTIVE_STEP write_bitstream
-set rc [catch {
-  create_msg_db write_bitstream.pb
-  catch { write_mem_info -force top.mmi }
-  write_bitstream -force -no_partial_bitfile top.bit 
-  catch { write_sysdef -hwdef top.hwdef -bitfile top.bit -meminfo top.mmi -file top.sysdef }
-  catch {write_debug_probes -quiet -force debug_nets}
-  close_msg_db -file write_bitstream.pb
-} RESULT]
-if {$rc} {
-  step_failed write_bitstream
-  return -code error $RESULT
-} else {
-  end_step write_bitstream
   unset ACTIVE_STEP 
 }
 

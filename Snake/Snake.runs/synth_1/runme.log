@@ -1,6 +1,6 @@
 
 *** Running vivado
-    with args -log tb.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source tb.tcl
+    with args -log top_greedy_snake.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source top_greedy_snake.tcl
 
 
 ****** Vivado v2016.4 (64-bit)
@@ -8,18 +8,17 @@
   **** IP Build 1755317 on Mon Jan 23 20:30:07 MST 2017
     ** Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
 
-source tb.tcl -notrace
-Command: synth_design -top tb -part xc7a100tcsg324-1
+source top_greedy_snake.tcl -notrace
+Command: synth_design -top top_greedy_snake -part xc7a100tcsg324-1
 Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7a100t'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a100t'
 INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 1108 
+INFO: Helper process launched with PID 21864 
 WARNING: [Synth 8-2611] redeclaration of ansi port clk_n is not allowed [D:/Computer Architecture/My-CPU/Snake/Snake.srcs/sources_1/new/clk_unit.v:7]
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 333.445 ; gain = 123.012
+Starting RTL Elaboration : Time (s): cpu = 00:00:08 ; elapsed = 00:00:10 . Memory (MB): peak = 333.488 ; gain = 123.641
 ---------------------------------------------------------------------------------
-INFO: [Synth 8-638] synthesizing module 'tb' [D:/Computer Architecture/My-CPU/Snake/Snake.srcs/sources_1/new/tb.v:23]
 INFO: [Synth 8-638] synthesizing module 'top_greedy_snake' [D:/Computer Architecture/My-CPU/Snake/Snake.srcs/sources_1/new/top_greedy_snake.v:3]
 INFO: [Synth 8-638] synthesizing module 'Game_Ctrl_Unit' [D:/Computer Architecture/My-CPU/Snake/Snake.srcs/sources_1/new/Game_Ctrl_Unit.v:1]
 	Parameter RESTART bound to: 2'b00 
@@ -40,10 +39,10 @@ INFO: [Synth 8-638] synthesizing module 'Snake' [D:/Computer Architecture/My-CPU
 	Parameter WALL bound to: 2'b11 
 	Parameter RESTART bound to: 2'b00 
 	Parameter PLAY bound to: 2'b10 
-WARNING: [Synth 8-567] referenced signal 'cube_x' should be on the sensitivity list [D:/Computer Architecture/My-CPU/Snake/Snake.srcs/sources_1/new/Snake.v:382]
-WARNING: [Synth 8-567] referenced signal 'cube_y' should be on the sensitivity list [D:/Computer Architecture/My-CPU/Snake/Snake.srcs/sources_1/new/Snake.v:382]
-WARNING: [Synth 8-567] referenced signal 'is_exist' should be on the sensitivity list [D:/Computer Architecture/My-CPU/Snake/Snake.srcs/sources_1/new/Snake.v:382]
-WARNING: [Synth 8-567] referenced signal 'die_flash' should be on the sensitivity list [D:/Computer Architecture/My-CPU/Snake/Snake.srcs/sources_1/new/Snake.v:382]
+WARNING: [Synth 8-567] referenced signal 'cube_x' should be on the sensitivity list [D:/Computer Architecture/My-CPU/Snake/Snake.srcs/sources_1/new/Snake.v:385]
+WARNING: [Synth 8-567] referenced signal 'cube_y' should be on the sensitivity list [D:/Computer Architecture/My-CPU/Snake/Snake.srcs/sources_1/new/Snake.v:385]
+WARNING: [Synth 8-567] referenced signal 'is_exist' should be on the sensitivity list [D:/Computer Architecture/My-CPU/Snake/Snake.srcs/sources_1/new/Snake.v:385]
+WARNING: [Synth 8-567] referenced signal 'die_flash' should be on the sensitivity list [D:/Computer Architecture/My-CPU/Snake/Snake.srcs/sources_1/new/Snake.v:385]
 INFO: [Synth 8-256] done synthesizing module 'Snake' (3#1) [D:/Computer Architecture/My-CPU/Snake/Snake.srcs/sources_1/new/Snake.v:2]
 INFO: [Synth 8-638] synthesizing module 'VGA_top' [D:/Computer Architecture/My-CPU/Snake/Snake.srcs/sources_1/new/VGA_top.v:23]
 INFO: [Synth 8-638] synthesizing module 'clk_unit' [D:/Computer Architecture/My-CPU/Snake/Snake.srcs/sources_1/new/clk_unit.v:1]
@@ -53,8 +52,8 @@ INFO: [Synth 8-638] synthesizing module 'VGA_Control' [D:/Computer Architecture/
 	Parameter HEAD bound to: 2'b01 
 	Parameter BODY bound to: 2'b10 
 	Parameter WALL bound to: 2'b11 
-	Parameter HEAD_COLOR bound to: 12'b000011110000 
-	Parameter BODY_COLOR bound to: 12'b000011111111 
+	Parameter HEAD_COLOR bound to: 12'b101011110000 
+	Parameter BODY_COLOR bound to: 12'b000111111111 
 WARNING: [Synth 8-5788] Register x_pos_reg in module VGA_Control is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/Computer Architecture/My-CPU/Snake/Snake.srcs/sources_1/new/VGA_Control.v:41]
 WARNING: [Synth 8-5788] Register y_pos_reg in module VGA_Control is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/Computer Architecture/My-CPU/Snake/Snake.srcs/sources_1/new/VGA_Control.v:42]
 WARNING: [Synth 8-5788] Register color_out_reg in module VGA_Control is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/Computer Architecture/My-CPU/Snake/Snake.srcs/sources_1/new/VGA_Control.v:72]
@@ -66,9 +65,8 @@ INFO: [Synth 8-638] synthesizing module 'Seg_Display' [D:/Computer Architecture/
 	Parameter RESTART bound to: 2'b00 
 INFO: [Synth 8-256] done synthesizing module 'Seg_Display' (8#1) [D:/Computer Architecture/My-CPU/Snake/Snake.srcs/sources_1/new/Seg_Display.v:2]
 INFO: [Synth 8-256] done synthesizing module 'top_greedy_snake' (9#1) [D:/Computer Architecture/My-CPU/Snake/Snake.srcs/sources_1/new/top_greedy_snake.v:3]
-INFO: [Synth 8-256] done synthesizing module 'tb' (10#1) [D:/Computer Architecture/My-CPU/Snake/Snake.srcs/sources_1/new/tb.v:23]
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:17 ; elapsed = 00:00:19 . Memory (MB): peak = 409.621 ; gain = 199.188
+Finished RTL Elaboration : Time (s): cpu = 00:00:09 ; elapsed = 00:00:11 . Memory (MB): peak = 361.293 ; gain = 151.445
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -78,7 +76,7 @@ Report Check Netlist:
 |1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
 +------+------------------+-------+---------+-------+------------------+
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:18 ; elapsed = 00:00:19 . Memory (MB): peak = 409.621 ; gain = 199.188
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:09 ; elapsed = 00:00:11 . Memory (MB): peak = 361.293 ; gain = 151.445
 ---------------------------------------------------------------------------------
 INFO: [Device 21-403] Loading part xc7a100tcsg324-1
 INFO: [Project 1-570] Preparing netlist for logic optimization
@@ -86,132 +84,35 @@ INFO: [Project 1-570] Preparing netlist for logic optimization
 Processing XDC Constraints
 Initializing timing engine
 Parsing XDC File [D:/Computer Architecture/My-CPU/Snake/Snake.srcs/constrs_1/new/snake_basys3_xc.xdc]
-WARNING: [Vivado 12-584] No ports matched 'clk'. [D:/Computer Architecture/My-CPU/Snake/Snake.srcs/constrs_1/new/snake_basys3_xc.xdc:7]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [D:/Computer Architecture/My-CPU/Snake/Snake.srcs/constrs_1/new/snake_basys3_xc.xdc:7]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'clk'. [D:/Computer Architecture/My-CPU/Snake/Snake.srcs/constrs_1/new/snake_basys3_xc.xdc:8]
-CRITICAL WARNING: [Vivado 12-4739] create_clock:No valid object(s) found for '-objects [get_ports clk]'. [D:/Computer Architecture/My-CPU/Snake/Snake.srcs/constrs_1/new/snake_basys3_xc.xdc:8]
-Resolution: Check if the specified object(s) exists in the current design. If it does, ensure that the correct design hierarchy was specified for the object. If you are working with clocks, make sure create_clock was used to create the clock object before it is referenced.
-WARNING: [Vivado 12-584] No ports matched 'seg_out[0]'. [D:/Computer Architecture/My-CPU/Snake/Snake.srcs/constrs_1/new/snake_basys3_xc.xdc:60]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [D:/Computer Architecture/My-CPU/Snake/Snake.srcs/constrs_1/new/snake_basys3_xc.xdc:60]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'seg_out[1]'. [D:/Computer Architecture/My-CPU/Snake/Snake.srcs/constrs_1/new/snake_basys3_xc.xdc:61]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [D:/Computer Architecture/My-CPU/Snake/Snake.srcs/constrs_1/new/snake_basys3_xc.xdc:61]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'seg_out[2]'. [D:/Computer Architecture/My-CPU/Snake/Snake.srcs/constrs_1/new/snake_basys3_xc.xdc:62]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [D:/Computer Architecture/My-CPU/Snake/Snake.srcs/constrs_1/new/snake_basys3_xc.xdc:62]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'seg_out[3]'. [D:/Computer Architecture/My-CPU/Snake/Snake.srcs/constrs_1/new/snake_basys3_xc.xdc:63]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [D:/Computer Architecture/My-CPU/Snake/Snake.srcs/constrs_1/new/snake_basys3_xc.xdc:63]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'seg_out[4]'. [D:/Computer Architecture/My-CPU/Snake/Snake.srcs/constrs_1/new/snake_basys3_xc.xdc:64]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [D:/Computer Architecture/My-CPU/Snake/Snake.srcs/constrs_1/new/snake_basys3_xc.xdc:64]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'seg_out[5]'. [D:/Computer Architecture/My-CPU/Snake/Snake.srcs/constrs_1/new/snake_basys3_xc.xdc:65]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [D:/Computer Architecture/My-CPU/Snake/Snake.srcs/constrs_1/new/snake_basys3_xc.xdc:65]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'seg_out[6]'. [D:/Computer Architecture/My-CPU/Snake/Snake.srcs/constrs_1/new/snake_basys3_xc.xdc:66]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [D:/Computer Architecture/My-CPU/Snake/Snake.srcs/constrs_1/new/snake_basys3_xc.xdc:66]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'seg_out[7]'. [D:/Computer Architecture/My-CPU/Snake/Snake.srcs/constrs_1/new/snake_basys3_xc.xdc:68]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [D:/Computer Architecture/My-CPU/Snake/Snake.srcs/constrs_1/new/snake_basys3_xc.xdc:68]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'sel[0]'. [D:/Computer Architecture/My-CPU/Snake/Snake.srcs/constrs_1/new/snake_basys3_xc.xdc:70]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [D:/Computer Architecture/My-CPU/Snake/Snake.srcs/constrs_1/new/snake_basys3_xc.xdc:70]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'sel[1]'. [D:/Computer Architecture/My-CPU/Snake/Snake.srcs/constrs_1/new/snake_basys3_xc.xdc:71]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [D:/Computer Architecture/My-CPU/Snake/Snake.srcs/constrs_1/new/snake_basys3_xc.xdc:71]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'sel[2]'. [D:/Computer Architecture/My-CPU/Snake/Snake.srcs/constrs_1/new/snake_basys3_xc.xdc:72]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [D:/Computer Architecture/My-CPU/Snake/Snake.srcs/constrs_1/new/snake_basys3_xc.xdc:72]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'sel[3]'. [D:/Computer Architecture/My-CPU/Snake/Snake.srcs/constrs_1/new/snake_basys3_xc.xdc:73]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [D:/Computer Architecture/My-CPU/Snake/Snake.srcs/constrs_1/new/snake_basys3_xc.xdc:73]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'rst'. [D:/Computer Architecture/My-CPU/Snake/Snake.srcs/constrs_1/new/snake_basys3_xc.xdc:84]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [D:/Computer Architecture/My-CPU/Snake/Snake.srcs/constrs_1/new/snake_basys3_xc.xdc:84]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'up'. [D:/Computer Architecture/My-CPU/Snake/Snake.srcs/constrs_1/new/snake_basys3_xc.xdc:85]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [D:/Computer Architecture/My-CPU/Snake/Snake.srcs/constrs_1/new/snake_basys3_xc.xdc:85]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'left'. [D:/Computer Architecture/My-CPU/Snake/Snake.srcs/constrs_1/new/snake_basys3_xc.xdc:86]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [D:/Computer Architecture/My-CPU/Snake/Snake.srcs/constrs_1/new/snake_basys3_xc.xdc:86]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'right'. [D:/Computer Architecture/My-CPU/Snake/Snake.srcs/constrs_1/new/snake_basys3_xc.xdc:87]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [D:/Computer Architecture/My-CPU/Snake/Snake.srcs/constrs_1/new/snake_basys3_xc.xdc:87]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'down'. [D:/Computer Architecture/My-CPU/Snake/Snake.srcs/constrs_1/new/snake_basys3_xc.xdc:88]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [D:/Computer Architecture/My-CPU/Snake/Snake.srcs/constrs_1/new/snake_basys3_xc.xdc:88]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'color_out[0]'. [D:/Computer Architecture/My-CPU/Snake/Snake.srcs/constrs_1/new/snake_basys3_xc.xdc:156]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [D:/Computer Architecture/My-CPU/Snake/Snake.srcs/constrs_1/new/snake_basys3_xc.xdc:156]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'color_out[1]'. [D:/Computer Architecture/My-CPU/Snake/Snake.srcs/constrs_1/new/snake_basys3_xc.xdc:157]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [D:/Computer Architecture/My-CPU/Snake/Snake.srcs/constrs_1/new/snake_basys3_xc.xdc:157]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'color_out[2]'. [D:/Computer Architecture/My-CPU/Snake/Snake.srcs/constrs_1/new/snake_basys3_xc.xdc:158]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [D:/Computer Architecture/My-CPU/Snake/Snake.srcs/constrs_1/new/snake_basys3_xc.xdc:158]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'color_out[3]'. [D:/Computer Architecture/My-CPU/Snake/Snake.srcs/constrs_1/new/snake_basys3_xc.xdc:159]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [D:/Computer Architecture/My-CPU/Snake/Snake.srcs/constrs_1/new/snake_basys3_xc.xdc:159]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'color_out[4]'. [D:/Computer Architecture/My-CPU/Snake/Snake.srcs/constrs_1/new/snake_basys3_xc.xdc:161]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [D:/Computer Architecture/My-CPU/Snake/Snake.srcs/constrs_1/new/snake_basys3_xc.xdc:161]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'color_out[5]'. [D:/Computer Architecture/My-CPU/Snake/Snake.srcs/constrs_1/new/snake_basys3_xc.xdc:162]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [D:/Computer Architecture/My-CPU/Snake/Snake.srcs/constrs_1/new/snake_basys3_xc.xdc:162]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'color_out[6]'. [D:/Computer Architecture/My-CPU/Snake/Snake.srcs/constrs_1/new/snake_basys3_xc.xdc:163]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [D:/Computer Architecture/My-CPU/Snake/Snake.srcs/constrs_1/new/snake_basys3_xc.xdc:163]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'color_out[7]'. [D:/Computer Architecture/My-CPU/Snake/Snake.srcs/constrs_1/new/snake_basys3_xc.xdc:164]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [D:/Computer Architecture/My-CPU/Snake/Snake.srcs/constrs_1/new/snake_basys3_xc.xdc:164]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'color_out[8]'. [D:/Computer Architecture/My-CPU/Snake/Snake.srcs/constrs_1/new/snake_basys3_xc.xdc:166]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [D:/Computer Architecture/My-CPU/Snake/Snake.srcs/constrs_1/new/snake_basys3_xc.xdc:166]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'color_out[9]'. [D:/Computer Architecture/My-CPU/Snake/Snake.srcs/constrs_1/new/snake_basys3_xc.xdc:167]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [D:/Computer Architecture/My-CPU/Snake/Snake.srcs/constrs_1/new/snake_basys3_xc.xdc:167]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'color_out[10]'. [D:/Computer Architecture/My-CPU/Snake/Snake.srcs/constrs_1/new/snake_basys3_xc.xdc:168]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [D:/Computer Architecture/My-CPU/Snake/Snake.srcs/constrs_1/new/snake_basys3_xc.xdc:168]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'color_out[11]'. [D:/Computer Architecture/My-CPU/Snake/Snake.srcs/constrs_1/new/snake_basys3_xc.xdc:169]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [D:/Computer Architecture/My-CPU/Snake/Snake.srcs/constrs_1/new/snake_basys3_xc.xdc:169]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'hsync'. [D:/Computer Architecture/My-CPU/Snake/Snake.srcs/constrs_1/new/snake_basys3_xc.xdc:171]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [D:/Computer Architecture/My-CPU/Snake/Snake.srcs/constrs_1/new/snake_basys3_xc.xdc:171]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'vsync'. [D:/Computer Architecture/My-CPU/Snake/Snake.srcs/constrs_1/new/snake_basys3_xc.xdc:172]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [D:/Computer Architecture/My-CPU/Snake/Snake.srcs/constrs_1/new/snake_basys3_xc.xdc:172]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
 Finished Parsing XDC File [D:/Computer Architecture/My-CPU/Snake/Snake.srcs/constrs_1/new/snake_basys3_xc.xdc]
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [D:/Computer Architecture/My-CPU/Snake/Snake.srcs/constrs_1/new/snake_basys3_xc.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/top_greedy_snake_propImpl.xdc].
+Resolution: To avoid this warning, move constraints listed in [.Xil/top_greedy_snake_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
 Completed Processing XDC Constraints
 
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.003 . Memory (MB): peak = 675.500 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.003 . Memory (MB): peak = 680.590 ; gain = 0.008
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:30 ; elapsed = 00:00:32 . Memory (MB): peak = 675.500 ; gain = 465.066
+Finished Constraint Validation : Time (s): cpu = 00:00:20 ; elapsed = 00:00:22 . Memory (MB): peak = 680.590 ; gain = 470.742
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7a100tcsg324-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:30 ; elapsed = 00:00:32 . Memory (MB): peak = 675.500 ; gain = 465.066
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:20 ; elapsed = 00:00:22 . Memory (MB): peak = 680.590 ; gain = 470.742
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:30 ; elapsed = 00:00:32 . Memory (MB): peak = 675.500 ; gain = 465.066
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:20 ; elapsed = 00:00:22 . Memory (MB): peak = 680.590 ; gain = 470.742
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-5545] ROM "clk_cnt" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
 INFO: [Synth 8-5545] ROM "add_cube" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
-INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [D:/Computer Architecture/My-CPU/Snake/Snake.srcs/sources_1/new/Snake.v:257]
-INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [D:/Computer Architecture/My-CPU/Snake/Snake.srcs/sources_1/new/Snake.v:257]
+INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [D:/Computer Architecture/My-CPU/Snake/Snake.srcs/sources_1/new/Snake.v:260]
+INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [D:/Computer Architecture/My-CPU/Snake/Snake.srcs/sources_1/new/Snake.v:260]
 INFO: [Synth 8-5546] ROM "cube_x" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "cube_x" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "cube_y" won't be mapped to RAM because it is too sparse
@@ -225,10 +126,10 @@ INFO: [Synth 8-5546] ROM "color_out" won't be mapped to RAM because it is too sp
 INFO: [Synth 8-5544] ROM "color_out0" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
 INFO: [Synth 8-5545] ROM "clk_cnt" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
 INFO: [Synth 8-5545] ROM "left_key_last" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
-WARNING: [Synth 8-327] inferring latch for variable 'snake_reg' [D:/Computer Architecture/My-CPU/Snake/Snake.srcs/sources_1/new/Snake.v:385]
-WARNING: [Synth 8-327] inferring latch for variable 'cnt_lv1_reg' [D:/Computer Architecture/My-CPU/Snake/Snake.srcs/sources_1/new/Snake.v:411]
+WARNING: [Synth 8-327] inferring latch for variable 'snake_reg' [D:/Computer Architecture/My-CPU/Snake/Snake.srcs/sources_1/new/Snake.v:388]
+WARNING: [Synth 8-327] inferring latch for variable 'cnt_lv1_reg' [D:/Computer Architecture/My-CPU/Snake/Snake.srcs/sources_1/new/Snake.v:414]
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:31 ; elapsed = 00:00:34 . Memory (MB): peak = 675.500 ; gain = 465.066
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:21 ; elapsed = 00:00:24 . Memory (MB): peak = 680.590 ; gain = 470.742
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -266,13 +167,15 @@ Detailed RTL Component Info :
 +---Muxes : 
 	   4 Input     32 Bit        Muxes := 1     
 	   2 Input     32 Bit        Muxes := 7     
+	   3 Input     32 Bit        Muxes := 1     
 	   4 Input     20 Bit        Muxes := 1     
 	   2 Input     20 Bit        Muxes := 1     
 	   2 Input     16 Bit        Muxes := 10    
 	   5 Input     16 Bit        Muxes := 1     
-	   2 Input      8 Bit        Muxes := 3     
-	   6 Input      8 Bit        Muxes := 1     
+	   2 Input     12 Bit        Muxes := 1     
+	   6 Input     12 Bit        Muxes := 1     
 	   4 Input      8 Bit        Muxes := 1     
+	   2 Input      8 Bit        Muxes := 2     
 	   2 Input      7 Bit        Muxes := 1     
 	   2 Input      6 Bit        Muxes := 34    
 	   2 Input      5 Bit        Muxes := 2     
@@ -340,6 +243,7 @@ Detailed RTL Component Info :
 	                1 Bit    Registers := 7     
 +---Muxes : 
 	   2 Input     32 Bit        Muxes := 2     
+	   3 Input     32 Bit        Muxes := 1     
 	   2 Input     16 Bit        Muxes := 4     
 	   2 Input      7 Bit        Muxes := 1     
 	   2 Input      6 Bit        Muxes := 32    
@@ -366,8 +270,8 @@ Detailed RTL Component Info :
 +---Muxes : 
 	   4 Input     20 Bit        Muxes := 1     
 	   2 Input     20 Bit        Muxes := 1     
-	   2 Input      8 Bit        Muxes := 1     
-	   6 Input      8 Bit        Muxes := 1     
+	   2 Input     12 Bit        Muxes := 1     
+	   6 Input     12 Bit        Muxes := 1     
 	   2 Input      4 Bit        Muxes := 1     
 	   4 Input      2 Bit        Muxes := 1     
 	   4 Input      1 Bit        Muxes := 3     
@@ -431,109 +335,53 @@ INFO: [Synth 8-5546] ROM "VGA/color_out" won't be mapped to RAM because it is to
 INFO: [Synth 8-5545] ROM "clk_cnt" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
 INFO: [Synth 8-5545] ROM "left_key_last" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
 INFO: [Synth 8-5546] ROM "p_0_out" won't be mapped to RAM because it is too sparse
-WARNING: [Synth 8-3332] Sequential element (top_greedy_snake1/U1/game_status_reg[1]) is unused and will be removed from module tb.
-WARNING: [Synth 8-3332] Sequential element (top_greedy_snake1/U1/game_status_reg[0]) is unused and will be removed from module tb.
-WARNING: [Synth 8-3332] Sequential element (top_greedy_snake1/U1/clk_cnt_reg[31]) is unused and will be removed from module tb.
-WARNING: [Synth 8-3332] Sequential element (top_greedy_snake1/U1/clk_cnt_reg[30]) is unused and will be removed from module tb.
-WARNING: [Synth 8-3332] Sequential element (top_greedy_snake1/U1/clk_cnt_reg[29]) is unused and will be removed from module tb.
-WARNING: [Synth 8-3332] Sequential element (top_greedy_snake1/U1/clk_cnt_reg[28]) is unused and will be removed from module tb.
-WARNING: [Synth 8-3332] Sequential element (top_greedy_snake1/U1/clk_cnt_reg[27]) is unused and will be removed from module tb.
-WARNING: [Synth 8-3332] Sequential element (top_greedy_snake1/U1/clk_cnt_reg[26]) is unused and will be removed from module tb.
-WARNING: [Synth 8-3332] Sequential element (top_greedy_snake1/U1/clk_cnt_reg[25]) is unused and will be removed from module tb.
-WARNING: [Synth 8-3332] Sequential element (top_greedy_snake1/U1/clk_cnt_reg[24]) is unused and will be removed from module tb.
-WARNING: [Synth 8-3332] Sequential element (top_greedy_snake1/U1/clk_cnt_reg[23]) is unused and will be removed from module tb.
-WARNING: [Synth 8-3332] Sequential element (top_greedy_snake1/U1/clk_cnt_reg[22]) is unused and will be removed from module tb.
-WARNING: [Synth 8-3332] Sequential element (top_greedy_snake1/U1/clk_cnt_reg[21]) is unused and will be removed from module tb.
-WARNING: [Synth 8-3332] Sequential element (top_greedy_snake1/U1/clk_cnt_reg[20]) is unused and will be removed from module tb.
-WARNING: [Synth 8-3332] Sequential element (top_greedy_snake1/U1/clk_cnt_reg[19]) is unused and will be removed from module tb.
-WARNING: [Synth 8-3332] Sequential element (top_greedy_snake1/U1/clk_cnt_reg[18]) is unused and will be removed from module tb.
-WARNING: [Synth 8-3332] Sequential element (top_greedy_snake1/U1/clk_cnt_reg[17]) is unused and will be removed from module tb.
-WARNING: [Synth 8-3332] Sequential element (top_greedy_snake1/U1/clk_cnt_reg[16]) is unused and will be removed from module tb.
-WARNING: [Synth 8-3332] Sequential element (top_greedy_snake1/U1/clk_cnt_reg[15]) is unused and will be removed from module tb.
-WARNING: [Synth 8-3332] Sequential element (top_greedy_snake1/U1/clk_cnt_reg[14]) is unused and will be removed from module tb.
-WARNING: [Synth 8-3332] Sequential element (top_greedy_snake1/U1/clk_cnt_reg[13]) is unused and will be removed from module tb.
-WARNING: [Synth 8-3332] Sequential element (top_greedy_snake1/U1/clk_cnt_reg[12]) is unused and will be removed from module tb.
-WARNING: [Synth 8-3332] Sequential element (top_greedy_snake1/U1/clk_cnt_reg[11]) is unused and will be removed from module tb.
-WARNING: [Synth 8-3332] Sequential element (top_greedy_snake1/U1/clk_cnt_reg[10]) is unused and will be removed from module tb.
-WARNING: [Synth 8-3332] Sequential element (top_greedy_snake1/U1/clk_cnt_reg[9]) is unused and will be removed from module tb.
-WARNING: [Synth 8-3332] Sequential element (top_greedy_snake1/U1/clk_cnt_reg[8]) is unused and will be removed from module tb.
-WARNING: [Synth 8-3332] Sequential element (top_greedy_snake1/U1/clk_cnt_reg[7]) is unused and will be removed from module tb.
-WARNING: [Synth 8-3332] Sequential element (top_greedy_snake1/U1/clk_cnt_reg[6]) is unused and will be removed from module tb.
-WARNING: [Synth 8-3332] Sequential element (top_greedy_snake1/U1/clk_cnt_reg[5]) is unused and will be removed from module tb.
-WARNING: [Synth 8-3332] Sequential element (top_greedy_snake1/U1/clk_cnt_reg[4]) is unused and will be removed from module tb.
-WARNING: [Synth 8-3332] Sequential element (top_greedy_snake1/U1/clk_cnt_reg[3]) is unused and will be removed from module tb.
-WARNING: [Synth 8-3332] Sequential element (top_greedy_snake1/U1/clk_cnt_reg[2]) is unused and will be removed from module tb.
-WARNING: [Synth 8-3332] Sequential element (top_greedy_snake1/U1/clk_cnt_reg[1]) is unused and will be removed from module tb.
-WARNING: [Synth 8-3332] Sequential element (top_greedy_snake1/U1/clk_cnt_reg[0]) is unused and will be removed from module tb.
-WARNING: [Synth 8-3332] Sequential element (top_greedy_snake1/U1/die_flash_reg) is unused and will be removed from module tb.
-WARNING: [Synth 8-3332] Sequential element (top_greedy_snake1/U1/restart_reg) is unused and will be removed from module tb.
-WARNING: [Synth 8-3332] Sequential element (top_greedy_snake1/U2/random_num_reg[10]) is unused and will be removed from module tb.
-WARNING: [Synth 8-3332] Sequential element (top_greedy_snake1/U2/random_num_reg[9]) is unused and will be removed from module tb.
-WARNING: [Synth 8-3332] Sequential element (top_greedy_snake1/U2/random_num_reg[8]) is unused and will be removed from module tb.
-WARNING: [Synth 8-3332] Sequential element (top_greedy_snake1/U2/random_num_reg[7]) is unused and will be removed from module tb.
-WARNING: [Synth 8-3332] Sequential element (top_greedy_snake1/U2/random_num_reg[6]) is unused and will be removed from module tb.
-WARNING: [Synth 8-3332] Sequential element (top_greedy_snake1/U2/random_num_reg[5]) is unused and will be removed from module tb.
-WARNING: [Synth 8-3332] Sequential element (top_greedy_snake1/U2/random_num_reg[4]) is unused and will be removed from module tb.
-WARNING: [Synth 8-3332] Sequential element (top_greedy_snake1/U2/random_num_reg[3]) is unused and will be removed from module tb.
-WARNING: [Synth 8-3332] Sequential element (top_greedy_snake1/U2/random_num_reg[2]) is unused and will be removed from module tb.
-WARNING: [Synth 8-3332] Sequential element (top_greedy_snake1/U2/random_num_reg[1]) is unused and will be removed from module tb.
-WARNING: [Synth 8-3332] Sequential element (top_greedy_snake1/U2/random_num_reg[0]) is unused and will be removed from module tb.
-WARNING: [Synth 8-3332] Sequential element (top_greedy_snake1/U2/clk_cnt_reg[31]) is unused and will be removed from module tb.
-WARNING: [Synth 8-3332] Sequential element (top_greedy_snake1/U2/clk_cnt_reg[30]) is unused and will be removed from module tb.
-WARNING: [Synth 8-3332] Sequential element (top_greedy_snake1/U2/clk_cnt_reg[29]) is unused and will be removed from module tb.
-WARNING: [Synth 8-3332] Sequential element (top_greedy_snake1/U2/clk_cnt_reg[28]) is unused and will be removed from module tb.
-WARNING: [Synth 8-3332] Sequential element (top_greedy_snake1/U2/clk_cnt_reg[27]) is unused and will be removed from module tb.
-WARNING: [Synth 8-3332] Sequential element (top_greedy_snake1/U2/clk_cnt_reg[26]) is unused and will be removed from module tb.
-WARNING: [Synth 8-3332] Sequential element (top_greedy_snake1/U2/clk_cnt_reg[25]) is unused and will be removed from module tb.
-WARNING: [Synth 8-3332] Sequential element (top_greedy_snake1/U2/clk_cnt_reg[24]) is unused and will be removed from module tb.
-WARNING: [Synth 8-3332] Sequential element (top_greedy_snake1/U2/clk_cnt_reg[23]) is unused and will be removed from module tb.
-WARNING: [Synth 8-3332] Sequential element (top_greedy_snake1/U2/clk_cnt_reg[22]) is unused and will be removed from module tb.
-WARNING: [Synth 8-3332] Sequential element (top_greedy_snake1/U2/clk_cnt_reg[21]) is unused and will be removed from module tb.
-WARNING: [Synth 8-3332] Sequential element (top_greedy_snake1/U2/clk_cnt_reg[20]) is unused and will be removed from module tb.
-WARNING: [Synth 8-3332] Sequential element (top_greedy_snake1/U2/clk_cnt_reg[19]) is unused and will be removed from module tb.
-WARNING: [Synth 8-3332] Sequential element (top_greedy_snake1/U2/clk_cnt_reg[18]) is unused and will be removed from module tb.
-WARNING: [Synth 8-3332] Sequential element (top_greedy_snake1/U2/clk_cnt_reg[17]) is unused and will be removed from module tb.
-WARNING: [Synth 8-3332] Sequential element (top_greedy_snake1/U2/clk_cnt_reg[16]) is unused and will be removed from module tb.
-WARNING: [Synth 8-3332] Sequential element (top_greedy_snake1/U2/clk_cnt_reg[15]) is unused and will be removed from module tb.
-WARNING: [Synth 8-3332] Sequential element (top_greedy_snake1/U2/clk_cnt_reg[14]) is unused and will be removed from module tb.
-WARNING: [Synth 8-3332] Sequential element (top_greedy_snake1/U2/clk_cnt_reg[13]) is unused and will be removed from module tb.
-WARNING: [Synth 8-3332] Sequential element (top_greedy_snake1/U2/clk_cnt_reg[12]) is unused and will be removed from module tb.
-WARNING: [Synth 8-3332] Sequential element (top_greedy_snake1/U2/clk_cnt_reg[11]) is unused and will be removed from module tb.
-WARNING: [Synth 8-3332] Sequential element (top_greedy_snake1/U2/clk_cnt_reg[10]) is unused and will be removed from module tb.
-WARNING: [Synth 8-3332] Sequential element (top_greedy_snake1/U2/clk_cnt_reg[9]) is unused and will be removed from module tb.
-WARNING: [Synth 8-3332] Sequential element (top_greedy_snake1/U2/clk_cnt_reg[8]) is unused and will be removed from module tb.
-WARNING: [Synth 8-3332] Sequential element (top_greedy_snake1/U2/clk_cnt_reg[7]) is unused and will be removed from module tb.
-WARNING: [Synth 8-3332] Sequential element (top_greedy_snake1/U2/clk_cnt_reg[6]) is unused and will be removed from module tb.
-WARNING: [Synth 8-3332] Sequential element (top_greedy_snake1/U2/clk_cnt_reg[5]) is unused and will be removed from module tb.
-WARNING: [Synth 8-3332] Sequential element (top_greedy_snake1/U2/clk_cnt_reg[4]) is unused and will be removed from module tb.
-WARNING: [Synth 8-3332] Sequential element (top_greedy_snake1/U2/clk_cnt_reg[3]) is unused and will be removed from module tb.
-WARNING: [Synth 8-3332] Sequential element (top_greedy_snake1/U2/clk_cnt_reg[2]) is unused and will be removed from module tb.
-WARNING: [Synth 8-3332] Sequential element (top_greedy_snake1/U2/clk_cnt_reg[1]) is unused and will be removed from module tb.
-WARNING: [Synth 8-3332] Sequential element (top_greedy_snake1/U2/clk_cnt_reg[0]) is unused and will be removed from module tb.
-WARNING: [Synth 8-3332] Sequential element (top_greedy_snake1/U2/apple_y_reg[4]) is unused and will be removed from module tb.
-WARNING: [Synth 8-3332] Sequential element (top_greedy_snake1/U2/apple_y_reg[3]) is unused and will be removed from module tb.
-WARNING: [Synth 8-3332] Sequential element (top_greedy_snake1/U2/apple_y_reg[2]) is unused and will be removed from module tb.
-WARNING: [Synth 8-3332] Sequential element (top_greedy_snake1/U2/apple_y_reg[1]) is unused and will be removed from module tb.
-WARNING: [Synth 8-3332] Sequential element (top_greedy_snake1/U2/apple_y_reg[0]) is unused and will be removed from module tb.
-WARNING: [Synth 8-3332] Sequential element (top_greedy_snake1/U2/apple_x_reg[5]) is unused and will be removed from module tb.
-WARNING: [Synth 8-3332] Sequential element (top_greedy_snake1/U2/apple_x_reg[4]) is unused and will be removed from module tb.
-WARNING: [Synth 8-3332] Sequential element (top_greedy_snake1/U2/apple_x_reg[3]) is unused and will be removed from module tb.
-WARNING: [Synth 8-3332] Sequential element (top_greedy_snake1/U2/apple_x_reg[2]) is unused and will be removed from module tb.
-WARNING: [Synth 8-3332] Sequential element (top_greedy_snake1/U2/apple_x_reg[1]) is unused and will be removed from module tb.
-WARNING: [Synth 8-3332] Sequential element (top_greedy_snake1/U2/apple_x_reg[0]) is unused and will be removed from module tb.
-WARNING: [Synth 8-3332] Sequential element (top_greedy_snake1/U2/add_cube_reg) is unused and will be removed from module tb.
-WARNING: [Synth 8-3332] Sequential element (top_greedy_snake1/U3/snake_reg[1]) is unused and will be removed from module tb.
-WARNING: [Synth 8-3332] Sequential element (top_greedy_snake1/U3/snake_reg[0]) is unused and will be removed from module tb.
-WARNING: [Synth 8-3332] Sequential element (top_greedy_snake1/U3/cnt_lv1_reg[31]) is unused and will be removed from module tb.
-WARNING: [Synth 8-3332] Sequential element (top_greedy_snake1/U3/cnt_lv1_reg[30]) is unused and will be removed from module tb.
-WARNING: [Synth 8-3332] Sequential element (top_greedy_snake1/U3/cnt_lv1_reg[29]) is unused and will be removed from module tb.
-WARNING: [Synth 8-3332] Sequential element (top_greedy_snake1/U3/cnt_lv1_reg[28]) is unused and will be removed from module tb.
-WARNING: [Synth 8-3332] Sequential element (top_greedy_snake1/U3/cnt_lv1_reg[27]) is unused and will be removed from module tb.
-WARNING: [Synth 8-3332] Sequential element (top_greedy_snake1/U3/cnt_lv1_reg[26]) is unused and will be removed from module tb.
-WARNING: [Synth 8-3332] Sequential element (top_greedy_snake1/U3/cnt_lv1_reg[25]) is unused and will be removed from module tb.
-INFO: [Common 17-14] Message 'Synth 8-3332' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+INFO: [Synth 8-3886] merging instance 'U3/cnt_lv1_reg[0]' (LDCP) to 'U3/cnt_lv1_reg[1]'
+INFO: [Synth 8-3886] merging instance 'U3/cnt_lv1_reg[1]' (LDCP) to 'U3/cnt_lv1_reg[3]'
+INFO: [Synth 8-3886] merging instance 'U3/cnt_lv1_reg[2]' (LDC) to 'U3/cnt_lv1_reg[8]'
+INFO: [Synth 8-3886] merging instance 'U3/cnt_lv1_reg[4]' (LDCP) to 'U3/cnt_lv1_reg[6]'
+INFO: [Synth 8-3886] merging instance 'U3/cnt_lv1_reg[5]' (LDC) to 'U3/cnt_lv1_reg[11]'
+INFO: [Synth 8-3886] merging instance 'U3/cnt_lv1_reg[6]' (LDCP) to 'U3/cnt_lv1_reg[7]'
+INFO: [Synth 8-3886] merging instance 'U3/cnt_lv1_reg[8]' (LDC) to 'U3/cnt_lv1_reg[9]'
+INFO: [Synth 8-3886] merging instance 'U3/cnt_lv1_reg[9]' (LDC) to 'U3/cnt_lv1_reg[14]'
+INFO: [Synth 8-3886] merging instance 'U3/cnt_lv1_reg[10]' (LDP) to 'U3/cnt_lv1_reg[18]'
+INFO: [Synth 8-3886] merging instance 'U3/cnt_lv1_reg[12]' (LDCP) to 'U3/cnt_lv1_reg[15]'
+INFO: [Synth 8-3886] merging instance 'U3/cnt_lv1_reg[13]' (LDCP) to 'U3/cnt_lv1_reg[23]'
+INFO: [Synth 8-3886] merging instance 'U3/cnt_lv1_reg[14]' (LDC) to 'U3/cnt_lv1_reg[22]'
+INFO: [Synth 8-3886] merging instance 'U3/cnt_lv1_reg[15]' (LDCP) to 'U3/cnt_lv1_reg[17]'
+INFO: [Synth 8-3886] merging instance 'U3/cnt_lv1_reg[17]' (LDCP) to 'U3/cnt_lv1_reg[20]'
+INFO: [Synth 8-3886] merging instance 'U3/cnt_lv1_reg[18]' (LDP) to 'U3/cnt_lv1_reg[19]'
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\U3/cnt_lv1_reg[19] )
+INFO: [Synth 8-3886] merging instance 'U3/cnt_lv1_reg[20]' (LDCP) to 'U3/cnt_lv1_reg[21]'
+INFO: [Synth 8-3886] merging instance 'U3/cnt_lv1_reg[22]' (LDC) to 'U3/cnt_lv1_reg[24]'
+INFO: [Synth 8-3886] merging instance 'U3/cnt_lv1_reg[24]' (LDC) to 'U3/cnt_lv1_reg[25]'
+INFO: [Synth 8-3886] merging instance 'U3/cnt_lv1_reg[25]' (LDC) to 'U3/cnt_lv1_reg[26]'
+INFO: [Synth 8-3886] merging instance 'U3/cnt_lv1_reg[26]' (LDC) to 'U3/cnt_lv1_reg[27]'
+INFO: [Synth 8-3886] merging instance 'U3/cnt_lv1_reg[27]' (LDC) to 'U3/cnt_lv1_reg[28]'
+INFO: [Synth 8-3886] merging instance 'U3/cnt_lv1_reg[28]' (LDC) to 'U3/cnt_lv1_reg[29]'
+INFO: [Synth 8-3886] merging instance 'U3/cnt_lv1_reg[29]' (LDC) to 'U3/cnt_lv1_reg[30]'
+INFO: [Synth 8-3886] merging instance 'U3/cnt_lv1_reg[30]' (LDC) to 'U3/cnt_lv1_reg[31]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\U3/cnt_lv1_reg[31] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\U3/is_exist_reg[0] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\U3/is_exist_reg[2] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\U3/is_exist_reg[1] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\U1/die_flash_reg )
+INFO: [Synth 8-3886] merging instance 'U4/VGA/color_out_reg[0]' (FDE) to 'U4/VGA/color_out_reg[2]'
+INFO: [Synth 8-3886] merging instance 'U4/VGA/color_out_reg[1]' (FDE) to 'U4/VGA/color_out_reg[3]'
+INFO: [Synth 8-3886] merging instance 'U4/VGA/color_out_reg[4]' (FDE) to 'U4/VGA/color_out_reg[7]'
+INFO: [Synth 8-3886] merging instance 'U4/VGA/color_out_reg[5]' (FDE) to 'U4/VGA/color_out_reg[7]'
+INFO: [Synth 8-3886] merging instance 'U4/VGA/color_out_reg[6]' (FDE) to 'U4/VGA/color_out_reg[7]'
+INFO: [Synth 8-3886] merging instance 'U4/VGA/color_out_reg[9]' (FDE) to 'U4/VGA/color_out_reg[11]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\U4/VGA/color_out_reg[10] )
+WARNING: [Synth 8-3332] Sequential element (U1/die_flash_reg) is unused and will be removed from module top_greedy_snake.
+WARNING: [Synth 8-3332] Sequential element (U1/restart_reg) is unused and will be removed from module top_greedy_snake.
+WARNING: [Synth 8-3332] Sequential element (U3/cnt_lv1_reg[31]) is unused and will be removed from module top_greedy_snake.
+WARNING: [Synth 8-3332] Sequential element (U3/cnt_lv1_reg[19]) is unused and will be removed from module top_greedy_snake.
+WARNING: [Synth 8-3332] Sequential element (U3/is_exist_reg[2]) is unused and will be removed from module top_greedy_snake.
+WARNING: [Synth 8-3332] Sequential element (U3/is_exist_reg[1]) is unused and will be removed from module top_greedy_snake.
+WARNING: [Synth 8-3332] Sequential element (U3/is_exist_reg[0]) is unused and will be removed from module top_greedy_snake.
+WARNING: [Synth 8-3332] Sequential element (U4/VGA/color_out_reg[10]) is unused and will be removed from module top_greedy_snake.
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:33 ; elapsed = 00:00:36 . Memory (MB): peak = 675.500 ; gain = 465.066
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:30 ; elapsed = 00:00:33 . Memory (MB): peak = 680.590 ; gain = 470.742
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -548,10 +396,10 @@ Start Timing Optimization
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:47 ; elapsed = 00:00:50 . Memory (MB): peak = 675.500 ; gain = 465.066
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:41 ; elapsed = 00:00:44 . Memory (MB): peak = 680.590 ; gain = 470.742
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:47 ; elapsed = 00:00:50 . Memory (MB): peak = 675.500 ; gain = 465.066
+Finished Timing Optimization : Time (s): cpu = 00:00:46 ; elapsed = 00:00:49 . Memory (MB): peak = 699.785 ; gain = 489.938
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -562,8 +410,9 @@ Report RTL Partitions:
 ---------------------------------------------------------------------------------
 Start Technology Mapping
 ---------------------------------------------------------------------------------
+INFO: [Synth 8-3886] merging instance 'U3/addcube_state_reg' (FDCE) to 'U6/addcube_state_reg'
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:47 ; elapsed = 00:00:50 . Memory (MB): peak = 675.500 ; gain = 465.066
+Finished Technology Mapping : Time (s): cpu = 00:00:47 ; elapsed = 00:00:50 . Memory (MB): peak = 709.711 ; gain = 499.863
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -587,7 +436,7 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:48 ; elapsed = 00:00:51 . Memory (MB): peak = 675.500 ; gain = 465.066
+Finished IO Insertion : Time (s): cpu = 00:00:48 ; elapsed = 00:00:51 . Memory (MB): peak = 709.711 ; gain = 499.863
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -600,7 +449,7 @@ Report Check Netlist:
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:48 ; elapsed = 00:00:51 . Memory (MB): peak = 675.500 ; gain = 465.066
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:48 ; elapsed = 00:00:51 . Memory (MB): peak = 709.711 ; gain = 499.863
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -612,25 +461,25 @@ Report RTL Partitions:
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:48 ; elapsed = 00:00:51 . Memory (MB): peak = 675.500 ; gain = 465.066
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:48 ; elapsed = 00:00:51 . Memory (MB): peak = 709.711 ; gain = 499.863
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:48 ; elapsed = 00:00:51 . Memory (MB): peak = 675.500 ; gain = 465.066
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:48 ; elapsed = 00:00:51 . Memory (MB): peak = 709.711 ; gain = 499.863
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:48 ; elapsed = 00:00:51 . Memory (MB): peak = 675.500 ; gain = 465.066
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:48 ; elapsed = 00:00:51 . Memory (MB): peak = 709.711 ; gain = 499.863
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:48 ; elapsed = 00:00:51 . Memory (MB): peak = 675.500 ; gain = 465.066
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:48 ; elapsed = 00:00:51 . Memory (MB): peak = 709.711 ; gain = 499.863
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -643,33 +492,65 @@ Report BlackBoxes:
 +-+--------------+----------+
 
 Report Cell Usage: 
-+-+-----+------+
-| |Cell |Count |
-+-+-----+------+
-+-+-----+------+
++------+-------+------+
+|      |Cell   |Count |
++------+-------+------+
+|1     |BUFG   |     2|
+|2     |CARRY4 |    48|
+|3     |LUT1   |   181|
+|4     |LUT2   |   310|
+|5     |LUT3   |    98|
+|6     |LUT4   |   128|
+|7     |LUT5   |   126|
+|8     |LUT6   |   294|
+|9     |MUXF7  |     1|
+|10    |FDCE   |   439|
+|11    |FDPE   |    22|
+|12    |FDRE   |    40|
+|13    |LD     |     2|
+|14    |LDC    |     1|
+|15    |LDCP   |     4|
+|16    |LDP    |     1|
+|17    |IBUF   |     6|
+|18    |OBUF   |    26|
++------+-------+------+
 
 Report Instance Areas: 
-+------+---------+-------+------+
-|      |Instance |Module |Cells |
-+------+---------+-------+------+
-|1     |top      |       |     0|
-+------+---------+-------+------+
++------+----------+--------------------+------+
+|      |Instance  |Module              |Cells |
++------+----------+--------------------+------+
+|1     |top       |                    |  1729|
+|2     |  U1      |Game_Ctrl_Unit      |   129|
+|3     |  U2      |Snake_Eatting_Apple |   171|
+|4     |  U3      |Snake               |   777|
+|5     |  U4      |VGA_top             |   225|
+|6     |    VGA   |VGA_Control         |   221|
+|7     |    myclk |clk_unit            |     4|
+|8     |  U5      |Key                 |   129|
+|9     |  U6      |Seg_Display         |   264|
++------+----------+--------------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:48 ; elapsed = 00:00:51 . Memory (MB): peak = 675.500 ; gain = 465.066
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:48 ; elapsed = 00:00:51 . Memory (MB): peak = 709.711 ; gain = 499.863
 ---------------------------------------------------------------------------------
-Synthesis finished with 0 errors, 0 critical warnings and 550 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:23 ; elapsed = 00:00:36 . Memory (MB): peak = 675.500 ; gain = 162.254
-Synthesis Optimization Complete : Time (s): cpu = 00:00:48 ; elapsed = 00:00:51 . Memory (MB): peak = 675.500 ; gain = 465.066
+Synthesis finished with 0 errors, 0 critical warnings and 10 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:32 ; elapsed = 00:00:38 . Memory (MB): peak = 709.711 ; gain = 142.918
+Synthesis Optimization Complete : Time (s): cpu = 00:00:48 ; elapsed = 00:00:51 . Memory (MB): peak = 709.711 ; gain = 499.863
 INFO: [Project 1-571] Translating synthesized netlist
+INFO: [Netlist 29-17] Analyzing 62 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
 INFO: [Project 1-111] Unisim Transformation Summary:
-No Unisim elements were transformed.
+  A total of 8 instances were transformed.
+  LD => LDCE: 2 instances
+  LDC => LDCE: 1 instances
+  LDCP => LDCP (GND, LUT3, LUT3, LDCE, VCC): 4 instances
+  LDP => LDPE: 1 instances
 
 INFO: [Common 17-83] Releasing license: Synthesis
-68 Infos, 143 Warnings, 33 Critical Warnings and 0 Errors encountered.
+105 Infos, 18 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:44 ; elapsed = 00:00:46 . Memory (MB): peak = 675.500 ; gain = 436.543
-INFO: [Common 17-1381] The checkpoint 'D:/Computer Architecture/My-CPU/Snake/Snake.runs/synth_1/tb.dcp' has been generated.
-report_utilization: Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.029 . Memory (MB): peak = 675.500 ; gain = 0.000
-INFO: [Common 17-206] Exiting Vivado at Sat Jun 17 21:21:51 2017...
+synth_design: Time (s): cpu = 00:00:46 ; elapsed = 00:00:47 . Memory (MB): peak = 709.711 ; gain = 470.227
+INFO: [Common 17-1381] The checkpoint 'D:/Computer Architecture/My-CPU/Snake/Snake.runs/synth_1/top_greedy_snake.dcp' has been generated.
+report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.036 . Memory (MB): peak = 709.711 ; gain = 0.000
+INFO: [Common 17-206] Exiting Vivado at Sun Jun 18 00:44:15 2017...

@@ -40,4 +40,4 @@ EAStep()
      fi
 }
 
-EAStep vivado -log tb.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source tb.tcl
+EAStep vivado -log top_greedy_snake.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source top_greedy_snake.tcl
